@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 
 namespace Domain
 {
-    //Hola.
     public class Persona
     {
         int id_personas;
