@@ -12,3 +12,6 @@ c:\users\pandemonium\documents\visual studio 2015\Projects\System\System\bin\Deb
 c:\users\pandemonium\documents\visual studio 2015\Projects\System\System\obj\Debug\System.exe
 c:\users\pandemonium\documents\visual studio 2015\Projects\System\System\obj\Debug\System.pdb
 C:\Users\Pandemonium\Documents\Visual Studio 2015\Projects\System\System\obj\Debug\System.Form2.resources
+C:\Users\Pandemonium\Source\Repos\Practica\System\System\bin\Debug\System.exe.config
+C:\Users\Pandemonium\Source\Repos\Practica\System\System\obj\Debug\System.exe
+C:\Users\Pandemonium\Source\Repos\Practica\System\System\obj\Debug\System.pdb
