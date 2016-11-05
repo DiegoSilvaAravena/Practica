@@ -1,0 +1,14 @@
+c:\users\pandemonium\documents\visual studio 2015\Projects\System\System\bin\Debug\System.exe.config
+c:\users\pandemonium\documents\visual studio 2015\Projects\System\System\obj\Debug\System.csprojResolveAssemblyReference.cache
+c:\users\pandemonium\documents\visual studio 2015\Projects\System\System\obj\Debug\System.Form1.resources
+c:\users\pandemonium\documents\visual studio 2015\Projects\System\System\obj\Debug\System.Properties.Resources.resources
+c:\users\pandemonium\documents\visual studio 2015\Projects\System\System\obj\Debug\System.csproj.GenerateResource.Cache
+c:\users\pandemonium\documents\visual studio 2015\Projects\System\System\bin\Debug\System.exe
+c:\users\pandemonium\documents\visual studio 2015\Projects\System\System\bin\Debug\System.pdb
+c:\users\pandemonium\documents\visual studio 2015\Projects\System\System\bin\Debug\Domain.dll
+c:\users\pandemonium\documents\visual studio 2015\Projects\System\System\bin\Debug\Session.dll
+c:\users\pandemonium\documents\visual studio 2015\Projects\System\System\bin\Debug\Domain.pdb
+c:\users\pandemonium\documents\visual studio 2015\Projects\System\System\bin\Debug\Session.pdb
+c:\users\pandemonium\documents\visual studio 2015\Projects\System\System\obj\Debug\System.exe
+c:\users\pandemonium\documents\visual studio 2015\Projects\System\System\obj\Debug\System.pdb
+C:\Users\Pandemonium\Documents\Visual Studio 2015\Projects\System\System\obj\Debug\System.Form2.resources

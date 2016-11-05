@@ -1,0 +1,7 @@
+c:\Users\pandemonium\documents\visual studio 2015\Projects\System\Session\obj\Debug\Session.csprojResolveAssemblyReference.cache
+c:\Users\pandemonium\documents\visual studio 2015\Projects\System\Session\bin\Debug\Session.dll
+c:\Users\pandemonium\documents\visual studio 2015\Projects\System\Session\bin\Debug\Session.pdb
+c:\Users\pandemonium\documents\visual studio 2015\Projects\System\Session\bin\Debug\Domain.dll
+c:\Users\pandemonium\documents\visual studio 2015\Projects\System\Session\bin\Debug\Domain.pdb
+c:\Users\pandemonium\documents\visual studio 2015\Projects\System\Session\obj\Debug\Session.dll
+c:\Users\pandemonium\documents\visual studio 2015\Projects\System\Session\obj\Debug\Session.pdb
