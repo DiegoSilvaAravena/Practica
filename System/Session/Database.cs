@@ -6,7 +6,6 @@ using System.Text;
 using System.Threading.Tasks;
 using Domain;
 using System.Data;
-using System.Windows.Forms;
 
 namespace Session
 {
@@ -17,7 +16,7 @@ namespace Session
 
         private void ConnectTo()
         {
-            connection = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\Pandemonium\Documents\Visual Studio 2015\Projects\System\Database.accdb;Persist Security Info=False");
+            connection = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Access\Database.accdb;Persist Security Info=False");
             command = connection.CreateCommand();
         }
 
@@ -31,7 +30,7 @@ namespace Session
             connection.Close();
         }
 
-        public void WriteDB(String querry)
+        public bool WriteDB(String querry)
         {
             try
             {
@@ -40,9 +39,11 @@ namespace Session
                 connection.Open();
 
                 command.ExecuteNonQuery();
+                return true;
             }
             catch(Exception)
             {
+                return false;
                 throw;
             }
             finally

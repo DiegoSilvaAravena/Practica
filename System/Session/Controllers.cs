@@ -10,10 +10,10 @@ namespace Session
     public class Controllers
     {
         //Controladores de Personas
-        public void InsertPersona(Persona persona)
+        public bool InsertPersona(Persona persona)
         {
             Database database = new Database();
-            database.WriteDB("INSERT INTO Personas (rut,first_name,last_name) VALUES ('"+persona.Rut+"','"+persona.First_name+"','"+persona.Last_name+"')");
+            return database.WriteDB("INSERT INTO Personas (rut,first_name,last_name,tipo) VALUES ('"+persona.Rut+"','"+persona.First_name+"','"+persona.Last_name+"','C')");
         }
 
         public List<Persona> SelectPersona()
@@ -29,6 +29,7 @@ namespace Session
                 persona.Rut = reader["rut"].ToString();
                 persona.First_name = reader["first_name"].ToString();
                 persona.Last_name = reader["last_name"].ToString();
+                persona.Tipo = Convert.ToChar(reader["tipo"].ToString());
 
                 persona_list.Add(persona);
             }
@@ -61,5 +62,9 @@ namespace Session
             Database database = new Database();
             database.WriteDB("INSERT INTO Movimientos (fecha,dinero,id_personas) VALUES ('" + movimiento.Fecha + "'," + movimiento.Dinero + "," + movimiento.Id_personas + ")");
         }
+    }
+
+    public class boolean
+    {
     }
 }

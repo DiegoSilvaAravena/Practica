@@ -6,16 +6,13 @@ using System.Threading.Tasks;
 
 namespace Domain
 {
-
-    //Hola Mundo!
-    //Hola Diego!
-    //Hola Johan!
     public class Persona
     {
         int id_personas;
         String rut;
         String first_name;
         String last_name;
+        char tipo;
 
         public int Id_personas
         {
@@ -66,6 +63,19 @@ namespace Domain
             set
             {
                 last_name = value;
+            }
+        }
+
+        public char Tipo
+        {
+            get
+            {
+                return tipo;
+            }
+
+            set
+            {
+                tipo = value;
             }
         }
 
