@@ -12,6 +12,8 @@ namespace System
 {
     public partial class Home : MetroFramework.Forms.MetroForm
     {
+        
+        
         public Home()
         {
             InitializeComponent();
@@ -21,6 +23,12 @@ namespace System
         {
             Clientes winClientes = new Clientes();
             winClientes.ShowDialog();
+        }
+
+        private void metroTile4_Click(object sender, EventArgs e)
+        {
+            Ventas winVentas = new Ventas();
+            winVentas.ShowDialog();
         }
     }
 }

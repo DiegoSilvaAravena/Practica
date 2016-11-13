@@ -30,7 +30,8 @@ C:\Users\Pandemonium\Source\Repos\Practica\System\System\obj\Debug\System.Form2.
 C:\Users\Pandemonium\Source\Repos\Practica\System\System\obj\Debug\System.Properties.Resources.resources
 C:\Users\Pandemonium\Source\Repos\Practica\System\System\obj\Debug\System.csproj.GenerateResource.Cache
 C:\Users\Pandemonium\Source\Repos\Practica\System\System\obj\Debug\System.Home.resources
+C:\Users\Pandemonium\Source\Repos\Practica\System\System\obj\Debug\System.Clientes.resources
+C:\Users\Pandemonium\Source\Repos\Practica\System\System\obj\Debug\System.Ventas.resources
 C:\Users\Pandemonium\Source\Repos\Practica\System\System\bin\Debug\MetroFramework.Design.dll
 C:\Users\Pandemonium\Source\Repos\Practica\System\System\bin\Debug\MetroFramework.dll
 C:\Users\Pandemonium\Source\Repos\Practica\System\System\bin\Debug\MetroFramework.Fonts.dll
-C:\Users\Pandemonium\Source\Repos\Practica\System\System\obj\Debug\System.Clientes.resources

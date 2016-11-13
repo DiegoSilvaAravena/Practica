@@ -74,8 +74,9 @@
             this.metroTile4.Name = "metroTile4";
             this.metroTile4.Size = new System.Drawing.Size(150, 80);
             this.metroTile4.TabIndex = 3;
-            this.metroTile4.Text = "Venta";
+            this.metroTile4.Text = "Ventas";
             this.metroTile4.UseSelectable = true;
+            this.metroTile4.Click += new System.EventHandler(this.metroTile4_Click);
             // 
             // metroTile5
             // 
@@ -84,7 +85,7 @@
             this.metroTile5.Name = "metroTile5";
             this.metroTile5.Size = new System.Drawing.Size(150, 80);
             this.metroTile5.TabIndex = 4;
-            this.metroTile5.Text = "Compra";
+            this.metroTile5.Text = "Compras";
             this.metroTile5.UseSelectable = true;
             // 
             // metroTile6
