@@ -51,15 +51,36 @@ namespace System
         {
             //Validaciones
             int count = 0;
-            if (metroTextBoxCantidad.Text.Equals("") || Convert.ToInt32(metroTextBoxCantidad.Text) == 0)
+            ComboItem items_producto = (ComboItem)metroComboBoxProducto.SelectedItem;
+            try
             {
-                MetroMessageBox.Show(this, "Cantidad no válido.", "Advertencia");
-                count++;
+                if (metroTextBoxCantidad.Text.Equals("") || Convert.ToInt32(metroTextBoxCantidad.Text) == 0)
+                {
+                    MetroMessageBox.Show(this, "Cantidad no válido.", "Advertencia");
+                    count++;
+                    return;
+                }
+
+                for (int i = 0; i < metroGridProductos.Rows.Count; i++)
+                {
+                    if (metroGridProductos.Rows[i].Cells[0].Value.ToString().Equals(items_producto.Value))
+                    {
+                        MetroMessageBox.Show(this, "El producto ya esta en la lista.", "Advertencia");
+                        count++;
+                        return;
+                    }
+                }
+
+                
+            }
+            catch
+            {
+
             }
 
             if (count == 0)
             {
-                ComboItem items_producto = (ComboItem)metroComboBoxProducto.SelectedItem;
+                
                 int id_productos = Convert.ToInt32(items_producto.Value);
                 int codigo = Convert.ToInt32(items_producto.Text);
                 int cantidad = Convert.ToInt32(metroTextBoxCantidad.Text);
@@ -129,18 +150,9 @@ namespace System
             }
         }
 
-
-        //Hide ToolTip
-
-        private void metroComboBoxCliente_Click(object sender, EventArgs e)
+        private void metroButtonLimpiar_Click(object sender, EventArgs e)
         {
-            toolTipCliente.Hide(metroComboBoxCliente);
+            metroGridProductos.Rows.Clear();
         }
-
-        private void metroTextBoxPrecio_Click(object sender, EventArgs e)
-        {
-            toolTipCliente.Hide(metroTextBoxPrecio);
-        }
-
     }
 }
