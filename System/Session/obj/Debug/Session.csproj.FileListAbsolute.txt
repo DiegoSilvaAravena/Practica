@@ -5,10 +5,3 @@ c:\Users\pandemonium\documents\visual studio 2015\Projects\System\Session\bin\De
 c:\Users\pandemonium\documents\visual studio 2015\Projects\System\Session\bin\Debug\Domain.pdb
 c:\Users\pandemonium\documents\visual studio 2015\Projects\System\Session\obj\Debug\Session.dll
 c:\Users\pandemonium\documents\visual studio 2015\Projects\System\Session\obj\Debug\Session.pdb
-C:\Users\Pandemonium\Source\Repos\Practica\System\Session\bin\Debug\Session.dll
-C:\Users\Pandemonium\Source\Repos\Practica\System\Session\bin\Debug\Session.pdb
-C:\Users\Pandemonium\Source\Repos\Practica\System\Session\bin\Debug\Domain.dll
-C:\Users\Pandemonium\Source\Repos\Practica\System\Session\bin\Debug\Domain.pdb
-C:\Users\Pandemonium\Source\Repos\Practica\System\Session\obj\Debug\Session.csprojResolveAssemblyReference.cache
-C:\Users\Pandemonium\Source\Repos\Practica\System\Session\obj\Debug\Session.dll
-C:\Users\Pandemonium\Source\Repos\Practica\System\Session\obj\Debug\Session.pdb

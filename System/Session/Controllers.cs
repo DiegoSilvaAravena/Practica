@@ -13,14 +13,14 @@ namespace Session
         public bool InsertPersona(Persona persona)
         {
             Database database = new Database();
-            return database.WriteDB("INSERT INTO Personas (rut,first_name,last_name,tipo) VALUES ('"+persona.Rut+"','"+persona.First_name+"','"+persona.Last_name+"','C')");
+            return database.WriteDB("INSERT INTO Personas (rut,first_name,last_name,tipo) VALUES ('" + persona.Rut + "','" + persona.First_name + "','" + persona.Last_name + "','"+persona.Tipo+"')");
         }
 
         public List<Persona> SelectPersona()
         {
             List<Persona> persona_list = new List<Persona>();
             Database database = new Database();
-            
+
             System.Data.OleDb.OleDbDataReader reader = database.ReadDB("SELECT * FROM Personas");
             while (reader.Read())
             {
@@ -62,9 +62,5 @@ namespace Session
             Database database = new Database();
             database.WriteDB("INSERT INTO Movimientos (fecha,dinero,id_personas) VALUES ('" + movimiento.Fecha + "'," + movimiento.Dinero + "," + movimiento.Id_personas + ")");
         }
-    }
-
-    public class boolean
-    {
     }
 }

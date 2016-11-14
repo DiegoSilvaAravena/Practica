@@ -81,7 +81,7 @@ namespace Domain
 
         public override string ToString()
         {
-            return Rut+" | "+First_name+" "+Last_name;
+            return Rut + " | " + First_name + " " + Last_name;
         }
     }
 }

@@ -1,37 +1,21 @@
 c:\users\pandemonium\documents\visual studio 2015\Projects\System\System\bin\Debug\System.exe.config
-c:\users\pandemonium\documents\visual studio 2015\Projects\System\System\obj\Debug\System.csprojResolveAssemblyReference.cache
-c:\users\pandemonium\documents\visual studio 2015\Projects\System\System\obj\Debug\System.Form1.resources
-c:\users\pandemonium\documents\visual studio 2015\Projects\System\System\obj\Debug\System.Properties.Resources.resources
-c:\users\pandemonium\documents\visual studio 2015\Projects\System\System\obj\Debug\System.csproj.GenerateResource.Cache
 c:\users\pandemonium\documents\visual studio 2015\Projects\System\System\bin\Debug\System.exe
 c:\users\pandemonium\documents\visual studio 2015\Projects\System\System\bin\Debug\System.pdb
+c:\users\pandemonium\documents\visual studio 2015\Projects\System\System\bin\Debug\MetroFramework.Design.dll
+c:\users\pandemonium\documents\visual studio 2015\Projects\System\System\bin\Debug\MetroFramework.dll
+c:\users\pandemonium\documents\visual studio 2015\Projects\System\System\bin\Debug\MetroFramework.Fonts.dll
+c:\users\pandemonium\documents\visual studio 2015\Projects\System\System\obj\Debug\System.csprojResolveAssemblyReference.cache
+c:\users\pandemonium\documents\visual studio 2015\Projects\System\System\obj\Debug\System.Home.resources
+c:\users\pandemonium\documents\visual studio 2015\Projects\System\System\obj\Debug\System.Properties.Resources.resources
+c:\users\pandemonium\documents\visual studio 2015\Projects\System\System\obj\Debug\System.Ventas.resources
+c:\users\pandemonium\documents\visual studio 2015\Projects\System\System\obj\Debug\System.csproj.GenerateResource.Cache
+c:\users\pandemonium\documents\visual studio 2015\Projects\System\System\obj\Debug\System.exe
+c:\users\pandemonium\documents\visual studio 2015\Projects\System\System\obj\Debug\System.pdb
 c:\users\pandemonium\documents\visual studio 2015\Projects\System\System\bin\Debug\Domain.dll
 c:\users\pandemonium\documents\visual studio 2015\Projects\System\System\bin\Debug\Session.dll
 c:\users\pandemonium\documents\visual studio 2015\Projects\System\System\bin\Debug\Domain.pdb
 c:\users\pandemonium\documents\visual studio 2015\Projects\System\System\bin\Debug\Session.pdb
-c:\users\pandemonium\documents\visual studio 2015\Projects\System\System\obj\Debug\System.exe
-c:\users\pandemonium\documents\visual studio 2015\Projects\System\System\obj\Debug\System.pdb
-C:\Users\Pandemonium\Documents\Visual Studio 2015\Projects\System\System\obj\Debug\System.Form2.resources
+C:\Users\Pandemonium\documents\visual studio 2015\Projects\System\System\obj\Debug\System.Clientes.resources
 C:\Users\Pandemonium\Source\Repos\Practica\System\System\bin\Debug\System.exe.config
 C:\Users\Pandemonium\Source\Repos\Practica\System\System\obj\Debug\System.exe
 C:\Users\Pandemonium\Source\Repos\Practica\System\System\obj\Debug\System.pdb
-C:\Users\super\Dropbox\RepositorioPractica\Practica\System\System\bin\Debug\System.exe.config
-C:\Users\super\Dropbox\RepositorioPractica\Practica\System\System\obj\Debug\System.exe
-C:\Users\super\Dropbox\RepositorioPractica\Practica\System\System\obj\Debug\System.pdb
-C:\Users\Pandemonium\Source\Repos\Practica\System\System\bin\Debug\System.exe
-C:\Users\Pandemonium\Source\Repos\Practica\System\System\bin\Debug\System.pdb
-C:\Users\Pandemonium\Source\Repos\Practica\System\System\bin\Debug\Domain.dll
-C:\Users\Pandemonium\Source\Repos\Practica\System\System\bin\Debug\Session.dll
-C:\Users\Pandemonium\Source\Repos\Practica\System\System\bin\Debug\Domain.pdb
-C:\Users\Pandemonium\Source\Repos\Practica\System\System\bin\Debug\Session.pdb
-C:\Users\Pandemonium\Source\Repos\Practica\System\System\obj\Debug\System.csprojResolveAssemblyReference.cache
-C:\Users\Pandemonium\Source\Repos\Practica\System\System\obj\Debug\System.Form1.resources
-C:\Users\Pandemonium\Source\Repos\Practica\System\System\obj\Debug\System.Form2.resources
-C:\Users\Pandemonium\Source\Repos\Practica\System\System\obj\Debug\System.Properties.Resources.resources
-C:\Users\Pandemonium\Source\Repos\Practica\System\System\obj\Debug\System.csproj.GenerateResource.Cache
-C:\Users\Pandemonium\Source\Repos\Practica\System\System\obj\Debug\System.Home.resources
-C:\Users\Pandemonium\Source\Repos\Practica\System\System\obj\Debug\System.Clientes.resources
-C:\Users\Pandemonium\Source\Repos\Practica\System\System\obj\Debug\System.Ventas.resources
-C:\Users\Pandemonium\Source\Repos\Practica\System\System\bin\Debug\MetroFramework.Design.dll
-C:\Users\Pandemonium\Source\Repos\Practica\System\System\bin\Debug\MetroFramework.dll
-C:\Users\Pandemonium\Source\Repos\Practica\System\System\bin\Debug\MetroFramework.Fonts.dll

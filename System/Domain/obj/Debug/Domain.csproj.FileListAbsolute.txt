@@ -1,10 +1,4 @@
 c:\Users\pandemonium\documents\visual studio 2015\Projects\System\Domain\bin\Debug\Domain.dll
 c:\Users\pandemonium\documents\visual studio 2015\Projects\System\Domain\bin\Debug\Domain.pdb
-c:\Users\pandemonium\documents\visual studio 2015\Projects\System\Domain\obj\Debug\Domain.csprojResolveAssemblyReference.cache
 c:\Users\pandemonium\documents\visual studio 2015\Projects\System\Domain\obj\Debug\Domain.dll
 c:\Users\pandemonium\documents\visual studio 2015\Projects\System\Domain\obj\Debug\Domain.pdb
-C:\Users\Pandemonium\Source\Repos\Practica\System\Domain\bin\Debug\Domain.dll
-C:\Users\Pandemonium\Source\Repos\Practica\System\Domain\bin\Debug\Domain.pdb
-C:\Users\Pandemonium\Source\Repos\Practica\System\Domain\obj\Debug\Domain.csprojResolveAssemblyReference.cache
-C:\Users\Pandemonium\Source\Repos\Practica\System\Domain\obj\Debug\Domain.dll
-C:\Users\Pandemonium\Source\Repos\Practica\System\Domain\obj\Debug\Domain.pdb

@@ -1,4 +1,8 @@
-﻿using System;
+﻿using Session;
+using Domain;
+using MetroFramework;
+using MetroFramework.Forms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,15 +11,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Domain;
-using Session;
-using MetroFramework;
 
 namespace System
 {
-    public partial class Clientes : MetroFramework.Forms.MetroForm
+    public partial class Clientes : MetroForm
     {
-
         Controllers controllers = new Controllers();
 
         public Clientes()
@@ -23,23 +23,63 @@ namespace System
             InitializeComponent();
         }
 
-        private void metroButton1_Click(object sender, EventArgs e)
+        private void metroTileClose_Click(object sender, EventArgs e)
         {
-            Persona persona = new Persona();
+            this.Close();
+        }
 
-            persona.Rut = metroTextBox1.Text;
-            persona.First_name = metroTextBox2.Text;
-            persona.Last_name = metroTextBox3.Text;
+        private void metroTileAccept_Click(object sender, EventArgs e)
+        {
+            int count = 0;
 
-            if (controllers.InsertPersona(persona))
+            //Validaciones
+            try
             {
-                MetroMessageBox.Show(this,"El cliente ha sido ingresado correctamente.","EXITO");
+                if (metroTextBoxRUT.Text.Equals(""))
+                {
+                    MetroMessageBox.Show(this, "RUT no válido.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    count++;
+                    return;
+                }
+                if (metroTextBoxNombre.Text.Equals(""))
+                {
+                    MetroMessageBox.Show(this, "Nombre no válido.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    count++;
+                    return;
+                }
+                if (metroTextBoxApellidos.Text.Equals(""))
+                {
+                    MetroMessageBox.Show(this, "Apellidos no válido.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    count++;
+                    return;
+                }
             }
-            else
+            catch
             {
-                MetroMessageBox.Show(this, "El cliente no ha sido ingresado correctamente.", "ERROR");
+
             }
 
+            //Acción
+            if (count == 0)
+            {
+                Persona persona = new Persona();
+
+                persona.Rut = metroTextBoxRUT.Text;
+                persona.First_name = metroTextBoxNombre.Text;
+                persona.Last_name = metroTextBoxApellidos.Text;
+                persona.Tipo = 'C';
+
+                if (controllers.InsertPersona(persona))
+                {
+                    MetroMessageBox.Show(this, "El cliente ha sido ingresado correctamente.", "EXITO", MessageBoxButtons.OK, MessageBoxIcon.Question);
+
+                }
+                else
+                {
+
+                    MetroMessageBox.Show(this, "El cliente no ha sido ingresado correctamente.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
     }
 }

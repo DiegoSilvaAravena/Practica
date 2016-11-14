@@ -1,5 +1,6 @@
 ﻿using Domain;
 using MetroFramework;
+using MetroFramework.Forms;
 using Session;
 using System;
 using System.Collections.Generic;
@@ -13,7 +14,7 @@ using System.Windows.Forms;
 
 namespace System
 {
-    public partial class Ventas : MetroFramework.Forms.MetroForm
+    public partial class Ventas : MetroForm
     {
         Controllers controllers = new Controllers();
 
@@ -33,21 +34,72 @@ namespace System
         public Ventas()
         {
             InitializeComponent();
+
             //ComboBox
             List<Persona> persona_list = controllers.SelectPersona();
             for (int i = 0; i < persona_list.Count; i++)
             {
-                metroComboBoxCliente.Items.Add(new ComboItem(persona_list[i].Rut, Convert.ToString(persona_list[i].Id_personas)));
+                metroComboBoxCliente.Items.Add(new ComboItem(persona_list[i].Rut + " | " + persona_list[i].First_name + " " + persona_list[i].Last_name, Convert.ToString(persona_list[i].Id_personas)));
             }
             List<Producto> producto_list = controllers.SelectProducto();
             for (int i = 0; i < producto_list.Count; i++)
             {
                 metroComboBoxProducto.Items.Add(new ComboItem(producto_list[i].Codigo.ToString(), producto_list[i].Id_productos.ToString()));
             }
-
         }
 
-        private void metroButtonAñadir_Click(object sender, EventArgs e)
+        private void metroTextBoxFactura_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            {
+                MetroMessageBox.Show(this, "Solo se permiten números.", "Advertencia",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void metroTextBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            {
+                MetroMessageBox.Show(this, "Solo se permiten números.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                e.Handled = true;
+                return;
+            }
+        }
+
+        //TextBox Focus
+        private void metroTextBoxFactura_Enter(object sender, EventArgs e)
+        {
+        metroTextBoxFactura.ForeColor = Color.Black;
+        }
+
+        private void metroTextBoxPrecio_Enter(object sender, EventArgs e)
+        {
+            metroTextBoxPrecio.ForeColor = Color.Black;
+        }
+
+        private void metroTextBoxCantidad_Enter(object sender, EventArgs e)
+        {
+            metroTextBoxCantidad.ForeColor = Color.Black;
+        }
+        //TextBox Leave
+        private void metroTextBoxFactura_Leave(object sender, EventArgs e)
+        {
+        metroTextBoxFactura.ForeColor = Color.Gray;
+        }
+
+        private void metroTextBoxPrecio_Leave(object sender, EventArgs e)
+        {
+            metroTextBoxPrecio.ForeColor = Color.Gray;
+        }
+
+        private void metroTextBoxCantidad_Leave(object sender, EventArgs e)
+        {
+            metroTextBoxCantidad.ForeColor = Color.Gray;
+        }
+
+        private void metroButtonAdd_Click(object sender, EventArgs e)
         {
             //Validaciones
             int count = 0;
@@ -56,7 +108,7 @@ namespace System
             {
                 if (metroTextBoxCantidad.Text.Equals("") || Convert.ToInt32(metroTextBoxCantidad.Text) == 0)
                 {
-                    MetroMessageBox.Show(this, "Cantidad no válido.", "Advertencia");
+                    MetroMessageBox.Show(this, "Cantidad no válido.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     count++;
                     return;
                 }
@@ -65,13 +117,13 @@ namespace System
                 {
                     if (metroGridProductos.Rows[i].Cells[0].Value.ToString().Equals(items_producto.Value))
                     {
-                        MetroMessageBox.Show(this, "El producto ya esta en la lista.", "Advertencia");
+                        MetroMessageBox.Show(this, "El producto ya esta en la lista.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         count++;
                         return;
                     }
                 }
 
-                
+
             }
             catch
             {
@@ -80,17 +132,26 @@ namespace System
 
             if (count == 0)
             {
-                
+
                 int id_productos = Convert.ToInt32(items_producto.Value);
                 int codigo = Convert.ToInt32(items_producto.Text);
                 int cantidad = Convert.ToInt32(metroTextBoxCantidad.Text);
 
                 metroGridProductos.Rows.Insert(0, id_productos, codigo, cantidad);
             }
-            
         }
 
-        private void metroButton1_Click(object sender, EventArgs e)
+        private void metroButtonClear_Click(object sender, EventArgs e)
+        {
+            metroGridProductos.Rows.Clear();
+        }
+
+        private void metroTileClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void metroTileAccept_Click(object sender, EventArgs e)
         {
             //Validaciones
 
@@ -100,19 +161,31 @@ namespace System
             {
                 if (metroComboBoxCliente.SelectedIndex == -1)
                 {
-                    MetroMessageBox.Show(this, "Cliente no válido.\nSeleccione un cliente de la lista.", "Advertencia");
+                    MetroMessageBox.Show(this, "Cliente no válido.\nSeleccione un cliente de la lista.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     count++;
                     return;
                 }
                 if (metroTextBoxFactura.Text.Equals(""))
                 {
-                    MetroMessageBox.Show(this, "Factura no válida.", "Advertencia");
+                    MetroMessageBox.Show(this, "Factura no válida.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     count++;
                     return;
                 }
                 if (metroTextBoxPrecio.Text.Equals(""))
                 {
-                    MetroMessageBox.Show(this, "Precio no válida.", "Advertencia");
+                    MetroMessageBox.Show(this, "Precio no válida.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    count++;
+                    return;
+                }
+                if (metroComboBoxProducto.SelectedIndex == -1)
+                {
+                    MetroMessageBox.Show(this, "Producto no válido.\nSeleccione un producto de la lista.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    count++;
+                    return;
+                }
+                if (metroTextBoxCantidad.Text.Equals(""))
+                {
+                    MetroMessageBox.Show(this, "Cantidad no válida.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     count++;
                     return;
                 }
@@ -127,32 +200,6 @@ namespace System
             {
 
             }
-            
-        }
-
-        private void metroTextBoxFactura_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
-            {
-                MetroMessageBox.Show(this, "Solo se permiten números.", "Advertencia");
-                e.Handled = true;
-                return;
-            }
-        }
-
-        private void metroTextBoxVenta_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
-            {
-                MetroMessageBox.Show(this, "Solo se permiten números.", "Advertencia");
-                e.Handled = true;
-                return;
-            }
-        }
-
-        private void metroButtonLimpiar_Click(object sender, EventArgs e)
-        {
-            metroGridProductos.Rows.Clear();
         }
     }
 }

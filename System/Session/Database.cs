@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.OleDb;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Domain;
-using System.Data;
 
 namespace Session
 {
@@ -41,14 +40,14 @@ namespace Session
                 command.ExecuteNonQuery();
                 return true;
             }
-            catch(Exception)
+            catch (Exception)
             {
                 return false;
                 throw;
             }
             finally
             {
-                if(connection != null)
+                if (connection != null)
                 {
                     connection.Close();
                 }
