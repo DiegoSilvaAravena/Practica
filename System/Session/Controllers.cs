@@ -57,10 +57,10 @@ namespace Session
         }
 
         //Controladores de Movimientos
-        public void InsertMovimiento(Movimiento movimiento)
+        public bool InsertMovimiento(Movimiento movimiento)
         {
             Database database = new Database();
-            database.WriteDB("INSERT INTO Movimientos (fecha,dinero,id_personas) VALUES ('" + movimiento.Fecha + "'," + movimiento.Dinero + "," + movimiento.Id_personas + ")");
+            return database.WriteDB("INSERT INTO Movimientos (factura,fecha,dinero,id_personas) VALUES ('" + movimiento.Factura + "','" + movimiento.Fecha + "'," + movimiento.Dinero + "," + movimiento.Id_personas + ")");
         }
     }
 }

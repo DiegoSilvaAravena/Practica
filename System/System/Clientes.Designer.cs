@@ -49,9 +49,6 @@
             // 
             // metroTextBoxRUT
             // 
-            // 
-            // 
-            // 
             this.metroTextBoxRUT.CustomButton.Image = null;
             this.metroTextBoxRUT.CustomButton.Location = new System.Drawing.Point(272, 1);
             this.metroTextBoxRUT.CustomButton.Name = "";
@@ -81,9 +78,6 @@
             this.metroTextBoxRUT.Leave += new System.EventHandler(this.metroTextBoxRUT_Leave);
             // 
             // metroTextBoxNombre
-            // 
-            // 
-            // 
             // 
             this.metroTextBoxNombre.CustomButton.Image = null;
             this.metroTextBoxNombre.CustomButton.Location = new System.Drawing.Point(272, 1);

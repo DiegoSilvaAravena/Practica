@@ -198,7 +198,25 @@ namespace System
 
             if (count == 0)
             {
+                ComboItem selected_cliente = (ComboItem) metroComboBoxCliente.SelectedItem;
 
+                Movimiento movimiento = new Movimiento();
+
+                movimiento.Factura = Convert.ToInt32(metroTextBoxFactura.Text);
+                movimiento.Fecha = metroDateTimeFecha.Value;
+                movimiento.Dinero = Convert.ToSingle(metroTextBoxPrecio.Text);
+                movimiento.Id_personas = Convert.ToInt32(selected_cliente.Value);
+
+                if (controllers.InsertMovimiento(movimiento))
+                {
+                    MetroMessageBox.Show(this, "La venta ha sido ingresada correctamente.", "EXITO", MessageBoxButtons.OK, MessageBoxIcon.Question);
+
+                }
+                else
+                {
+
+                    MetroMessageBox.Show(this, "La venta no ha sido ingresada correctamente.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
     }

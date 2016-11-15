@@ -9,6 +9,7 @@ namespace Domain
     public class Movimiento
     {
         int id_movimientos;
+        int factura;
         DateTime fecha;
         float dinero;
         int id_personas;
@@ -66,6 +67,19 @@ namespace Domain
             set
             {
                 id_personas = value;
+            }
+        }
+
+        public int Factura
+        {
+            get
+            {
+                return factura;
+            }
+
+            set
+            {
+                factura = value;
             }
         }
     }
