@@ -42,12 +42,15 @@
             // 
             this.metroLabelRUT.Location = new System.Drawing.Point(23, 60);
             this.metroLabelRUT.Name = "metroLabelRUT";
-            this.metroLabelRUT.Size = new System.Drawing.Size(81, 29);
+            this.metroLabelRUT.Size = new System.Drawing.Size(81, 23);
             this.metroLabelRUT.TabIndex = 1;
             this.metroLabelRUT.Text = "RUT";
             this.metroLabelRUT.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // metroTextBoxRUT
+            // 
+            // 
+            // 
             // 
             this.metroTextBoxRUT.CustomButton.Image = null;
             this.metroTextBoxRUT.CustomButton.Location = new System.Drawing.Point(272, 1);
@@ -75,9 +78,13 @@
             this.metroTextBoxRUT.UseSelectable = true;
             this.metroTextBoxRUT.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.metroTextBoxRUT.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.metroTextBoxRUT.Click += new System.EventHandler(this.metroTextBoxRUT_Click);
             this.metroTextBoxRUT.Leave += new System.EventHandler(this.metroTextBoxRUT_Leave);
             // 
             // metroTextBoxNombre
+            // 
+            // 
+            // 
             // 
             this.metroTextBoxNombre.CustomButton.Image = null;
             this.metroTextBoxNombre.CustomButton.Location = new System.Drawing.Point(272, 1);

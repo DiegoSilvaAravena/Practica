@@ -157,5 +157,10 @@ namespace System
             metroTextBoxApellidos.Text = System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(metroTextBoxApellidos.Text);
             metroTextBoxApellidos.SelectionStart = metroTextBoxApellidos.Text.Length;
         }
+
+        private void metroTextBoxRUT_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
