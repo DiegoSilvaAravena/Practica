@@ -41,20 +41,28 @@ namespace System
                         cont = 0;
                     }
                 }
-                return format;
+                return format.ToUpper();
             }
         }
 
         public Clientes()
         {
             InitializeComponent();
+            metroTabControl1.SelectedIndex = 0;
+            Tabla();
+            
         }
-
-        private void metroTileClose_Click(object sender, EventArgs e)
+        //Llenar tabla de clientes
+        private void Tabla()
         {
-            this.Close();
+            List<Persona> persona_list = controllers.SelectPersona();
+            metroGridClientes.Rows.Clear();
+            for (int i = 0; i < persona_list.Count; i++)
+            {
+                metroGridClientes.Rows.Insert(metroGridClientes.Rows.Count, persona_list[i].Id_personas, persona_list[i].Rut, persona_list[i].First_name + " " + persona_list[i].Last_name);
+            }
         }
-
+ 
         //TextBox Focus
         private void metroTextBoxFactura_Enter(object sender, EventArgs e)
         {
@@ -86,6 +94,8 @@ namespace System
             metroTextBoxApellidos.ForeColor = Color.Gray;
         }
 
+        //Botones
+
         private void metroTileAccept_Click(object sender, EventArgs e)
         {
             int count = 0;
@@ -94,6 +104,12 @@ namespace System
             try
             {
                 if (metroTextBoxRUT.Text.Equals(""))
+                {
+                    MetroMessageBox.Show(this, "RUT no válido.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    count++;
+                    return;
+                }
+                if (metroTextBoxRUT.Text.Length < 12)
                 {
                     MetroMessageBox.Show(this, "RUT no válido.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     count++;
@@ -130,14 +146,46 @@ namespace System
                 if (controllers.InsertPersona(persona))
                 {
                     MetroMessageBox.Show(this, "El cliente ha sido ingresado correctamente.", "EXITO", MessageBoxButtons.OK, MessageBoxIcon.Question);
-
+                    Tabla();
                 }
                 else
                 {
-
                     MetroMessageBox.Show(this, "El cliente no ha sido ingresado correctamente.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+        }
+
+        private void metroTileDelete_Click(object sender, EventArgs e)
+        {
+            int id_personas = Convert.ToInt32(metroGridClientes.Rows[metroGridClientes.SelectedRows[0].Index].Cells[0].Value.ToString());
+
+            if (MetroMessageBox.Show(this, "¿Está seguro de que desea eliminar el cliente seleccionado?", "AVISO", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
+            {
+                if (controllers.DeleteCliente(id_personas))
+                {
+                    metroGridClientes.Rows.RemoveAt(this.metroGridClientes.SelectedRows[0].Index);
+                    MetroMessageBox.Show(this, "El cliente ha sido eliminado correctamente.", "EXITO", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                }
+                else
+                {
+                    MetroMessageBox.Show(this, "El cliente no ha sido eliminado correctamente.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void metroTileEdit_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void metroTileClose1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void metroTileClose2_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
 
         //Formato
@@ -158,9 +206,16 @@ namespace System
             metroTextBoxApellidos.SelectionStart = metroTextBoxApellidos.Text.Length;
         }
 
-        private void metroTextBoxRUT_Click(object sender, EventArgs e)
+        //Bloqueo de RUT
+        private void metroTextBoxRUT_KeyPress(object sender, KeyPressEventArgs e)
         {
-
+            if (!(char.IsNumber(e.KeyChar) || (e.KeyChar == 'K' || e.KeyChar == 'k' || e.KeyChar == '.' || e.KeyChar == '-')) && (e.KeyChar != (char)Keys.Back))
+            {
+                e.Handled = true;
+                return;
+            }
         }
+
+        
     }
 }

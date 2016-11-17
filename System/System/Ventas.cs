@@ -50,6 +50,7 @@ namespace System
             {
                 metroComboBoxProducto.Items.Add(new ComboItem(producto_list[i].Codigo.ToString(), producto_list[i].Id_productos.ToString()));
             }
+
         }
 
         private void metroTextBoxFactura_KeyPress(object sender, KeyPressEventArgs e)
@@ -214,7 +215,6 @@ namespace System
                 if (controllers.InsertMovimiento(movimiento))
                 {
                     MetroMessageBox.Show(this, "La venta ha sido ingresada correctamente.", "EXITO", MessageBoxButtons.OK, MessageBoxIcon.Question);
-
                 }
                 else
                 {
@@ -222,6 +222,16 @@ namespace System
                     MetroMessageBox.Show(this, "La venta no ha sido ingresada correctamente.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+        }
+        //Botones
+        private void metroTileClose1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void metroDateTimeFecha_ValueChanged(object sender, EventArgs e)
+        {
+            metroDateTimeFecha.Show();
         }
     }
 }
