@@ -24,22 +24,28 @@ namespace System
             winClientes.ShowDialog();
         }
 
-        private void metroTileVentas_Click(object sender, EventArgs e)
-        {
-            Ventas winVentas = new Ventas();
-            winVentas.ShowDialog();
-        }
-
         private void metroTileProveedores_Click(object sender, EventArgs e)
         {
             Proveedores winProveedores = new Proveedores();
             winProveedores.ShowDialog();
         }
 
+        private void metroTileVentas_Click(object sender, EventArgs e)
+        {
+            Ventas winVentas = new Ventas();
+            winVentas.ShowDialog();
+        }
+
         private void metroTileCompras_Click(object sender, EventArgs e)
         {
             Compras winCompras = new Compras();
             winCompras.ShowDialog();
+        }
+
+        private void metroTileMovimientos_Click(object sender, EventArgs e)
+        {
+            Movimientos winMovimientos = new Movimientos();
+            winMovimientos.ShowDialog();
         }
     }
 }

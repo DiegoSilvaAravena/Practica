@@ -41,16 +41,18 @@ namespace System
                         cont = 0;
                     }
                 }
-                return format;
+                return format.ToUpper();
             }
         }
 
         public Clientes()
         {
             InitializeComponent();
+            metroTabControl1.SelectedIndex = 0;
             Tabla();
+            
         }
-
+        //Llenar tabla de clientes
         private void Tabla()
         {
             List<Persona> persona_list = controllers.SelectPersona();
@@ -76,10 +78,6 @@ namespace System
         {
             metroTextBoxApellidos.ForeColor = Color.Black;
         }
-        private void metroTextBoxCorreo_Enter(object sender, EventArgs e)
-        {
-            metroTextBoxCorreo.ForeColor = Color.Black;
-        }
         //TextBox Leave
         private void metroTextBoxFactura_Leave(object sender, EventArgs e)
         {
@@ -95,10 +93,6 @@ namespace System
         {
             metroTextBoxApellidos.ForeColor = Color.Gray;
         }
-        private void metroTextBoxCorreo_Leave(object sender, EventArgs e)
-        {
-            metroTextBoxCorreo.ForeColor = Color.Gray;
-        }
 
         //Botones
 
@@ -110,6 +104,12 @@ namespace System
             try
             {
                 if (metroTextBoxRUT.Text.Equals(""))
+                {
+                    MetroMessageBox.Show(this, "RUT no válido.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    count++;
+                    return;
+                }
+                if (metroTextBoxRUT.Text.Length < 12)
                 {
                     MetroMessageBox.Show(this, "RUT no válido.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     count++;
@@ -163,15 +163,14 @@ namespace System
             {
                 if (controllers.DeleteCliente(id_personas))
                 {
+                    metroGridClientes.Rows.RemoveAt(this.metroGridClientes.SelectedRows[0].Index);
                     MetroMessageBox.Show(this, "El cliente ha sido eliminado correctamente.", "EXITO", MessageBoxButtons.OK, MessageBoxIcon.Question);
-
                 }
                 else
                 {
                     MetroMessageBox.Show(this, "El cliente no ha sido eliminado correctamente.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            Tabla();
         }
 
         private void metroTileEdit_Click(object sender, EventArgs e)

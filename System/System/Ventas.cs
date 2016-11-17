@@ -46,6 +46,7 @@ namespace System
             {
                 metroComboBoxProducto.Items.Add(new ComboItem(producto_list[i].Codigo.ToString(), producto_list[i].Id_productos.ToString()));
             }
+
         }
 
         private void metroTextBoxFactura_KeyPress(object sender, KeyPressEventArgs e)
@@ -222,6 +223,11 @@ namespace System
         private void metroTileClose1_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void metroDateTimeFecha_ValueChanged(object sender, EventArgs e)
+        {
+            metroDateTimeFecha.Show();
         }
     }
 }

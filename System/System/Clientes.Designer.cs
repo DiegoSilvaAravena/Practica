@@ -39,16 +39,13 @@
             this.metroLabelApellidos = new MetroFramework.Controls.MetroLabel();
             this.metroTabControl1 = new MetroFramework.Controls.MetroTabControl();
             this.metroTabPage1 = new MetroFramework.Controls.MetroTabPage();
-            this.metroLabelCorreo = new MetroFramework.Controls.MetroLabel();
-            this.metroTextBoxCorreo = new MetroFramework.Controls.MetroTextBox();
-            this.metroTileAccept = new MetroFramework.Controls.MetroTile();
-            this.metroTileClose1 = new MetroFramework.Controls.MetroTile();
             this.metroTabPage2 = new MetroFramework.Controls.MetroTabPage();
             this.metroGridClientes = new MetroFramework.Controls.MetroGrid();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RUT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NOMBRE = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CORREO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.metroTileAccept = new MetroFramework.Controls.MetroTile();
+            this.metroTileClose1 = new MetroFramework.Controls.MetroTile();
             this.metroTileEdit = new MetroFramework.Controls.MetroTile();
             this.metroTileDelete = new MetroFramework.Controls.MetroTile();
             this.metroTileClose2 = new MetroFramework.Controls.MetroTile();
@@ -191,15 +188,13 @@
             this.metroTabControl1.Controls.Add(this.metroTabPage2);
             this.metroTabControl1.Location = new System.Drawing.Point(23, 63);
             this.metroTabControl1.Name = "metroTabControl1";
-            this.metroTabControl1.SelectedIndex = 1;
+            this.metroTabControl1.SelectedIndex = 0;
             this.metroTabControl1.Size = new System.Drawing.Size(474, 313);
-            this.metroTabControl1.TabIndex = 17;
+            this.metroTabControl1.TabIndex = 1;
             this.metroTabControl1.UseSelectable = true;
             // 
             // metroTabPage1
             // 
-            this.metroTabPage1.Controls.Add(this.metroLabelCorreo);
-            this.metroTabPage1.Controls.Add(this.metroTextBoxCorreo);
             this.metroTabPage1.Controls.Add(this.metroTileAccept);
             this.metroTabPage1.Controls.Add(this.metroTileClose1);
             this.metroTabPage1.Controls.Add(this.metroLabelApellidos);
@@ -219,75 +214,6 @@
             this.metroTabPage1.VerticalScrollbarBarColor = true;
             this.metroTabPage1.VerticalScrollbarHighlightOnWheel = false;
             this.metroTabPage1.VerticalScrollbarSize = 10;
-            // 
-            // metroLabelCorreo
-            // 
-            this.metroLabelCorreo.Location = new System.Drawing.Point(0, 118);
-            this.metroLabelCorreo.Name = "metroLabelCorreo";
-            this.metroLabelCorreo.Size = new System.Drawing.Size(81, 29);
-            this.metroLabelCorreo.TabIndex = 18;
-            this.metroLabelCorreo.Text = "Correo";
-            this.metroLabelCorreo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // metroTextBoxCorreo
-            // 
-            // 
-            // 
-            // 
-            this.metroTextBoxCorreo.CustomButton.Image = null;
-            this.metroTextBoxCorreo.CustomButton.Location = new System.Drawing.Point(348, 1);
-            this.metroTextBoxCorreo.CustomButton.Name = "";
-            this.metroTextBoxCorreo.CustomButton.Size = new System.Drawing.Size(27, 27);
-            this.metroTextBoxCorreo.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.metroTextBoxCorreo.CustomButton.TabIndex = 1;
-            this.metroTextBoxCorreo.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.metroTextBoxCorreo.CustomButton.UseSelectable = true;
-            this.metroTextBoxCorreo.CustomButton.Visible = false;
-            this.metroTextBoxCorreo.FontSize = MetroFramework.MetroTextBoxSize.Medium;
-            this.metroTextBoxCorreo.Lines = new string[0];
-            this.metroTextBoxCorreo.Location = new System.Drawing.Point(87, 118);
-            this.metroTextBoxCorreo.MaxLength = 45;
-            this.metroTextBoxCorreo.Name = "metroTextBoxCorreo";
-            this.metroTextBoxCorreo.PasswordChar = '\0';
-            this.metroTextBoxCorreo.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.metroTextBoxCorreo.SelectedText = "";
-            this.metroTextBoxCorreo.SelectionLength = 0;
-            this.metroTextBoxCorreo.SelectionStart = 0;
-            this.metroTextBoxCorreo.ShortcutsEnabled = true;
-            this.metroTextBoxCorreo.Size = new System.Drawing.Size(376, 29);
-            this.metroTextBoxCorreo.TabIndex = 17;
-            this.metroTextBoxCorreo.UseCustomForeColor = true;
-            this.metroTextBoxCorreo.UseSelectable = true;
-            this.metroTextBoxCorreo.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.metroTextBoxCorreo.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
-            // metroTileAccept
-            // 
-            this.metroTileAccept.ActiveControl = null;
-            this.metroTileAccept.Location = new System.Drawing.Point(388, 193);
-            this.metroTileAccept.Name = "metroTileAccept";
-            this.metroTileAccept.Size = new System.Drawing.Size(75, 75);
-            this.metroTileAccept.Style = MetroFramework.MetroColorStyle.White;
-            this.metroTileAccept.TabIndex = 16;
-            this.metroTileAccept.TileImage = global::System.Properties.Resources.check;
-            this.metroTileAccept.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.metroTileAccept.UseSelectable = true;
-            this.metroTileAccept.UseTileImage = true;
-            this.metroTileAccept.Click += new System.EventHandler(this.metroTileAccept_Click);
-            // 
-            // metroTileClose1
-            // 
-            this.metroTileClose1.ActiveControl = null;
-            this.metroTileClose1.Location = new System.Drawing.Point(3, 193);
-            this.metroTileClose1.Name = "metroTileClose1";
-            this.metroTileClose1.Size = new System.Drawing.Size(75, 75);
-            this.metroTileClose1.Style = MetroFramework.MetroColorStyle.White;
-            this.metroTileClose1.TabIndex = 15;
-            this.metroTileClose1.TileImage = global::System.Properties.Resources.chevron_left;
-            this.metroTileClose1.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.metroTileClose1.UseSelectable = true;
-            this.metroTileClose1.UseTileImage = true;
-            this.metroTileClose1.Click += new System.EventHandler(this.metroTileClose1_Click);
             // 
             // metroTabPage2
             // 
@@ -328,8 +254,7 @@
             this.metroGridClientes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID,
             this.RUT,
-            this.NOMBRE,
-            this.CORREO});
+            this.NOMBRE});
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
@@ -376,18 +301,38 @@
             // 
             // NOMBRE
             // 
-            this.NOMBRE.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.NOMBRE.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.NOMBRE.HeaderText = "NOMBRE COMPLETO";
             this.NOMBRE.Name = "NOMBRE";
             this.NOMBRE.ReadOnly = true;
-            this.NOMBRE.Width = 124;
             // 
-            // CORREO
+            // metroTileAccept
             // 
-            this.CORREO.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.CORREO.HeaderText = "CORREO";
-            this.CORREO.Name = "CORREO";
-            this.CORREO.ReadOnly = true;
+            this.metroTileAccept.ActiveControl = null;
+            this.metroTileAccept.Location = new System.Drawing.Point(388, 193);
+            this.metroTileAccept.Name = "metroTileAccept";
+            this.metroTileAccept.Size = new System.Drawing.Size(75, 75);
+            this.metroTileAccept.Style = MetroFramework.MetroColorStyle.White;
+            this.metroTileAccept.TabIndex = 6;
+            this.metroTileAccept.TileImage = global::System.Properties.Resources.check;
+            this.metroTileAccept.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.metroTileAccept.UseSelectable = true;
+            this.metroTileAccept.UseTileImage = true;
+            this.metroTileAccept.Click += new System.EventHandler(this.metroTileAccept_Click);
+            // 
+            // metroTileClose1
+            // 
+            this.metroTileClose1.ActiveControl = null;
+            this.metroTileClose1.Location = new System.Drawing.Point(3, 193);
+            this.metroTileClose1.Name = "metroTileClose1";
+            this.metroTileClose1.Size = new System.Drawing.Size(75, 75);
+            this.metroTileClose1.Style = MetroFramework.MetroColorStyle.White;
+            this.metroTileClose1.TabIndex = 5;
+            this.metroTileClose1.TileImage = global::System.Properties.Resources.chevron_left;
+            this.metroTileClose1.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.metroTileClose1.UseSelectable = true;
+            this.metroTileClose1.UseTileImage = true;
+            this.metroTileClose1.Click += new System.EventHandler(this.metroTileClose1_Click);
             // 
             // metroTileEdit
             // 
@@ -396,7 +341,7 @@
             this.metroTileEdit.Name = "metroTileEdit";
             this.metroTileEdit.Size = new System.Drawing.Size(75, 75);
             this.metroTileEdit.Style = MetroFramework.MetroColorStyle.White;
-            this.metroTileEdit.TabIndex = 20;
+            this.metroTileEdit.TabIndex = 8;
             this.metroTileEdit.TileImage = global::System.Properties.Resources.pencil;
             this.metroTileEdit.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.metroTileEdit.UseSelectable = true;
@@ -410,7 +355,7 @@
             this.metroTileDelete.Name = "metroTileDelete";
             this.metroTileDelete.Size = new System.Drawing.Size(75, 75);
             this.metroTileDelete.Style = MetroFramework.MetroColorStyle.White;
-            this.metroTileDelete.TabIndex = 19;
+            this.metroTileDelete.TabIndex = 9;
             this.metroTileDelete.TileImage = global::System.Properties.Resources.times;
             this.metroTileDelete.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.metroTileDelete.UseSelectable = true;
@@ -424,7 +369,7 @@
             this.metroTileClose2.Name = "metroTileClose2";
             this.metroTileClose2.Size = new System.Drawing.Size(75, 75);
             this.metroTileClose2.Style = MetroFramework.MetroColorStyle.White;
-            this.metroTileClose2.TabIndex = 18;
+            this.metroTileClose2.TabIndex = 7;
             this.metroTileClose2.TileImage = global::System.Properties.Resources.chevron_left;
             this.metroTileClose2.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.metroTileClose2.UseSelectable = true;
@@ -435,7 +380,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(520, 390);
+            this.ClientSize = new System.Drawing.Size(520, 399);
             this.ControlBox = false;
             this.Controls.Add(this.metroTabControl1);
             this.MaximizeBox = false;
@@ -464,15 +409,12 @@
         private MetroFramework.Controls.MetroTabControl metroTabControl1;
         private MetroFramework.Controls.MetroTabPage metroTabPage1;
         private MetroFramework.Controls.MetroTabPage metroTabPage2;
-        private MetroFramework.Controls.MetroLabel metroLabelCorreo;
-        private MetroFramework.Controls.MetroTextBox metroTextBoxCorreo;
         private MetroFramework.Controls.MetroTile metroTileClose2;
         private MetroFramework.Controls.MetroTile metroTileDelete;
         private MetroFramework.Controls.MetroGrid metroGridClientes;
+        private MetroFramework.Controls.MetroTile metroTileEdit;
         private Windows.Forms.DataGridViewTextBoxColumn ID;
         private Windows.Forms.DataGridViewTextBoxColumn RUT;
         private Windows.Forms.DataGridViewTextBoxColumn NOMBRE;
-        private Windows.Forms.DataGridViewTextBoxColumn CORREO;
-        private MetroFramework.Controls.MetroTile metroTileEdit;
     }
 }
