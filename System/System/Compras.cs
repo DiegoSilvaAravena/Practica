@@ -16,28 +16,9 @@ namespace System
 {
     public partial class Compras : MetroForm
     {
-        Controllers controllers = new Controllers();
-
-        public class ComboItem
-        {
-            public string Text { get; set; }
-            public string Value { get; set; }
-            public override string ToString() { return Text; }
-
-            public ComboItem(string Text, string Value)
-            {
-                this.Text = Text;
-                this.Value = Value;
-            }
-        }
         public Compras()
         {
             InitializeComponent();
-        }
-
-        private void btnComprar_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

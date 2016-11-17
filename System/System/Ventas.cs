@@ -39,11 +39,7 @@ namespace System
             List<Persona> persona_list = controllers.SelectPersona();
             for (int i = 0; i < persona_list.Count; i++)
             {
-                if (persona_list[i].Tipo == 'C')
-                {
-                    metroComboBoxCliente.Items.Add(new ComboItem(persona_list[i].Rut + " | " + persona_list[i].First_name + " " + persona_list[i].Last_name, Convert.ToString(persona_list[i].Id_personas)));
-                }
-                
+                metroComboBoxCliente.Items.Add(new ComboItem(persona_list[i].Rut + " | " + persona_list[i].First_name + " " + persona_list[i].Last_name, Convert.ToString(persona_list[i].Id_personas)));
             }
             List<Producto> producto_list = controllers.SelectProducto();
             for (int i = 0; i < producto_list.Count; i++)
