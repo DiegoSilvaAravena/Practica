@@ -210,7 +210,6 @@ namespace System
                 if (controllers.InsertMovimiento(movimiento))
                 {
                     MetroMessageBox.Show(this, "La venta ha sido ingresada correctamente.", "EXITO", MessageBoxButtons.OK, MessageBoxIcon.Question);
-
                 }
                 else
                 {
@@ -218,6 +217,11 @@ namespace System
                     MetroMessageBox.Show(this, "La venta no ha sido ingresada correctamente.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+        }
+        //Botones
+        private void metroTileClose1_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

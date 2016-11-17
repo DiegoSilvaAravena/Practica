@@ -43,7 +43,6 @@
             this.metroTileProveedores.TabIndex = 1;
             this.metroTileProveedores.Text = "Proovedores";
             this.metroTileProveedores.UseSelectable = true;
-            this.metroTileProveedores.Click += new System.EventHandler(this.metroTileProveedores_Click);
             // 
             // metroTileProductos
             // 

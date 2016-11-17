@@ -30,10 +30,5 @@ namespace System
             winVentas.ShowDialog();
         }
 
-        private void metroTileProveedores_Click(object sender, EventArgs e)
-        {
-            Proveedores winProveedores = new Proveedores();
-            winProveedores.ShowDialog();
-        }
     }
 }
