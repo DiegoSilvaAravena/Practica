@@ -37,7 +37,6 @@
             this.metroComboBoxCliente = new MetroFramework.Controls.MetroComboBox();
             this.metroLabelFecha = new MetroFramework.Controls.MetroLabel();
             this.metroLabelFactura = new MetroFramework.Controls.MetroLabel();
-            this.metroLabelPrecio = new MetroFramework.Controls.MetroLabel();
             this.metroComboBoxProducto = new MetroFramework.Controls.MetroComboBox();
             this.metroLabelProducto = new MetroFramework.Controls.MetroLabel();
             this.metroButtonAdd = new MetroFramework.Controls.MetroButton();
@@ -50,6 +49,7 @@
             this.metroTextBoxCantidad = new MetroFramework.Controls.MetroTextBox();
             this.metroTileAccept = new MetroFramework.Controls.MetroTile();
             this.metroTileClose = new MetroFramework.Controls.MetroTile();
+            this.metroLabelPrecio = new MetroFramework.Controls.MetroLabel();
             ((System.ComponentModel.ISupportInitialize)(this.metroGridProductos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -132,15 +132,6 @@
             this.metroLabelFactura.TabIndex = 6;
             this.metroLabelFactura.Text = "Nº Factura";
             this.metroLabelFactura.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // metroLabelPrecio
-            // 
-            this.metroLabelPrecio.Location = new System.Drawing.Point(23, 159);
-            this.metroLabelPrecio.Name = "metroLabelPrecio";
-            this.metroLabelPrecio.Size = new System.Drawing.Size(81, 29);
-            this.metroLabelPrecio.TabIndex = 8;
-            this.metroLabelPrecio.Text = "Precio";
-            this.metroLabelPrecio.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // metroComboBoxProducto
             // 
@@ -348,6 +339,15 @@
             this.metroTileClose.UseTileImage = true;
             this.metroTileClose.Click += new System.EventHandler(this.metroTileClose_Click);
             // 
+            // metroLabelPrecio
+            // 
+            this.metroLabelPrecio.Location = new System.Drawing.Point(23, 159);
+            this.metroLabelPrecio.Name = "metroLabelPrecio";
+            this.metroLabelPrecio.Size = new System.Drawing.Size(81, 29);
+            this.metroLabelPrecio.TabIndex = 8;
+            this.metroLabelPrecio.Text = "Precio";
+            this.metroLabelPrecio.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // Ventas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -388,7 +388,6 @@
         private MetroFramework.Controls.MetroComboBox metroComboBoxCliente;
         private MetroFramework.Controls.MetroLabel metroLabelFecha;
         private MetroFramework.Controls.MetroLabel metroLabelFactura;
-        private MetroFramework.Controls.MetroLabel metroLabelPrecio;
         private MetroFramework.Controls.MetroComboBox metroComboBoxProducto;
         private MetroFramework.Controls.MetroLabel metroLabelProducto;
         private MetroFramework.Controls.MetroButton metroButtonAdd;
@@ -401,5 +400,6 @@
         private MetroFramework.Controls.MetroTile metroTileAccept;
         private MetroFramework.Controls.MetroTextBox metroTextBoxPrecio;
         private MetroFramework.Controls.MetroTextBox metroTextBoxCantidad;
+        private MetroFramework.Controls.MetroLabel metroLabelPrecio;
     }
 }

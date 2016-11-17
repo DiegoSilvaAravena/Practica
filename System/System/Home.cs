@@ -35,5 +35,11 @@ namespace System
             Proveedores winProveedores = new Proveedores();
             winProveedores.ShowDialog();
         }
+
+        private void metroTileCompras_Click(object sender, EventArgs e)
+        {
+            Compras winCompras = new Compras();
+            winCompras.ShowDialog();
+        }
     }
 }

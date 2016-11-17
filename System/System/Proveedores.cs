@@ -48,27 +48,27 @@ namespace System
         {
             InitializeComponent();
         }
-        //TextBox Focus
-        private void metroTextBoxFactura_Enter(object sender, EventArgs e)
-        {
-            txtRutProv.ForeColor = Color.Black;
-        }
+        ////TextBox Focus
+        //private void metroTextBoxFactura_Enter(object sender, EventArgs e)
+        //{
+        //    txtRutProv.ForeColor = Color.Black;
+        //}
 
-        private void metroTextBoxPrecio_Enter(object sender, EventArgs e)
-        {
-            txtNombreProv.ForeColor = Color.Black;
-        }
+        //private void metroTextBoxPrecio_Enter(object sender, EventArgs e)
+        //{
+        //    txtNombreProv.ForeColor = Color.Black;
+        //}
 
-        //TextBox Leave
-        private void metroTextBoxFactura_Leave(object sender, EventArgs e)
-        {
-            txtRutProv.ForeColor = Color.Gray;
-        }
+        ////TextBox Leave
+        //private void metroTextBoxFactura_Leave(object sender, EventArgs e)
+        //{
+        //    txtRutProv.ForeColor = Color.Gray;
+        //}
 
-        private void metroTextBoxPrecio_Leave(object sender, EventArgs e)
-        {
-            txtNombreProv.ForeColor = Color.Gray;
-        }
+        //private void metroTextBoxPrecio_Leave(object sender, EventArgs e)
+        //{
+        //    txtNombreProv.ForeColor = Color.Gray;
+        //}
 
 
         private void btnIngresarProv_Click(object sender, EventArgs e)

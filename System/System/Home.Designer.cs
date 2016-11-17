@@ -32,6 +32,7 @@
             this.metroTileProductos = new MetroFramework.Controls.MetroTile();
             this.metroTileVentas = new MetroFramework.Controls.MetroTile();
             this.metroTileClientes = new MetroFramework.Controls.MetroTile();
+            this.metroTileCompras = new MetroFramework.Controls.MetroTile();
             this.SuspendLayout();
             // 
             // metroTileProveedores
@@ -85,11 +86,23 @@
             this.metroTileClientes.UseTileImage = true;
             this.metroTileClientes.Click += new System.EventHandler(this.metroTileClientes_Click);
             // 
+            // metroTileCompras
+            // 
+            this.metroTileCompras.ActiveControl = null;
+            this.metroTileCompras.Location = new System.Drawing.Point(179, 159);
+            this.metroTileCompras.Name = "metroTileCompras";
+            this.metroTileCompras.Size = new System.Drawing.Size(150, 90);
+            this.metroTileCompras.TabIndex = 4;
+            this.metroTileCompras.Text = "Compras";
+            this.metroTileCompras.UseSelectable = true;
+            this.metroTileCompras.Click += new System.EventHandler(this.metroTileCompras_Click);
+            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(510, 303);
+            this.Controls.Add(this.metroTileCompras);
             this.Controls.Add(this.metroTileVentas);
             this.Controls.Add(this.metroTileProductos);
             this.Controls.Add(this.metroTileProveedores);
@@ -109,6 +122,7 @@
         private MetroFramework.Controls.MetroTile metroTileProveedores;
         private MetroFramework.Controls.MetroTile metroTileProductos;
         private MetroFramework.Controls.MetroTile metroTileVentas;
+        private MetroFramework.Controls.MetroTile metroTileCompras;
     }
 }
 
