@@ -37,27 +37,6 @@ namespace Session
             return persona_list;
         }
 
-        public List<Persona> SelectCliente()
-        {
-            List<Persona> persona_list = new List<Persona>();
-            Database database = new Database();
-
-            System.Data.OleDb.OleDbDataReader reader = database.ReadDB("SELECT * FROM Personas WHERE tipo = 'C'");
-            while (reader.Read())
-            {
-                Persona persona = new Persona();
-                persona.Id_personas = Convert.ToInt32(reader["id_personas"].ToString());
-                persona.Rut = reader["rut"].ToString();
-                persona.First_name = reader["first_name"].ToString();
-                persona.Last_name = reader["last_name"].ToString();
-                persona.Tipo = Convert.ToChar(reader["tipo"].ToString());
-
-                persona_list.Add(persona);
-            }
-            database.Close_Database();
-            return persona_list;
-        }
-
         public bool DeleteCliente(int id_personas)
         {
             Database database = new Database();
@@ -89,6 +68,27 @@ namespace Session
         {
             Database database = new Database();
             return database.WriteDB("INSERT INTO Movimientos (factura,fecha,dinero,id_personas) VALUES ('" + movimiento.Factura + "','" + movimiento.Fecha + "'," + movimiento.Dinero + "," + movimiento.Id_personas + ")");
+        }
+
+        public List<Movimiento> SelectMovimiento()
+        {
+            List<Movimiento> movimiento_list = new List<Movimiento>();
+            Database database = new Database();
+
+            System.Data.OleDb.OleDbDataReader reader = database.ReadDB("SELECT * FROM Movimientos");
+            while (reader.Read())
+            {
+                Movimiento movimiento = new Movimiento();
+                movimiento.Id_movimientos = Convert.ToInt32(reader["id_movimientos"].ToString());
+                movimiento.Factura = Convert.ToInt32(reader["factura"].ToString());
+                movimiento.Fecha = Convert.ToDateTime(reader["fecha"].ToString());
+                movimiento.Dinero = Convert.ToSingle(reader["dinero"].ToString());
+                movimiento.Id_personas = Convert.ToInt32(reader["id_personas"].ToString());
+
+                movimiento_list.Add(movimiento);
+            }
+            database.Close_Database();
+            return movimiento_list;
         }
     }
 }

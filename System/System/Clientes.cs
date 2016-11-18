@@ -64,32 +64,33 @@ namespace System
         }
  
         //TextBox Focus
-        private void metroTextBoxFactura_Enter(object sender, EventArgs e)
+        private void metroTextBoxRUT_Enter(object sender, EventArgs e)
         {
             metroTextBoxRUT.ForeColor = Color.Black;
         }
 
-        private void metroTextBoxPrecio_Enter(object sender, EventArgs e)
+        private void metroTextBoxNombre_Enter(object sender, EventArgs e)
         {
             metroTextBoxNombre.ForeColor = Color.Black;
         }
 
-        private void metroTextBoxCantidad_Enter(object sender, EventArgs e)
+        private void metroTextBoxApellidos_Enter(object sender, EventArgs e)
         {
             metroTextBoxApellidos.ForeColor = Color.Black;
         }
         //TextBox Leave
-        private void metroTextBoxFactura_Leave(object sender, EventArgs e)
+        private void metroTextBoxRUT_Leave(object sender, EventArgs e)
         {
             metroTextBoxRUT.ForeColor = Color.Gray;
+            metroTextBoxRUT.Text = FormatoRUT(metroTextBoxRUT.Text);
         }
 
-        private void metroTextBoxPrecio_Leave(object sender, EventArgs e)
+        private void metroTextBoxNombre_Leave(object sender, EventArgs e)
         {
             metroTextBoxNombre.ForeColor = Color.Gray;
         }
 
-        private void metroTextBoxCantidad_Leave(object sender, EventArgs e)
+        private void metroTextBoxApellidos_Leave(object sender, EventArgs e)
         {
             metroTextBoxApellidos.ForeColor = Color.Gray;
         }
@@ -189,11 +190,6 @@ namespace System
         }
 
         //Formato
-        private void metroTextBoxRUT_Leave(object sender, EventArgs e)
-        {
-            metroTextBoxRUT.Text = FormatoRUT(metroTextBoxRUT.Text);
-        }
-
         private void metroTextBoxNombre_TextChanged(object sender, EventArgs e)
         {
             metroTextBoxNombre.Text = System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(metroTextBoxNombre.Text);
@@ -215,7 +211,5 @@ namespace System
                 return;
             }
         }
-
-        
     }
 }
