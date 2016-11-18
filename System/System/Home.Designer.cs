@@ -47,7 +47,7 @@
             this.metroTileCompras.TabIndex = 4;
             this.metroTileCompras.Text = "Compras";
             this.metroTileCompras.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.metroTileCompras.TileImage = global::System.Properties.Resources.dollar;
+            this.metroTileCompras.TileImage = global::System.Properties.Resources.cart_plus;
             this.metroTileCompras.TileImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.metroTileCompras.UseSelectable = true;
             this.metroTileCompras.UseTileImage = true;
