@@ -55,3 +55,4 @@ C:\Users\super\Source\Repos\Practica2\System\System\obj\Debug\System.Properties.
 C:\Users\super\Source\Repos\Practica2\System\System\obj\Debug\System.Ventas.resources
 C:\Users\super\Source\Repos\Practica2\System\System\obj\Debug\System.csproj.GenerateResource.Cache
 C:\Users\super\Source\Repos\Practica2\System\System\obj\Debug\System.Compras.resources
+C:\Users\super\Source\Repos\Practica2\System\System\obj\Debug\System.Proveedores.resources
