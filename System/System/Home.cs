@@ -47,5 +47,10 @@ namespace System
             Movimientos winMovimientos = new Movimientos();
             winMovimientos.ShowDialog();
         }
+
+        private void metroTileOpciones_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

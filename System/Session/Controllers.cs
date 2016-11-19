@@ -1,5 +1,6 @@
 ﻿using Domain;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -37,6 +38,20 @@ namespace Session
             return persona_list;
         }
 
+        public string GetRUT(int id_personas)
+        {
+            string rut = null;
+            Database database = new Database();
+
+            System.Data.OleDb.OleDbDataReader reader = database.ReadDB("SELECT rut FROM Personas WHERE id_personas = "+id_personas);
+            while (reader.Read())
+            {
+                rut = reader["rut"].ToString();
+            }
+            database.Close_Database();
+            return rut;
+        }
+
         public bool DeleteCliente(int id_personas)
         {
             Database database = new Database();
@@ -56,6 +71,7 @@ namespace Session
                 Producto producto = new Producto();
                 producto.Id_productos = Convert.ToInt32(reader["id_productos"].ToString());
                 producto.Codigo = Convert.ToInt32(reader["codigo"].ToString());
+                producto.Cantidad = Convert.ToInt32(reader["cantidad"].ToString());
 
                 producto_list.Add(producto);
             }
@@ -70,12 +86,44 @@ namespace Session
             return database.WriteDB("INSERT INTO Movimientos (factura,fecha,dinero,id_personas) VALUES ('" + movimiento.Factura + "','" + movimiento.Fecha + "'," + movimiento.Dinero + "," + movimiento.Id_personas + ")");
         }
 
+        public bool InsertMovimiento_Productos(ArrayList producto_list)
+        {
+            Database database = new Database();
+            string id_movimientos = GetID();
+            for (int i = 0; i < producto_list.Count; i++)
+            {
+                if (database.WriteDB("INSERT INTO Movimientos_Productos (id_movimientos,id_productos) VALUES ("+ id_movimientos + "," + producto_list[i] + ")"))
+                {
+
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        public string GetID()
+        {
+            string id_movimientos = null;
+            Database database = new Database();
+
+            System.Data.OleDb.OleDbDataReader reader = database.ReadDB("SELECT TOP 1 id_movimientos FROM Movimientos ORDER BY id_movimientos DESC");
+            while (reader.Read())
+            {
+                id_movimientos = reader["id_movimientos"].ToString();
+            }
+            database.Close_Database();
+            return id_movimientos;
+        }
+
         public List<Movimiento> SelectMovimiento()
         {
             List<Movimiento> movimiento_list = new List<Movimiento>();
             Database database = new Database();
 
-            System.Data.OleDb.OleDbDataReader reader = database.ReadDB("SELECT * FROM Movimientos");
+            System.Data.OleDb.OleDbDataReader reader = database.ReadDB("SELECT * FROM Movimientos ORDER BY id_movimientos ASC");
             while (reader.Read())
             {
                 Movimiento movimiento = new Movimiento();

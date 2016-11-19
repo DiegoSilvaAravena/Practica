@@ -3,6 +3,7 @@ using MetroFramework;
 using MetroFramework.Forms;
 using Session;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -39,15 +40,15 @@ namespace System
             List<Persona> persona_list = controllers.SelectPersona();
             for (int i = 0; i < persona_list.Count; i++)
             {
-                metroComboBoxCliente.Items.Add(new ComboItem(persona_list[i].Rut + " | " + persona_list[i].First_name + " " + persona_list[i].Last_name, Convert.ToString(persona_list[i].Id_personas)));
-            }
-            List<Producto> producto_list = controllers.SelectProducto();
-            for (int i = 0; i < producto_list.Count; i++)
-            {
                 if (persona_list[i].Tipo == 'C')
                 {
                     metroComboBoxCliente.Items.Add(new ComboItem(persona_list[i].Rut + " | " + persona_list[i].First_name + " " + persona_list[i].Last_name, Convert.ToString(persona_list[i].Id_personas)));
                 }
+            }
+            List<Producto> producto_list = controllers.SelectProducto();
+            for (int i = 0; i < producto_list.Count; i++)
+            {
+                metroComboBoxProducto.Items.Add(new ComboItem(Convert.ToString(producto_list[i].Codigo + " | Stock: "+producto_list[i].Cantidad), Convert.ToString(producto_list[i].Id_productos)));
             }
 
         }
@@ -205,19 +206,25 @@ namespace System
                 ComboItem selected_cliente = (ComboItem) metroComboBoxCliente.SelectedItem;
 
                 Movimiento movimiento = new Movimiento();
+                ArrayList producto_list = new ArrayList();
 
                 movimiento.Factura = Convert.ToInt32(metroTextBoxFactura.Text);
                 movimiento.Fecha = metroDateTimeFecha.Value;
                 movimiento.Dinero = Convert.ToSingle(metroTextBoxPrecio.Text);
                 movimiento.Id_personas = Convert.ToInt32(selected_cliente.Value);
 
+                for (int i = 0; i < metroGridProductos.Rows.Count; i++)
+                {
+                    producto_list.Add(metroGridProductos.Rows[i].Cells[0].Value.ToString());
+                }
+
                 if (controllers.InsertMovimiento(movimiento))
                 {
+                    controllers.InsertMovimiento_Productos(producto_list);
                     MetroMessageBox.Show(this, "La venta ha sido ingresada correctamente.", "EXITO", MessageBoxButtons.OK, MessageBoxIcon.Question);
                 }
                 else
                 {
-
                     MetroMessageBox.Show(this, "La venta no ha sido ingresada correctamente.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
@@ -226,11 +233,6 @@ namespace System
         private void metroTileClose1_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void metroDateTimeFecha_ValueChanged(object sender, EventArgs e)
-        {
-            metroDateTimeFecha.Show();
         }
     }
 }

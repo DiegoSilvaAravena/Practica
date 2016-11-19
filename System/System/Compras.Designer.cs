@@ -31,7 +31,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.metroDateTimeFecha = new MetroFramework.Controls.MetroDateTime();
             this.txtCantidad = new MetroFramework.Controls.MetroTextBox();
             this.lblProveedor = new MetroFramework.Controls.MetroLabel();
             this.GVProductos = new MetroFramework.Controls.MetroGrid();
@@ -51,16 +50,9 @@
             this.txtPrecioFlete = new MetroFramework.Controls.MetroTextBox();
             this.lblPrecioFlete = new MetroFramework.Controls.MetroLabel();
             this.metroTileAccept = new MetroFramework.Controls.MetroTile();
+            this.metroDateTimeFecha = new MetroFramework.Controls.MetroDateTime();
             ((System.ComponentModel.ISupportInitialize)(this.GVProductos)).BeginInit();
             this.SuspendLayout();
-            // 
-            // metroDateTimeFecha
-            // 
-            this.metroDateTimeFecha.Location = new System.Drawing.Point(126, 110);
-            this.metroDateTimeFecha.MinimumSize = new System.Drawing.Size(0, 29);
-            this.metroDateTimeFecha.Name = "metroDateTimeFecha";
-            this.metroDateTimeFecha.Size = new System.Drawing.Size(318, 29);
-            this.metroDateTimeFecha.TabIndex = 31;
             // 
             // txtCantidad
             // 
@@ -372,15 +364,24 @@
             this.metroTileAccept.UseSelectable = true;
             this.metroTileAccept.UseTileImage = true;
             // 
+            // metroDateTimeFecha
+            // 
+            this.metroDateTimeFecha.CalendarFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.metroDateTimeFecha.Location = new System.Drawing.Point(126, 110);
+            this.metroDateTimeFecha.MinimumSize = new System.Drawing.Size(0, 29);
+            this.metroDateTimeFecha.Name = "metroDateTimeFecha";
+            this.metroDateTimeFecha.Size = new System.Drawing.Size(318, 29);
+            this.metroDateTimeFecha.TabIndex = 36;
+            // 
             // Compras
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(499, 482);
+            this.Controls.Add(this.metroDateTimeFecha);
             this.Controls.Add(this.metroTileAccept);
             this.Controls.Add(this.lblPrecioFlete);
             this.Controls.Add(this.txtPrecioFlete);
-            this.Controls.Add(this.metroDateTimeFecha);
             this.Controls.Add(this.txtCantidad);
             this.Controls.Add(this.lblProveedor);
             this.Controls.Add(this.GVProductos);
@@ -402,8 +403,6 @@
         }
 
         #endregion
-
-        private MetroFramework.Controls.MetroDateTime metroDateTimeFecha;
         private MetroFramework.Controls.MetroTextBox txtCantidad;
         private MetroFramework.Controls.MetroLabel lblProveedor;
         private MetroFramework.Controls.MetroGrid GVProductos;
@@ -423,5 +422,6 @@
         private MetroFramework.Controls.MetroTextBox txtPrecioFlete;
         private MetroFramework.Controls.MetroLabel lblPrecioFlete;
         private MetroFramework.Controls.MetroTile metroTileAccept;
+        private MetroFramework.Controls.MetroDateTime metroDateTimeFecha;
     }
 }

@@ -10,6 +10,7 @@ namespace Domain
     {
         int id_productos;
         int codigo;
+        int cantidad;
 
         public int Id_productos
         {
@@ -34,6 +35,19 @@ namespace Domain
             set
             {
                 codigo = value;
+            }
+        }
+
+        public int Cantidad
+        {
+            get
+            {
+                return cantidad;
+            }
+
+            set
+            {
+                cantidad = value;
             }
         }
 

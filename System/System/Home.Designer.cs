@@ -66,6 +66,7 @@
             this.metroTileOpciones.TileImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.metroTileOpciones.UseSelectable = true;
             this.metroTileOpciones.UseTileImage = true;
+            this.metroTileOpciones.Click += new System.EventHandler(this.metroTileOpciones_Click);
             // 
             // metroTileMovimientos
             // 

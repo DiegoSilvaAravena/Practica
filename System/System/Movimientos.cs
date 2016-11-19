@@ -29,7 +29,7 @@ namespace System
             metroGridMovimientos.Rows.Clear();
             for (int i = 0; i < movimiento_list.Count; i++)
             {
-                metroGridMovimientos.Rows.Insert(metroGridMovimientos.Rows.Count, movimiento_list[i].Id_movimientos, movimiento_list[i].Factura, movimiento_list[i].Fecha,movimiento_list[i].Dinero, movimiento_list[i].Id_personas);
+                metroGridMovimientos.Rows.Insert(metroGridMovimientos.Rows.Count, movimiento_list[i].Id_movimientos, movimiento_list[i].Factura, movimiento_list[i].Fecha,movimiento_list[i].Dinero, controllers.GetRUT(movimiento_list[i].Id_personas),"Ver");
             }
         }
 
@@ -37,5 +37,6 @@ namespace System
         {
             this.Close();
         }
+
     }
 }
