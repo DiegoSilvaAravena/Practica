@@ -38,5 +38,20 @@ namespace System
             this.Close();
         }
 
+        private void metroGridMovimientos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 4)
+            {
+                ViewCliente winViewCliente = new ViewCliente();
+
+                Persona persona = controllers.GetPersona("10");
+
+                winViewCliente.metroLabel1.Text = Convert.ToString(persona.Id_personas);
+                winViewCliente.metroLabel2.Text = persona.Rut;
+                winViewCliente.metroLabel3.Text = persona.First_name;
+                winViewCliente.metroLabel4.Text = persona.Last_name;
+                winViewCliente.ShowDialog(); 
+            }
+        }
     }
 }

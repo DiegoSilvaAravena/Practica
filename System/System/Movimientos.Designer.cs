@@ -36,13 +36,13 @@
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.metroDateTime1 = new MetroFramework.Controls.MetroDateTime();
             this.metroGridMovimientos = new MetroFramework.Controls.MetroGrid();
-            this.metroTileClose1 = new MetroFramework.Controls.MetroTile();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FACTURA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FECHA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DINERO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PERSONA = new System.Windows.Forms.DataGridViewButtonColumn();
             this.PRODUCTOS = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.metroTileClose1 = new MetroFramework.Controls.MetroTile();
             ((System.ComponentModel.ISupportInitialize)(this.metroGridMovimientos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -132,20 +132,7 @@
             this.metroGridMovimientos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.metroGridMovimientos.Size = new System.Drawing.Size(648, 233);
             this.metroGridMovimientos.TabIndex = 21;
-            // 
-            // metroTileClose1
-            // 
-            this.metroTileClose1.ActiveControl = null;
-            this.metroTileClose1.Location = new System.Drawing.Point(23, 411);
-            this.metroTileClose1.Name = "metroTileClose1";
-            this.metroTileClose1.Size = new System.Drawing.Size(75, 75);
-            this.metroTileClose1.Style = MetroFramework.MetroColorStyle.White;
-            this.metroTileClose1.TabIndex = 22;
-            this.metroTileClose1.TileImage = global::System.Properties.Resources.chevron_left;
-            this.metroTileClose1.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.metroTileClose1.UseSelectable = true;
-            this.metroTileClose1.UseTileImage = true;
-            this.metroTileClose1.Click += new System.EventHandler(this.metroTileClose1_Click);
+            this.metroGridMovimientos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.metroGridMovimientos_CellContentClick);
             // 
             // ID
             // 
@@ -195,6 +182,20 @@
             this.PRODUCTOS.ReadOnly = true;
             this.PRODUCTOS.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.PRODUCTOS.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // metroTileClose1
+            // 
+            this.metroTileClose1.ActiveControl = null;
+            this.metroTileClose1.Location = new System.Drawing.Point(23, 411);
+            this.metroTileClose1.Name = "metroTileClose1";
+            this.metroTileClose1.Size = new System.Drawing.Size(75, 75);
+            this.metroTileClose1.Style = MetroFramework.MetroColorStyle.White;
+            this.metroTileClose1.TabIndex = 22;
+            this.metroTileClose1.TileImage = global::System.Properties.Resources.chevron_left;
+            this.metroTileClose1.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.metroTileClose1.UseSelectable = true;
+            this.metroTileClose1.UseTileImage = true;
+            this.metroTileClose1.Click += new System.EventHandler(this.metroTileClose1_Click);
             // 
             // Movimientos
             // 

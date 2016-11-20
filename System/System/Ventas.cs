@@ -23,12 +23,22 @@ namespace System
         {
             public string Text { get; set; }
             public string Value { get; set; }
+            public int Codigo { get; set; }
+            public int Cantidad { get; set; }
             public override string ToString() { return Text; }
 
             public ComboItem(String Text, String Value)
             {
                 this.Text = Text;
                 this.Value = Value;
+            }
+
+            public ComboItem(String Text, String Value, int Codigo, int Cantidad)
+            {
+                this.Text = Text;
+                this.Value = Value;
+                this.Codigo = Codigo;
+                this.Cantidad = Cantidad;
             }
         }
 
@@ -48,7 +58,7 @@ namespace System
             List<Producto> producto_list = controllers.SelectProducto();
             for (int i = 0; i < producto_list.Count; i++)
             {
-                metroComboBoxProducto.Items.Add(new ComboItem(Convert.ToString(producto_list[i].Codigo + " | Stock: "+producto_list[i].Cantidad), Convert.ToString(producto_list[i].Id_productos)));
+                metroComboBoxProducto.Items.Add(new ComboItem(Convert.ToString(producto_list[i].Codigo + " | Stock: "+producto_list[i].Cantidad), Convert.ToString(producto_list[i].Id_productos),producto_list[i].Codigo,producto_list[i].Cantidad));
             }
 
         }
@@ -111,7 +121,20 @@ namespace System
             ComboItem items_producto = (ComboItem)metroComboBoxProducto.SelectedItem;
             try
             {
+                if (metroComboBoxProducto.SelectedIndex == -1)
+                {
+                    count++;
+                    return;
+                }
+
                 if (metroTextBoxCantidad.Text.Equals("") || Convert.ToInt32(metroTextBoxCantidad.Text) == 0)
+                {
+                    MetroMessageBox.Show(this, "Cantidad no válido.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    count++;
+                    return;
+                }
+
+                if (Convert.ToInt32(metroTextBoxCantidad.Text) > items_producto.Cantidad)
                 {
                     MetroMessageBox.Show(this, "Cantidad no válido.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     count++;
@@ -139,7 +162,7 @@ namespace System
             {
 
                 int id_productos = Convert.ToInt32(items_producto.Value);
-                int codigo = Convert.ToInt32(items_producto.Text);
+                int codigo = items_producto.Codigo;
                 int cantidad = Convert.ToInt32(metroTextBoxCantidad.Text);
 
                 metroGridProductos.Rows.Insert(0, id_productos, codigo, cantidad);

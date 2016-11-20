@@ -59,7 +59,10 @@ namespace System
             metroGridClientes.Rows.Clear();
             for (int i = 0; i < persona_list.Count; i++)
             {
-                metroGridClientes.Rows.Insert(metroGridClientes.Rows.Count, persona_list[i].Id_personas, persona_list[i].Rut, persona_list[i].First_name + " " + persona_list[i].Last_name);
+                if (persona_list[i].Tipo=='C')
+                {
+                    metroGridClientes.Rows.Insert(metroGridClientes.Rows.Count, persona_list[i].Id_personas, persona_list[i].Rut, persona_list[i].First_name + " " + persona_list[i].Last_name);
+                }        
             }
         }
  

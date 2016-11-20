@@ -38,6 +38,24 @@ namespace Session
             return persona_list;
         }
 
+        public Persona GetPersona(string id_personas)
+        {
+            Persona persona = new Persona();
+            Database database = new Database();
+
+            System.Data.OleDb.OleDbDataReader reader = database.ReadDB("SELECT * FROM Personas WHERE id_personas = "+id_personas);
+            while (reader.Read())
+            {
+                persona.Id_personas = Convert.ToInt32(reader["id_personas"].ToString());
+                persona.Rut = reader["rut"].ToString();
+                persona.First_name = reader["first_name"].ToString();
+                persona.Last_name = reader["last_name"].ToString();
+                persona.Tipo = Convert.ToChar(reader["tipo"].ToString());
+            }
+            database.Close_Database();
+            return persona;
+        }
+
         public string GetRUT(int id_personas)
         {
             string rut = null;
@@ -102,6 +120,24 @@ namespace Session
                 }
             }
             return true;
+        }
+
+        public Movimiento GetMovimiento(string id_movimientos)
+        {
+            Movimiento movimiento = new Movimiento();
+            Database database = new Database();
+
+            System.Data.OleDb.OleDbDataReader reader = database.ReadDB("SELECT * FROM Movimientos WHERE id_movimientos = " + id_movimientos);
+            while (reader.Read())
+            {
+                movimiento.Id_movimientos = Convert.ToInt32(reader["id_movimientos"].ToString());
+                movimiento.Factura = Convert.ToInt32(reader["factura"].ToString());
+                movimiento.Fecha = Convert.ToDateTime(reader["fecha"].ToString());
+                movimiento.Dinero = Convert.ToSingle(reader["dinero"].ToString());
+                movimiento.Id_personas = Convert.ToInt32(reader["id_personas"].ToString());
+            }
+            database.Close_Database();
+            return movimiento;
         }
 
         public string GetID()
