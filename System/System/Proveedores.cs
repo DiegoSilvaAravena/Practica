@@ -167,13 +167,17 @@ namespace System
         //Bloqueo de RUT
         private void txtRutProv_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!(char.IsNumber(e.KeyChar) || (e.KeyChar == 'K' || e.KeyChar == 'k' || e.KeyChar == '.' || e.KeyChar == '-')) && (e.KeyChar != (char)Keys.Back))
+            if (!(char.IsNumber(e.KeyChar) 
+                || (e.KeyChar == 'K' 
+                || e.KeyChar == 'k' 
+                || e.KeyChar == '.' 
+                || e.KeyChar == '-')) && (e.KeyChar != (char)Keys.Back))
             {
                 e.Handled = true;
                 return;
             }
         }
-
+        //txt Enter y Leave
         private void txtRutProv_Enter(object sender, EventArgs e)
         {
             txtRutProv.ForeColor = Color.Black;
