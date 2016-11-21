@@ -59,7 +59,7 @@ namespace System
             metroGridClientes.Rows.Clear();
             for (int i = 0; i < persona_list.Count; i++)
             {
-                if (persona_list[i].Tipo=='C')
+                if (persona_list[i].Tipo=='C' && persona_list[i].Estado != 'E')
                 {
                     metroGridClientes.Rows.Insert(metroGridClientes.Rows.Count, persona_list[i].Id_personas, persona_list[i].Rut, persona_list[i].First_name + " " + persona_list[i].Last_name);
                 }        
@@ -113,7 +113,7 @@ namespace System
                     count++;
                     return;
                 }
-                if (metroTextBoxRUT.Text.Length < 12)
+                if (metroTextBoxRUT.Text.Length < 11)
                 {
                     MetroMessageBox.Show(this, "RUT no válido.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     count++;
@@ -146,6 +146,7 @@ namespace System
                 persona.First_name = metroTextBoxNombre.Text.Trim();
                 persona.Last_name = metroTextBoxApellidos.Text.Trim();
                 persona.Tipo = 'C';
+                persona.Estado = 'A';
 
                 if (controllers.InsertPersona(persona))
                 {

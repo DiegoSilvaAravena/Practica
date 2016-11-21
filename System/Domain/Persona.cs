@@ -13,6 +13,7 @@ namespace Domain
         String first_name;
         String last_name;
         char tipo;
+        char estado;
 
         public int Id_personas
         {
@@ -76,6 +77,19 @@ namespace Domain
             set
             {
                 tipo = value;
+            }
+        }
+
+        public char Estado
+        {
+            get
+            {
+                return estado;
+            }
+
+            set
+            {
+                estado = value;
             }
         }
 

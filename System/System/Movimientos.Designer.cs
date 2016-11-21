@@ -33,16 +33,16 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.metroLabelNombre = new MetroFramework.Controls.MetroLabel();
             this.metroDateTimeFecha = new MetroFramework.Controls.MetroDateTime();
-            this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabelHasta = new MetroFramework.Controls.MetroLabel();
             this.metroDateTime1 = new MetroFramework.Controls.MetroDateTime();
             this.metroGridMovimientos = new MetroFramework.Controls.MetroGrid();
+            this.metroTileClose1 = new MetroFramework.Controls.MetroTile();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FACTURA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FECHA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DINERO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PERSONA = new System.Windows.Forms.DataGridViewButtonColumn();
             this.PRODUCTOS = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.metroTileClose1 = new MetroFramework.Controls.MetroTile();
             ((System.ComponentModel.ISupportInitialize)(this.metroGridMovimientos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -63,14 +63,14 @@
             this.metroDateTimeFecha.Size = new System.Drawing.Size(234, 29);
             this.metroDateTimeFecha.TabIndex = 18;
             // 
-            // metroLabel1
+            // metroLabelHasta
             // 
-            this.metroLabel1.Location = new System.Drawing.Point(350, 63);
-            this.metroLabel1.Name = "metroLabel1";
-            this.metroLabel1.Size = new System.Drawing.Size(81, 29);
-            this.metroLabel1.TabIndex = 19;
-            this.metroLabel1.Text = "Hasta";
-            this.metroLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.metroLabelHasta.Location = new System.Drawing.Point(350, 63);
+            this.metroLabelHasta.Name = "metroLabelHasta";
+            this.metroLabelHasta.Size = new System.Drawing.Size(81, 29);
+            this.metroLabelHasta.TabIndex = 19;
+            this.metroLabelHasta.Text = "Hasta";
+            this.metroLabelHasta.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // metroDateTime1
             // 
@@ -134,6 +134,20 @@
             this.metroGridMovimientos.TabIndex = 21;
             this.metroGridMovimientos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.metroGridMovimientos_CellContentClick);
             // 
+            // metroTileClose1
+            // 
+            this.metroTileClose1.ActiveControl = null;
+            this.metroTileClose1.Location = new System.Drawing.Point(23, 411);
+            this.metroTileClose1.Name = "metroTileClose1";
+            this.metroTileClose1.Size = new System.Drawing.Size(75, 75);
+            this.metroTileClose1.Style = MetroFramework.MetroColorStyle.White;
+            this.metroTileClose1.TabIndex = 22;
+            this.metroTileClose1.TileImage = global::System.Properties.Resources.chevron_left;
+            this.metroTileClose1.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.metroTileClose1.UseSelectable = true;
+            this.metroTileClose1.UseTileImage = true;
+            this.metroTileClose1.Click += new System.EventHandler(this.metroTileClose1_Click);
+            // 
             // ID
             // 
             this.ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
@@ -169,7 +183,7 @@
             // PERSONA
             // 
             this.PERSONA.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.PERSONA.HeaderText = "PERSONA";
+            this.PERSONA.HeaderText = "CLIENTE - PROVEEDOR";
             this.PERSONA.Name = "PERSONA";
             this.PERSONA.ReadOnly = true;
             this.PERSONA.Resizable = System.Windows.Forms.DataGridViewTriState.True;
@@ -183,20 +197,6 @@
             this.PRODUCTOS.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.PRODUCTOS.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
-            // metroTileClose1
-            // 
-            this.metroTileClose1.ActiveControl = null;
-            this.metroTileClose1.Location = new System.Drawing.Point(23, 411);
-            this.metroTileClose1.Name = "metroTileClose1";
-            this.metroTileClose1.Size = new System.Drawing.Size(75, 75);
-            this.metroTileClose1.Style = MetroFramework.MetroColorStyle.White;
-            this.metroTileClose1.TabIndex = 22;
-            this.metroTileClose1.TileImage = global::System.Properties.Resources.chevron_left;
-            this.metroTileClose1.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.metroTileClose1.UseSelectable = true;
-            this.metroTileClose1.UseTileImage = true;
-            this.metroTileClose1.Click += new System.EventHandler(this.metroTileClose1_Click);
-            // 
             // Movimientos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -206,7 +206,7 @@
             this.Controls.Add(this.metroTileClose1);
             this.Controls.Add(this.metroGridMovimientos);
             this.Controls.Add(this.metroDateTime1);
-            this.Controls.Add(this.metroLabel1);
+            this.Controls.Add(this.metroLabelHasta);
             this.Controls.Add(this.metroDateTimeFecha);
             this.Controls.Add(this.metroLabelNombre);
             this.MaximizeBox = false;
@@ -222,7 +222,7 @@
 
         private MetroFramework.Controls.MetroLabel metroLabelNombre;
         private MetroFramework.Controls.MetroDateTime metroDateTimeFecha;
-        private MetroFramework.Controls.MetroLabel metroLabel1;
+        private MetroFramework.Controls.MetroLabel metroLabelHasta;
         private MetroFramework.Controls.MetroDateTime metroDateTime1;
         private MetroFramework.Controls.MetroGrid metroGridMovimientos;
         private MetroFramework.Controls.MetroTile metroTileClose1;

@@ -14,7 +14,15 @@ namespace Session
         public bool InsertPersona(Persona persona)
         {
             Database database = new Database();
-            return database.WriteDB("INSERT INTO Personas (rut,first_name,last_name,tipo) VALUES ('" + persona.Rut + "','" + persona.First_name + "','" + persona.Last_name + "','"+persona.Tipo+"')");
+
+            if (SelectPersonaDelete(persona))
+            {
+                return database.WriteDB("UPDATE Personas SET first_name = '" + persona.First_name + "', last_name = '"+ persona.Last_name + "', tipo = '" + persona.Tipo + "', estado = '" + persona.Estado + "' WHERE rut = '" +persona.Rut+"'");
+            }
+            else
+            {
+                return database.WriteDB("INSERT INTO Personas (rut,first_name,last_name,tipo,estado) VALUES ('" + persona.Rut + "','" + persona.First_name + "','" + persona.Last_name + "','" + persona.Tipo + "','"+ persona.Estado +"')");
+            } 
         }
 
         public List<Persona> SelectPersona()
@@ -31,6 +39,7 @@ namespace Session
                 persona.First_name = reader["first_name"].ToString();
                 persona.Last_name = reader["last_name"].ToString();
                 persona.Tipo = Convert.ToChar(reader["tipo"].ToString());
+                persona.Estado = Convert.ToChar(reader["estado"].ToString());
 
                 persona_list.Add(persona);
             }
@@ -38,12 +47,27 @@ namespace Session
             return persona_list;
         }
 
-        public Persona GetPersona(string id_personas)
+        public bool SelectPersonaDelete(Persona persona)
+        {
+            bool exist = false;
+            Database database = new Database();
+
+            System.Data.OleDb.OleDbDataReader reader = database.ReadDB("SELECT * FROM Personas WHERE rut = '"+ persona.Rut + "' AND estado = 'E'");
+            while (reader.Read())
+            {
+                exist = true;
+            }
+
+            database.Close_Database();
+            return exist;
+        }
+
+        public Persona GetPersona(string rut)
         {
             Persona persona = new Persona();
             Database database = new Database();
 
-            System.Data.OleDb.OleDbDataReader reader = database.ReadDB("SELECT * FROM Personas WHERE id_personas = "+id_personas);
+            System.Data.OleDb.OleDbDataReader reader = database.ReadDB("SELECT * FROM Personas WHERE rut = '"+rut+"'");
             while (reader.Read())
             {
                 persona.Id_personas = Convert.ToInt32(reader["id_personas"].ToString());
@@ -73,7 +97,7 @@ namespace Session
         public bool DeleteCliente(int id_personas)
         {
             Database database = new Database();
-            return database.WriteDB("DELETE FROM Personas WHERE id_personas = " + id_personas);
+            return database.WriteDB("UPDATE Personas SET estado = 'E' WHERE id_personas = " + id_personas);
         }
 
 

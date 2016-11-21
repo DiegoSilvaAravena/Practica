@@ -20,6 +20,8 @@ namespace System
         public Movimientos()
         {
             InitializeComponent();
+            metroGridMovimientos.Columns[2].DefaultCellStyle.Format = "dd/MM/yyyy";
+            metroGridMovimientos.Columns[3].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             Tabla();
         }
         //Llenar tabla
@@ -40,17 +42,18 @@ namespace System
 
         private void metroGridMovimientos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == 4)
+            if (e.ColumnIndex == 4 && e.RowIndex != -1)
             {
+                metroLabelHasta.Text = Convert.ToString(e.RowIndex);
                 ViewCliente winViewCliente = new ViewCliente();
 
-                Persona persona = controllers.GetPersona("10");
+                Persona persona = controllers.GetPersona(metroGridMovimientos.Rows[e.RowIndex].Cells[4].Value.ToString());
 
                 winViewCliente.metroLabel1.Text = Convert.ToString(persona.Id_personas);
                 winViewCliente.metroLabel2.Text = persona.Rut;
                 winViewCliente.metroLabel3.Text = persona.First_name;
                 winViewCliente.metroLabel4.Text = persona.Last_name;
-                winViewCliente.ShowDialog(); 
+                winViewCliente.ShowDialog();
             }
         }
     }
