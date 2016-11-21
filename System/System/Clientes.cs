@@ -125,12 +125,7 @@ namespace System
                     count++;
                     return;
                 }
-                if (metroTextBoxApellidos.Text.Equals(""))
-                {
-                    MetroMessageBox.Show(this, "Apellidos no válido.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    count++;
-                    return;
-                }
+
             }
             catch
             {
@@ -144,18 +139,17 @@ namespace System
 
                 persona.Rut = metroTextBoxRUT.Text.Trim();
                 persona.First_name = metroTextBoxNombre.Text.Trim();
-                persona.Last_name = metroTextBoxApellidos.Text.Trim();
                 persona.Tipo = 'C';
                 persona.Estado = 'A';
 
                 if (controllers.InsertPersona(persona))
                 {
-                    MetroMessageBox.Show(this, "El cliente ha sido ingresado correctamente.", "EXITO", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                    MetroMessageBox.Show(this, "El proveedor ha sido ingresado correctamente.", "EXITO", MessageBoxButtons.OK, MessageBoxIcon.Question);
                     Tabla();
                 }
                 else
                 {
-                    MetroMessageBox.Show(this, "El cliente no ha sido ingresado correctamente.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MetroMessageBox.Show(this, "El proveedor no ha sido ingresado correctamente.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
