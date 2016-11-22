@@ -74,6 +74,12 @@
     <Compile Include="Compras.Designer.cs">
       <DependentUpon>Compras.cs</DependentUpon>
     </Compile>
+    <Compile Include="EditCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditCliente.Designer.cs">
+      <DependentUpon>EditCliente.cs</DependentUpon>
+    </Compile>
     <Compile Include="Movimientos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -111,6 +117,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Compras.resx">
       <DependentUpon>Compras.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditCliente.resx">
+      <DependentUpon>EditCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Home.resx">
       <DependentUpon>Home.cs</DependentUpon>

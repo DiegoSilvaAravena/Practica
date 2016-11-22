@@ -15,17 +15,17 @@ namespace Session
         {
             Database database = new Database();
 
-            if (SelectPersonaDelete(persona))
+            if (SelectPersonaExiste(persona)) //¿La persona ya existe y esta eliminado?
             {
                 return database.WriteDB("UPDATE Personas SET first_name = '" + persona.First_name + "', last_name = '"+ persona.Last_name + "', tipo = '" + persona.Tipo + "', estado = '" + persona.Estado + "' WHERE rut = '" +persona.Rut+"'");
             }
             else
             {
-                return database.WriteDB("INSERT INTO Personas (rut,first_name,last_name,tipo,estado) VALUES ('" + persona.Rut + "','" + persona.First_name + "','" + persona.Last_name + "','" + persona.Tipo + "','"+ persona.Estado +"')");
+                return database.WriteDB("INSERT INTO Personas (rut, first_name, last_name, tipo, estado) VALUES ('" + persona.Rut + "','" + persona.First_name + "','" + persona.Last_name + "','" + persona.Tipo + "','"+ persona.Estado +"')");
             } 
         }
 
-        public List<Persona> SelectPersona()
+        public List<Persona> SelectPersona() //Un select de personas.
         {
             List<Persona> persona_list = new List<Persona>();
             Database database = new Database();
@@ -47,7 +47,13 @@ namespace Session
             return persona_list;
         }
 
-        public bool SelectPersonaDelete(Persona persona)
+        public bool UpdatePersona(Persona persona)
+        {
+            Database database = new Database();
+            return database.WriteDB("UPDATE Personas SET rut = '" + persona.Rut + "', first_name = '" + persona.First_name + "', last_name = '" + persona.Last_name + "', tipo = '" + persona.Tipo + "', estado = '" + persona.Estado + "' WHERE id_personas = " + persona.Id_personas);
+        }
+
+        public bool SelectPersonaExiste(Persona persona) //Valida si existe una persona el mismo RUT.
         {
             bool exist = false;
             Database database = new Database();
@@ -62,7 +68,7 @@ namespace Session
             return exist;
         }
 
-        public Persona GetPersona(string rut)
+        public Persona GetPersonaRUT(string rut) //Obtiene una persona con un RUT.
         {
             Persona persona = new Persona();
             Database database = new Database();
@@ -80,7 +86,25 @@ namespace Session
             return persona;
         }
 
-        public string GetRUT(int id_personas)
+        public Persona GetPersonaID(string id_personas) //Obtiene una persona con un ID.
+        {
+            Persona persona = new Persona();
+            Database database = new Database();
+
+            System.Data.OleDb.OleDbDataReader reader = database.ReadDB("SELECT * FROM Personas WHERE id_personas = " + id_personas);
+            while (reader.Read())
+            {
+                persona.Id_personas = Convert.ToInt32(reader["id_personas"].ToString());
+                persona.Rut = reader["rut"].ToString();
+                persona.First_name = reader["first_name"].ToString();
+                persona.Last_name = reader["last_name"].ToString();
+                persona.Tipo = Convert.ToChar(reader["tipo"].ToString());
+            }
+            database.Close_Database();
+            return persona;
+        }
+
+        public string GetRUT(string id_personas) //Obtiene el RUT con un ID.
         {
             string rut = null;
             Database database = new Database();
@@ -128,15 +152,15 @@ namespace Session
             return database.WriteDB("INSERT INTO Movimientos (factura,fecha,dinero,id_personas) VALUES ('" + movimiento.Factura + "','" + movimiento.Fecha + "'," + movimiento.Dinero + "," + movimiento.Id_personas + ")");
         }
 
-        public bool InsertMovimiento_Productos(ArrayList producto_list)
+        public bool InsertMovimiento_Productos(ArrayList producto_id_list, ArrayList producto_cantidad_list)
         {
             Database database = new Database();
             string id_movimientos = GetID();
-            for (int i = 0; i < producto_list.Count; i++)
+            for (int i = 0; i < producto_id_list.Count; i++)
             {
-                if (database.WriteDB("INSERT INTO Movimientos_Productos (id_movimientos,id_productos) VALUES ("+ id_movimientos + "," + producto_list[i] + ")"))
+                if (database.WriteDB("INSERT INTO Movimientos_Productos (id_movimientos,id_productos) VALUES ("+ id_movimientos + "," + producto_id_list[i] + ")"))
                 {
-
+                    database.WriteDB("UPDATE Productos SET cantidad = (cantidad - " + producto_cantidad_list[i] + ") WHERE id_productos = " + producto_id_list[i]);
                 }
                 else
                 {

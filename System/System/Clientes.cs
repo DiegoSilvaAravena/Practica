@@ -53,7 +53,7 @@ namespace System
             
         }
         //Llenar tabla de clientes
-        private void Tabla()
+        public void Tabla()
         {
             List<Persona> persona_list = controllers.SelectPersona();
             metroGridClientes.Rows.Clear();
@@ -125,7 +125,12 @@ namespace System
                     count++;
                     return;
                 }
-
+                if (metroTextBoxApellidos.Text.Equals(""))
+                {
+                    MetroMessageBox.Show(this, "Apellidos no válido.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    count++;
+                    return;
+                }
             }
             catch
             {
@@ -139,17 +144,23 @@ namespace System
 
                 persona.Rut = metroTextBoxRUT.Text.Trim();
                 persona.First_name = metroTextBoxNombre.Text.Trim();
+                persona.Last_name = metroTextBoxApellidos.Text.Trim();
                 persona.Tipo = 'C';
                 persona.Estado = 'A';
 
                 if (controllers.InsertPersona(persona))
                 {
-                    MetroMessageBox.Show(this, "El proveedor ha sido ingresado correctamente.", "EXITO", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                    //Limpieza de formulario
+                    metroTextBoxRUT.Clear();
+                    metroTextBoxNombre.Clear();
+                    metroTextBoxApellidos.Clear();
                     Tabla();
+
+                    MetroMessageBox.Show(this, "El cliente ha sido ingresado correctamente.", "EXITO", MessageBoxButtons.OK, MessageBoxIcon.Question);
                 }
                 else
                 {
-                    MetroMessageBox.Show(this, "El proveedor no ha sido ingresado correctamente.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MetroMessageBox.Show(this, "El cliente no ha sido ingresado correctamente.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -174,17 +185,27 @@ namespace System
 
         private void metroTileEdit_Click(object sender, EventArgs e)
         {
+            EditCliente winEditCliente = new EditCliente();
+            winEditCliente.WinClientes = this;
 
+            Persona persona = controllers.GetPersonaID(metroGridClientes.Rows[metroGridClientes.SelectedRows[0].Index].Cells[0].Value.ToString());
+
+            winEditCliente.metroLabelID2.Text = Convert.ToString(persona.Id_personas);
+            winEditCliente.metroTextBoxRUT.Text = persona.Rut;
+            winEditCliente.metroTextBoxNombre.Text = persona.First_name;
+            winEditCliente.metroTextBoxApellidos.Text = persona.Last_name;
+
+            winEditCliente.ShowDialog();
         }
 
         private void metroTileClose1_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Dispose();
         }
 
         private void metroTileClose2_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Dispose();
         }
 
         //Formato

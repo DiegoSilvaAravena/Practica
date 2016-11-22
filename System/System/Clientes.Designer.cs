@@ -39,13 +39,13 @@
             this.metroLabelApellidos = new MetroFramework.Controls.MetroLabel();
             this.metroTabControl1 = new MetroFramework.Controls.MetroTabControl();
             this.metroTabPage1 = new MetroFramework.Controls.MetroTabPage();
-            this.metroTileAccept = new MetroFramework.Controls.MetroTile();
-            this.metroTileClose1 = new MetroFramework.Controls.MetroTile();
             this.metroTabPage2 = new MetroFramework.Controls.MetroTabPage();
             this.metroGridClientes = new MetroFramework.Controls.MetroGrid();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RUT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NOMBRE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.metroTileAccept = new MetroFramework.Controls.MetroTile();
+            this.metroTileClose1 = new MetroFramework.Controls.MetroTile();
             this.metroTileEdit = new MetroFramework.Controls.MetroTile();
             this.metroTileDelete = new MetroFramework.Controls.MetroTile();
             this.metroTileClose2 = new MetroFramework.Controls.MetroTile();
@@ -193,7 +193,7 @@
             this.metroTabControl1.Controls.Add(this.metroTabPage2);
             this.metroTabControl1.Location = new System.Drawing.Point(23, 63);
             this.metroTabControl1.Name = "metroTabControl1";
-            this.metroTabControl1.SelectedIndex = 0;
+            this.metroTabControl1.SelectedIndex = 1;
             this.metroTabControl1.Size = new System.Drawing.Size(474, 313);
             this.metroTabControl1.TabIndex = 1;
             this.metroTabControl1.UseSelectable = true;
@@ -219,34 +219,6 @@
             this.metroTabPage1.VerticalScrollbarBarColor = true;
             this.metroTabPage1.VerticalScrollbarHighlightOnWheel = false;
             this.metroTabPage1.VerticalScrollbarSize = 10;
-            // 
-            // metroTileAccept
-            // 
-            this.metroTileAccept.ActiveControl = null;
-            this.metroTileAccept.Location = new System.Drawing.Point(388, 193);
-            this.metroTileAccept.Name = "metroTileAccept";
-            this.metroTileAccept.Size = new System.Drawing.Size(75, 75);
-            this.metroTileAccept.Style = MetroFramework.MetroColorStyle.White;
-            this.metroTileAccept.TabIndex = 6;
-            this.metroTileAccept.TileImage = global::System.Properties.Resources.check;
-            this.metroTileAccept.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.metroTileAccept.UseSelectable = true;
-            this.metroTileAccept.UseTileImage = true;
-            this.metroTileAccept.Click += new System.EventHandler(this.metroTileAccept_Click);
-            // 
-            // metroTileClose1
-            // 
-            this.metroTileClose1.ActiveControl = null;
-            this.metroTileClose1.Location = new System.Drawing.Point(3, 193);
-            this.metroTileClose1.Name = "metroTileClose1";
-            this.metroTileClose1.Size = new System.Drawing.Size(75, 75);
-            this.metroTileClose1.Style = MetroFramework.MetroColorStyle.White;
-            this.metroTileClose1.TabIndex = 5;
-            this.metroTileClose1.TileImage = global::System.Properties.Resources.chevron_left;
-            this.metroTileClose1.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.metroTileClose1.UseSelectable = true;
-            this.metroTileClose1.UseTileImage = true;
-            this.metroTileClose1.Click += new System.EventHandler(this.metroTileClose1_Click);
             // 
             // metroTabPage2
             // 
@@ -339,6 +311,34 @@
             this.NOMBRE.Name = "NOMBRE";
             this.NOMBRE.ReadOnly = true;
             // 
+            // metroTileAccept
+            // 
+            this.metroTileAccept.ActiveControl = null;
+            this.metroTileAccept.Location = new System.Drawing.Point(388, 193);
+            this.metroTileAccept.Name = "metroTileAccept";
+            this.metroTileAccept.Size = new System.Drawing.Size(75, 75);
+            this.metroTileAccept.Style = MetroFramework.MetroColorStyle.White;
+            this.metroTileAccept.TabIndex = 6;
+            this.metroTileAccept.TileImage = global::System.Properties.Resources.check;
+            this.metroTileAccept.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.metroTileAccept.UseSelectable = true;
+            this.metroTileAccept.UseTileImage = true;
+            this.metroTileAccept.Click += new System.EventHandler(this.metroTileAccept_Click);
+            // 
+            // metroTileClose1
+            // 
+            this.metroTileClose1.ActiveControl = null;
+            this.metroTileClose1.Location = new System.Drawing.Point(3, 193);
+            this.metroTileClose1.Name = "metroTileClose1";
+            this.metroTileClose1.Size = new System.Drawing.Size(75, 75);
+            this.metroTileClose1.Style = MetroFramework.MetroColorStyle.White;
+            this.metroTileClose1.TabIndex = 5;
+            this.metroTileClose1.TileImage = global::System.Properties.Resources.chevron_left;
+            this.metroTileClose1.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.metroTileClose1.UseSelectable = true;
+            this.metroTileClose1.UseTileImage = true;
+            this.metroTileClose1.Click += new System.EventHandler(this.metroTileClose1_Click);
+            // 
             // metroTileEdit
             // 
             this.metroTileEdit.ActiveControl = null;
@@ -416,10 +416,10 @@
         private MetroFramework.Controls.MetroTabPage metroTabPage2;
         private MetroFramework.Controls.MetroTile metroTileClose2;
         private MetroFramework.Controls.MetroTile metroTileDelete;
-        private MetroFramework.Controls.MetroGrid metroGridClientes;
         private MetroFramework.Controls.MetroTile metroTileEdit;
         private Windows.Forms.DataGridViewTextBoxColumn ID;
         private Windows.Forms.DataGridViewTextBoxColumn RUT;
         private Windows.Forms.DataGridViewTextBoxColumn NOMBRE;
+        public MetroFramework.Controls.MetroGrid metroGridClientes;
     }
 }

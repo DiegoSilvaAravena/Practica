@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Globalization;
 
 namespace System
 {
@@ -31,23 +32,22 @@ namespace System
             metroGridMovimientos.Rows.Clear();
             for (int i = 0; i < movimiento_list.Count; i++)
             {
-                metroGridMovimientos.Rows.Insert(metroGridMovimientos.Rows.Count, movimiento_list[i].Id_movimientos, movimiento_list[i].Factura, movimiento_list[i].Fecha,movimiento_list[i].Dinero, controllers.GetRUT(movimiento_list[i].Id_personas),"Ver");
+                metroGridMovimientos.Rows.Insert(metroGridMovimientos.Rows.Count, movimiento_list[i].Id_movimientos, movimiento_list[i].Factura, movimiento_list[i].Fecha,movimiento_list[i].Dinero, controllers.GetRUT(Convert.ToString(movimiento_list[i].Id_personas)),"Ver");
             }
         }
 
         private void metroTileClose1_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Dispose();
         }
 
         private void metroGridMovimientos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex == 4 && e.RowIndex != -1)
             {
-                metroLabelHasta.Text = Convert.ToString(e.RowIndex);
                 ViewCliente winViewCliente = new ViewCliente();
 
-                Persona persona = controllers.GetPersona(metroGridMovimientos.Rows[e.RowIndex].Cells[4].Value.ToString());
+                Persona persona = controllers.GetPersonaRUT(metroGridMovimientos.Rows[e.RowIndex].Cells[4].Value.ToString());
 
                 winViewCliente.metroLabel1.Text = Convert.ToString(persona.Id_personas);
                 winViewCliente.metroLabel2.Text = persona.Rut;

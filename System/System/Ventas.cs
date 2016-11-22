@@ -45,22 +45,28 @@ namespace System
         public Ventas()
         {
             InitializeComponent();
+            LlenarProductos();
 
             //ComboBox
             List<Persona> persona_list = controllers.SelectPersona();
             for (int i = 0; i < persona_list.Count; i++)
             {
-                if (persona_list[i].Tipo == 'C')
+                if (persona_list[i].Tipo == 'C' && persona_list[i].Estado != 'E')
                 {
                     metroComboBoxCliente.Items.Add(new ComboItem(persona_list[i].Rut + " | " + persona_list[i].First_name + " " + persona_list[i].Last_name, Convert.ToString(persona_list[i].Id_personas)));
                 }
             }
+            
+
+        }
+
+        private void LlenarProductos()
+        {
             List<Producto> producto_list = controllers.SelectProducto();
             for (int i = 0; i < producto_list.Count; i++)
             {
-                metroComboBoxProducto.Items.Add(new ComboItem(Convert.ToString(producto_list[i].Codigo + " | Stock: "+producto_list[i].Cantidad), Convert.ToString(producto_list[i].Id_productos),producto_list[i].Codigo,producto_list[i].Cantidad));
+                metroComboBoxProducto.Items.Add(new ComboItem(Convert.ToString(producto_list[i].Codigo + " | Stock: " + producto_list[i].Cantidad), Convert.ToString(producto_list[i].Id_productos), producto_list[i].Codigo, producto_list[i].Cantidad));
             }
-
         }
 
         private void metroTextBoxFactura_KeyPress(object sender, KeyPressEventArgs e)
@@ -129,6 +135,7 @@ namespace System
 
                 if (metroTextBoxCantidad.Text.Equals("") || Convert.ToInt32(metroTextBoxCantidad.Text) == 0)
                 {
+
                     MetroMessageBox.Show(this, "Cantidad no válido.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     count++;
                     return;
@@ -229,7 +236,8 @@ namespace System
                 ComboItem selected_cliente = (ComboItem) metroComboBoxCliente.SelectedItem;
 
                 Movimiento movimiento = new Movimiento();
-                ArrayList producto_list = new ArrayList();
+                ArrayList producto_id_list = new ArrayList();
+                ArrayList producto_cantidad_list = new ArrayList();
 
                 movimiento.Factura = Convert.ToInt32(metroTextBoxFactura.Text);
                 movimiento.Fecha = metroDateTimeFecha.Value;
@@ -238,12 +246,25 @@ namespace System
 
                 for (int i = 0; i < metroGridProductos.Rows.Count; i++)
                 {
-                    producto_list.Add(metroGridProductos.Rows[i].Cells[0].Value.ToString());
+                    producto_id_list.Add(metroGridProductos.Rows[i].Cells[0].Value.ToString());
+                    producto_cantidad_list.Add(metroGridProductos.Rows[i].Cells[2].Value.ToString());
                 }
 
                 if (controllers.InsertMovimiento(movimiento))
                 {
-                    controllers.InsertMovimiento_Productos(producto_list);
+                    controllers.InsertMovimiento_Productos(producto_id_list, producto_cantidad_list);
+
+                    //Limpieza de formulario
+                    metroComboBoxCliente.SelectedIndex = -1;
+                    //metroDateTimeFecha.Value = new DateTime();
+                    metroTextBoxFactura.Clear();
+                    metroTextBoxPrecio.Clear();
+                    metroComboBoxProducto.SelectedIndex = -1;
+                    metroGridProductos.Rows.Clear();
+                    metroTextBoxCantidad.Text = "1";
+                    metroComboBoxProducto.Items.Clear();
+                    LlenarProductos();
+
                     MetroMessageBox.Show(this, "La venta ha sido ingresada correctamente.", "EXITO", MessageBoxButtons.OK, MessageBoxIcon.Question);
                 }
                 else
@@ -253,9 +274,9 @@ namespace System
             }
         }
         //Botones
-        private void metroTileClose1_Click(object sender, EventArgs e)
+        private void metroTileClose_Click_1(object sender, EventArgs e)
         {
-            this.Close();
+            this.Dispose();
         }
     }
 }

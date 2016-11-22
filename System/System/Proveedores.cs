@@ -55,12 +55,12 @@ namespace System
         private void Tabla()
         {
             List<Persona> persona_list = controllers.SelectPersona();
-            metroGridProv.Rows.Clear();
+            metroGridClientes.Rows.Clear();
             for (int i = 0; i < persona_list.Count; i++)
             {
                 if (persona_list[i].Tipo == 'P')
                 {
-                    metroGridProv.Rows.Insert(metroGridProv.Rows.Count, persona_list[i].Id_personas, persona_list[i].Rut, persona_list[i].First_name + " " + persona_list[i].Last_name);
+                    metroGridClientes.Rows.Insert(metroGridClientes.Rows.Count, persona_list[i].Id_personas, persona_list[i].Rut, persona_list[i].First_name + " " + persona_list[i].Last_name);
                 }
               
             }
@@ -108,7 +108,57 @@ namespace System
                 persona.Rut = txtRutProv.Text.Trim();
                 persona.First_name = txtNombreProv.Text.Trim();
                 persona.Tipo = 'P';
-                persona.Estado = 'A';
+
+                if (controllers.InsertPersona(persona))
+                {
+                    MetroMessageBox.Show(this, "El proveedor ha sido ingresado correctamente.", "EXITO", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                    Tabla();
+                }
+                else
+                {
+                    MetroMessageBox.Show(this, "El proveedor no ha sido ingresado correctamente.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+        private void metroTileAccept_Click(object sender, EventArgs e)
+        {
+            int count = 0;
+
+            //Validaciones
+            try
+            {
+                if (txtRutProv.Text.Equals(""))
+                {
+                    MetroMessageBox.Show(this, "RUT no válido.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    count++;
+                    return;
+                }
+                if (txtRutProv.Text.Length < 12)
+                {
+                    MetroMessageBox.Show(this, "RUT no válido.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    count++;
+                    return;
+                }
+                if (txtNombreProv.Text.Equals(""))
+                {
+                    MetroMessageBox.Show(this, "Nombre no válido.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    count++;
+                    return;
+                }
+            }
+            catch
+            {
+
+            }
+
+            //Acción
+            if (count == 0)
+            {
+                Persona persona = new Persona();
+
+                persona.Rut = txtRutProv.Text.Trim();
+                persona.First_name = txtNombreProv.Text.Trim();
+                persona.Tipo = 'P';
 
                 if (controllers.InsertPersona(persona))
                 {
@@ -122,16 +172,15 @@ namespace System
             }
         }
 
-
         private void metroTileDelete_Click(object sender, EventArgs e)
         {
-            int id_personas = Convert.ToInt32(metroGridProv.Rows[metroGridProv.SelectedRows[0].Index].Cells[0].Value.ToString());
+            int id_personas = Convert.ToInt32(metroGridClientes.Rows[metroGridClientes.SelectedRows[0].Index].Cells[0].Value.ToString());
 
             if (MetroMessageBox.Show(this, "¿Está seguro de que desea eliminar el proveedor seleccionado?", "AVISO", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
             {
                 if (controllers.DeleteCliente(id_personas))
                 {
-                    metroGridProv.Rows.RemoveAt(this.metroGridProv.SelectedRows[0].Index);
+                    metroGridClientes.Rows.RemoveAt(this.metroGridClientes.SelectedRows[0].Index);
                     MetroMessageBox.Show(this, "El proveedor ha sido eliminado correctamente.", "EXITO", MessageBoxButtons.OK, MessageBoxIcon.Question);
                 }
                 else
@@ -167,34 +216,13 @@ namespace System
         //Bloqueo de RUT
         private void txtRutProv_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!(char.IsNumber(e.KeyChar) 
-                || (e.KeyChar == 'K' 
-                || e.KeyChar == 'k' 
-                || e.KeyChar == '.' 
-                || e.KeyChar == '-')) && (e.KeyChar != (char)Keys.Back))
+            if (!(char.IsNumber(e.KeyChar) || (e.KeyChar == 'K' || e.KeyChar == 'k' || e.KeyChar == '.' || e.KeyChar == '-')) && (e.KeyChar != (char)Keys.Back))
             {
                 e.Handled = true;
                 return;
             }
         }
-        //txt Enter y Leave
-        private void txtRutProv_Enter(object sender, EventArgs e)
-        {
-            txtRutProv.ForeColor = Color.Black;
-        }
-        private void txtRutProv_Leave(object sender, EventArgs e)
-        {
-            txtRutProv.ForeColor = Color.Gray;
-            txtRutProv.Text = FormatoRUT(txtRutProv.Text);
-        }
 
-        private void txtNombreProv_Enter(object sender, EventArgs e)
-        {
-            txtNombreProv.ForeColor = Color.Black;
-        }
-        private void txtNombreProv_Leave(object sender, EventArgs e)
-        {
-            txtNombreProv.ForeColor = Color.Gray;
-        }
+
     }
 }
