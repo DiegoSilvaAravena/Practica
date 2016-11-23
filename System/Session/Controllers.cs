@@ -151,7 +151,7 @@ namespace Session
             Database database = new Database();
             return database.WriteDB("INSERT INTO Movimientos (factura,fecha,dinero,id_personas) VALUES ('" + movimiento.Factura + "','" + movimiento.Fecha + "'," + movimiento.Dinero + "," + movimiento.Id_personas + ")");
         }
-
+        //restarProducto
         public bool InsertMovimiento_Productos(ArrayList producto_id_list, ArrayList producto_cantidad_list)
         {
             Database database = new Database();
@@ -161,6 +161,24 @@ namespace Session
                 if (database.WriteDB("INSERT INTO Movimientos_Productos (id_movimientos,id_productos) VALUES ("+ id_movimientos + "," + producto_id_list[i] + ")"))
                 {
                     database.WriteDB("UPDATE Productos SET cantidad = (cantidad - " + producto_cantidad_list[i] + ") WHERE id_productos = " + producto_id_list[i]);
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+        //agregarProducto
+        public bool InsertMasMovimiento_Productos(ArrayList producto_id_list, ArrayList producto_cantidad_list)
+        {
+            Database database = new Database();
+            string id_movimientos = GetID();
+            for (int i = 0; i < producto_id_list.Count; i++)
+            {
+                if (database.WriteDB("INSERT INTO Movimientos_Productos (id_movimientos,id_productos) VALUES (" + id_movimientos + "," + producto_id_list[i] + ")"))
+                {
+                    database.WriteDB("UPDATE Productos SET cantidad = (cantidad + " + producto_cantidad_list[i] + ") WHERE id_productos = " + producto_id_list[i]);
                 }
                 else
                 {
