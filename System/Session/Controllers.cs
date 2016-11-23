@@ -222,5 +222,14 @@ namespace Session
             database.Close_Database();
             return movimiento_list;
         }
+
+        //Controladores de Movimientos
+        public bool InsertProducto(Producto producto)
+        {
+            Database database = new Database();
+
+            return database.WriteDB("INSERT INTO Producto (codigo,cantidad) VALUES (" + producto.Codigo + "," + producto.Cantidad + ")");
+
+        }
     }
 }

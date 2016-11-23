@@ -125,6 +125,7 @@
             this.metroTileProductos.TileImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.metroTileProductos.UseSelectable = true;
             this.metroTileProductos.UseTileImage = true;
+            this.metroTileProductos.Click += new System.EventHandler(this.metroTileProductos_Click);
             // 
             // metroTileProveedores
             // 

@@ -52,5 +52,11 @@ namespace System
         {
 
         }
+
+        private void metroTileProductos_Click(object sender, EventArgs e)
+        {
+            Productos winProductos = new Productos();
+            winProductos.ShowDialog();
+        }
     }
 }

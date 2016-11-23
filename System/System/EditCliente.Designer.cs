@@ -169,7 +169,7 @@
             this.metroLabelID1.Name = "metroLabelID1";
             this.metroLabelID1.Size = new System.Drawing.Size(81, 29);
             this.metroLabelID1.TabIndex = 13;
-            this.metroLabelID1.Text = "RUT";
+            this.metroLabelID1.Text = "ID";
             this.metroLabelID1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // metroLabelID2

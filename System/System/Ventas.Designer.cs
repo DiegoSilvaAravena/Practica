@@ -94,6 +94,9 @@
             this.metroTextBoxCantidad.UseSelectable = true;
             this.metroTextBoxCantidad.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.metroTextBoxCantidad.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.metroTextBoxCantidad.Enter += new System.EventHandler(this.metroTextBoxCantidad_Enter);
+            this.metroTextBoxCantidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.metroTextBoxCantidad_KeyPress);
+            this.metroTextBoxCantidad.Leave += new System.EventHandler(this.metroTextBoxCantidad_Leave);
             // 
             // metroTileAccept
             // 
@@ -107,6 +110,7 @@
             this.metroTileAccept.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.metroTileAccept.UseSelectable = true;
             this.metroTileAccept.UseTileImage = true;
+            this.metroTileAccept.Click += new System.EventHandler(this.metroTileAccept_Click);
             // 
             // metroTileClose
             // 
@@ -232,6 +236,9 @@
             this.metroTextBoxFactura.UseSelectable = true;
             this.metroTextBoxFactura.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.metroTextBoxFactura.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.metroTextBoxFactura.Enter += new System.EventHandler(this.metroTextBoxFactura_Enter);
+            this.metroTextBoxFactura.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.metroTextBoxFactura_KeyPress);
+            this.metroTextBoxFactura.Leave += new System.EventHandler(this.metroTextBoxFactura_Leave);
             // 
             // metroButtonClear
             // 
@@ -241,6 +248,7 @@
             this.metroButtonClear.TabIndex = 28;
             this.metroButtonClear.Text = "-";
             this.metroButtonClear.UseSelectable = true;
+            this.metroButtonClear.Click += new System.EventHandler(this.metroButtonClear_Click);
             // 
             // metroButtonAdd
             // 
@@ -250,6 +258,7 @@
             this.metroButtonAdd.TabIndex = 27;
             this.metroButtonAdd.Text = "+";
             this.metroButtonAdd.UseSelectable = true;
+            this.metroButtonAdd.Click += new System.EventHandler(this.metroButtonAdd_Click);
             // 
             // metroComboBoxCliente
             // 
@@ -338,6 +347,9 @@
             this.metroTextBoxPrecio.UseSelectable = true;
             this.metroTextBoxPrecio.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.metroTextBoxPrecio.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.metroTextBoxPrecio.Enter += new System.EventHandler(this.metroTextBoxPrecio_Enter);
+            this.metroTextBoxPrecio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.metroTextBoxPrecio_KeyPress);
+            this.metroTextBoxPrecio.Leave += new System.EventHandler(this.metroTextBoxPrecio_Leave);
             // 
             // Ventas
             // 

@@ -60,3 +60,4 @@ C:\Users\Pandemonium\Source\Repos\Practica\System\System\obj\Debug\System.Compra
 C:\Users\Pandemonium\Source\Repos\Practica\System\System\obj\Debug\System.Proveedores.resources
 C:\Users\Pandemonium\Source\Repos\Practica\System\System\obj\Debug\System.ViewCliente.resources
 C:\Users\Pandemonium\Source\Repos\Practica\System\System\obj\Debug\System.EditCliente.resources
+C:\Users\Pandemonium\Source\Repos\Practica\System\System\obj\Debug\System.Productos.resources

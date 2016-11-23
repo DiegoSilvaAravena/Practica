@@ -79,7 +79,17 @@ namespace System
             }
         }
 
-        private void metroTextBox1_KeyPress(object sender, KeyPressEventArgs e)
+        private void metroTextBoxPrecio_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            {
+                MetroMessageBox.Show(this, "Solo se permiten números.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void metroTextBoxCantidad_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
             {
@@ -278,5 +288,7 @@ namespace System
         {
             this.Dispose();
         }
+
+       
     }
 }
