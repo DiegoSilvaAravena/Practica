@@ -24,8 +24,9 @@ namespace System
             metroGridMovimientos.Columns[2].DefaultCellStyle.Format = "dd/MM/yyyy";
             metroGridMovimientos.Columns[3].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             Tabla();
+            Total();
         }
-        //Llenar tabla
+
         private void Tabla()
         {
             List<Movimiento> movimiento_list = controllers.SelectMovimiento();
@@ -34,6 +35,18 @@ namespace System
             {
                 metroGridMovimientos.Rows.Insert(metroGridMovimientos.Rows.Count, movimiento_list[i].Id_movimientos, movimiento_list[i].Factura, movimiento_list[i].Fecha,movimiento_list[i].Dinero, controllers.GetRUT(Convert.ToString(movimiento_list[i].Id_personas)),"Ver");
             }
+        }
+
+        private void Total()
+        {
+            int total = 0;
+
+            for (int i = 0; i < metroGridMovimientos.RowCount; i++)
+            {
+                total = total + Convert.ToInt32(metroGridMovimientos.Rows[i].Cells[3].Value.ToString());
+            }
+
+            metroLabelTotal.Text = "$"+Convert.ToString(total);
         }
 
         private void metroTileClose1_Click(object sender, EventArgs e)
@@ -55,6 +68,11 @@ namespace System
                 winViewCliente.metroLabel4.Text = persona.Last_name;
                 winViewCliente.ShowDialog();
             }
+        }
+
+        private void metroTileFiltro_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

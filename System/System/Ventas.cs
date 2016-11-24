@@ -153,7 +153,7 @@ namespace System
 
                 if (Convert.ToInt32(metroTextBoxCantidad.Text) > items_producto.Cantidad)
                 {
-                    MetroMessageBox.Show(this, "Cantidad no válido.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MetroMessageBox.Show(this, "Cantidad no válido.\nStock insuficiente.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     count++;
                     return;
                 }

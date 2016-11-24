@@ -42,9 +42,10 @@
             this.DINERO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PERSONA = new System.Windows.Forms.DataGridViewButtonColumn();
             this.PRODUCTOS = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.metroTileClose1 = new MetroFramework.Controls.MetroTile();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabelTotal = new MetroFramework.Controls.MetroLabel();
+            this.metroTileFiltro = new MetroFramework.Controls.MetroTile();
+            this.metroTileClose1 = new MetroFramework.Controls.MetroTile();
             ((System.ComponentModel.ISupportInitialize)(this.metroGridMovimientos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -59,6 +60,7 @@
             // 
             // metroDateTimeFecha
             // 
+            this.metroDateTimeFecha.Checked = false;
             this.metroDateTimeFecha.Location = new System.Drawing.Point(110, 63);
             this.metroDateTimeFecha.MinimumSize = new System.Drawing.Size(0, 29);
             this.metroDateTimeFecha.Name = "metroDateTimeFecha";
@@ -76,6 +78,7 @@
             // 
             // metroDateTime1
             // 
+            this.metroDateTime1.Checked = false;
             this.metroDateTime1.Location = new System.Drawing.Point(437, 63);
             this.metroDateTime1.MinimumSize = new System.Drawing.Size(0, 29);
             this.metroDateTime1.Name = "metroDateTime1";
@@ -185,6 +188,37 @@
             this.PRODUCTOS.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.PRODUCTOS.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
+            // metroLabel1
+            // 
+            this.metroLabel1.Location = new System.Drawing.Point(23, 379);
+            this.metroLabel1.Name = "metroLabel1";
+            this.metroLabel1.Size = new System.Drawing.Size(81, 29);
+            this.metroLabel1.TabIndex = 23;
+            this.metroLabel1.Text = "Dinero";
+            this.metroLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // metroLabelTotal
+            // 
+            this.metroLabelTotal.Location = new System.Drawing.Point(110, 379);
+            this.metroLabelTotal.Name = "metroLabelTotal";
+            this.metroLabelTotal.Size = new System.Drawing.Size(162, 29);
+            this.metroLabelTotal.TabIndex = 24;
+            this.metroLabelTotal.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // metroTileFiltro
+            // 
+            this.metroTileFiltro.ActiveControl = null;
+            this.metroTileFiltro.Location = new System.Drawing.Point(596, 411);
+            this.metroTileFiltro.Name = "metroTileFiltro";
+            this.metroTileFiltro.Size = new System.Drawing.Size(75, 75);
+            this.metroTileFiltro.Style = MetroFramework.MetroColorStyle.White;
+            this.metroTileFiltro.TabIndex = 25;
+            this.metroTileFiltro.TileImage = global::System.Properties.Resources.search;
+            this.metroTileFiltro.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.metroTileFiltro.UseSelectable = true;
+            this.metroTileFiltro.UseTileImage = true;
+            this.metroTileFiltro.Click += new System.EventHandler(this.metroTileFiltro_Click);
+            // 
             // metroTileClose1
             // 
             this.metroTileClose1.ActiveControl = null;
@@ -199,31 +233,14 @@
             this.metroTileClose1.UseTileImage = true;
             this.metroTileClose1.Click += new System.EventHandler(this.metroTileClose1_Click);
             // 
-            // metroLabel1
-            // 
-            this.metroLabel1.Location = new System.Drawing.Point(23, 379);
-            this.metroLabel1.Name = "metroLabel1";
-            this.metroLabel1.Size = new System.Drawing.Size(81, 29);
-            this.metroLabel1.TabIndex = 23;
-            this.metroLabel1.Text = "Dinero";
-            this.metroLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // metroLabel2
-            // 
-            this.metroLabel2.Location = new System.Drawing.Point(110, 379);
-            this.metroLabel2.Name = "metroLabel2";
-            this.metroLabel2.Size = new System.Drawing.Size(81, 29);
-            this.metroLabel2.TabIndex = 24;
-            this.metroLabel2.Text = "$00.000";
-            this.metroLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
             // Movimientos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(694, 509);
             this.ControlBox = false;
-            this.Controls.Add(this.metroLabel2);
+            this.Controls.Add(this.metroTileFiltro);
+            this.Controls.Add(this.metroLabelTotal);
             this.Controls.Add(this.metroLabel1);
             this.Controls.Add(this.metroTileClose1);
             this.Controls.Add(this.metroGridMovimientos);
@@ -255,6 +272,7 @@
         private Windows.Forms.DataGridViewButtonColumn PERSONA;
         private Windows.Forms.DataGridViewButtonColumn PRODUCTOS;
         private MetroFramework.Controls.MetroLabel metroLabel1;
-        private MetroFramework.Controls.MetroLabel metroLabel2;
+        private MetroFramework.Controls.MetroLabel metroLabelTotal;
+        private MetroFramework.Controls.MetroTile metroTileFiltro;
     }
 }

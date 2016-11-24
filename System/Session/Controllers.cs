@@ -151,7 +151,7 @@ namespace Session
             Database database = new Database();
             return database.WriteDB("INSERT INTO Movimientos (factura,fecha,dinero,id_personas) VALUES ('" + movimiento.Factura + "','" + movimiento.Fecha + "'," + movimiento.Dinero + "," + movimiento.Id_personas + ")");
         }
-        //restarProducto
+        // - Producto
         public bool InsertMovimiento_Productos(ArrayList producto_id_list, ArrayList producto_cantidad_list)
         {
             Database database = new Database();
@@ -169,7 +169,7 @@ namespace Session
             }
             return true;
         }
-        //agregarProducto
+        // + Producto
         public bool InsertMasMovimiento_Productos(ArrayList producto_id_list, ArrayList producto_cantidad_list)
         {
             Database database = new Database();
