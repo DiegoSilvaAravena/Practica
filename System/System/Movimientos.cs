@@ -22,6 +22,7 @@ namespace System
         {
             InitializeComponent();
             metroGridMovimientos.Columns[2].DefaultCellStyle.Format = "dd/MM/yyyy";
+            metroDateTimeDesde.CustomFormat = "dd/MM/yyyy";
             metroGridMovimientos.Columns[3].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             Tabla();
             Total();
@@ -37,16 +38,42 @@ namespace System
             }
         }
 
+        private void TablaFiltroFecha()
+        {
+            List<Movimiento> movimiento_list = controllers.SelectMovimiento();
+            metroGridMovimientos.Rows.Clear();
+            for (int i = 0; i < movimiento_list.Count; i++)
+            {
+                if (movimiento_list[i].Fecha >= metroDateTimeDesde.Value && movimiento_list[i].Fecha <= metroDateTimeHasta.Value)
+                {
+                    metroGridMovimientos.Rows.Insert(metroGridMovimientos.Rows.Count, movimiento_list[i].Id_movimientos, movimiento_list[i].Factura, movimiento_list[i].Fecha, movimiento_list[i].Dinero, controllers.GetRUT(Convert.ToString(movimiento_list[i].Id_personas)), "Ver");
+                }
+            }
+        }
+
         private void Total()
         {
             int total = 0;
+            int ingresos = 0;
+            int egresos = 0;
 
             for (int i = 0; i < metroGridMovimientos.RowCount; i++)
             {
                 total = total + Convert.ToInt32(metroGridMovimientos.Rows[i].Cells[3].Value.ToString());
+                if (Convert.ToInt32(metroGridMovimientos.Rows[i].Cells[3].Value.ToString()) > 0)
+                {
+                    ingresos = ingresos + Convert.ToInt32(metroGridMovimientos.Rows[i].Cells[3].Value.ToString());
+                }
+
+                if (Convert.ToInt32(metroGridMovimientos.Rows[i].Cells[3].Value.ToString()) < 0)
+                {
+                    egresos = egresos + Convert.ToInt32(metroGridMovimientos.Rows[i].Cells[3].Value.ToString());
+                }
             }
 
             metroLabelTotal.Text = "$"+Convert.ToString(total);
+            metroLabelIngresos.Text = "$" + Convert.ToString(ingresos);
+            metroLabelEgresos.Text = "$" + Convert.ToString(egresos);
         }
 
         private void metroTileClose1_Click(object sender, EventArgs e)
@@ -72,7 +99,23 @@ namespace System
 
         private void metroTileFiltro_Click(object sender, EventArgs e)
         {
+            if (metroToggleFecha.Checked == true)
+            {
+                TablaFiltroFecha();
+            }else
+            {
+                Tabla();
+            }
+            
+            Total();
+        }
 
+        private void metroDateTimeDesde_ValueChanged(object sender, EventArgs e)
+        {
+            if (metroDateTimeDesde.Value > metroDateTimeHasta.Value)
+            {
+                metroDateTimeHasta.Value = metroDateTimeDesde.Value;
+            }
         }
     }
 }

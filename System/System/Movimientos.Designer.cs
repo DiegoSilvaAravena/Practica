@@ -32,9 +32,9 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.metroLabelNombre = new MetroFramework.Controls.MetroLabel();
-            this.metroDateTimeFecha = new MetroFramework.Controls.MetroDateTime();
+            this.metroDateTimeDesde = new MetroFramework.Controls.MetroDateTime();
             this.metroLabelHasta = new MetroFramework.Controls.MetroLabel();
-            this.metroDateTime1 = new MetroFramework.Controls.MetroDateTime();
+            this.metroDateTimeHasta = new MetroFramework.Controls.MetroDateTime();
             this.metroGridMovimientos = new MetroFramework.Controls.MetroGrid();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FACTURA = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,44 +46,50 @@
             this.metroLabelTotal = new MetroFramework.Controls.MetroLabel();
             this.metroTileFiltro = new MetroFramework.Controls.MetroTile();
             this.metroTileClose1 = new MetroFramework.Controls.MetroTile();
+            this.metroToggleFecha = new MetroFramework.Controls.MetroToggle();
+            this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabelEgresos = new MetroFramework.Controls.MetroLabel();
+            this.metroLabelIngresos = new MetroFramework.Controls.MetroLabel();
             ((System.ComponentModel.ISupportInitialize)(this.metroGridMovimientos)).BeginInit();
             this.SuspendLayout();
             // 
             // metroLabelNombre
             // 
-            this.metroLabelNombre.Location = new System.Drawing.Point(23, 63);
+            this.metroLabelNombre.Location = new System.Drawing.Point(141, 63);
             this.metroLabelNombre.Name = "metroLabelNombre";
-            this.metroLabelNombre.Size = new System.Drawing.Size(81, 29);
+            this.metroLabelNombre.Size = new System.Drawing.Size(47, 29);
             this.metroLabelNombre.TabIndex = 6;
             this.metroLabelNombre.Text = "Desde";
             this.metroLabelNombre.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // metroDateTimeFecha
+            // metroDateTimeDesde
             // 
-            this.metroDateTimeFecha.Checked = false;
-            this.metroDateTimeFecha.Location = new System.Drawing.Point(110, 63);
-            this.metroDateTimeFecha.MinimumSize = new System.Drawing.Size(0, 29);
-            this.metroDateTimeFecha.Name = "metroDateTimeFecha";
-            this.metroDateTimeFecha.Size = new System.Drawing.Size(234, 29);
-            this.metroDateTimeFecha.TabIndex = 18;
+            this.metroDateTimeDesde.Checked = false;
+            this.metroDateTimeDesde.Location = new System.Drawing.Point(194, 63);
+            this.metroDateTimeDesde.MinimumSize = new System.Drawing.Size(0, 29);
+            this.metroDateTimeDesde.Name = "metroDateTimeDesde";
+            this.metroDateTimeDesde.Size = new System.Drawing.Size(234, 29);
+            this.metroDateTimeDesde.TabIndex = 18;
+            this.metroDateTimeDesde.ValueChanged += new System.EventHandler(this.metroDateTimeDesde_ValueChanged);
             // 
             // metroLabelHasta
             // 
-            this.metroLabelHasta.Location = new System.Drawing.Point(350, 63);
+            this.metroLabelHasta.Location = new System.Drawing.Point(434, 63);
             this.metroLabelHasta.Name = "metroLabelHasta";
-            this.metroLabelHasta.Size = new System.Drawing.Size(81, 29);
+            this.metroLabelHasta.Size = new System.Drawing.Size(41, 29);
             this.metroLabelHasta.TabIndex = 19;
             this.metroLabelHasta.Text = "Hasta";
             this.metroLabelHasta.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // metroDateTime1
+            // metroDateTimeHasta
             // 
-            this.metroDateTime1.Checked = false;
-            this.metroDateTime1.Location = new System.Drawing.Point(437, 63);
-            this.metroDateTime1.MinimumSize = new System.Drawing.Size(0, 29);
-            this.metroDateTime1.Name = "metroDateTime1";
-            this.metroDateTime1.Size = new System.Drawing.Size(234, 29);
-            this.metroDateTime1.TabIndex = 20;
+            this.metroDateTimeHasta.Checked = false;
+            this.metroDateTimeHasta.Location = new System.Drawing.Point(481, 63);
+            this.metroDateTimeHasta.MinimumSize = new System.Drawing.Size(0, 29);
+            this.metroDateTimeHasta.Name = "metroDateTimeHasta";
+            this.metroDateTimeHasta.Size = new System.Drawing.Size(234, 29);
+            this.metroDateTimeHasta.TabIndex = 20;
             // 
             // metroGridMovimientos
             // 
@@ -135,7 +141,7 @@
             this.metroGridMovimientos.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.metroGridMovimientos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.metroGridMovimientos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.metroGridMovimientos.Size = new System.Drawing.Size(648, 233);
+            this.metroGridMovimientos.Size = new System.Drawing.Size(692, 233);
             this.metroGridMovimientos.TabIndex = 21;
             this.metroGridMovimientos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.metroGridMovimientos_CellContentClick);
             // 
@@ -194,14 +200,14 @@
             this.metroLabel1.Name = "metroLabel1";
             this.metroLabel1.Size = new System.Drawing.Size(81, 29);
             this.metroLabel1.TabIndex = 23;
-            this.metroLabel1.Text = "Dinero";
+            this.metroLabel1.Text = "Total";
             this.metroLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // metroLabelTotal
             // 
             this.metroLabelTotal.Location = new System.Drawing.Point(110, 379);
             this.metroLabelTotal.Name = "metroLabelTotal";
-            this.metroLabelTotal.Size = new System.Drawing.Size(162, 29);
+            this.metroLabelTotal.Size = new System.Drawing.Size(139, 29);
             this.metroLabelTotal.TabIndex = 24;
             this.metroLabelTotal.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -233,20 +239,68 @@
             this.metroTileClose1.UseTileImage = true;
             this.metroTileClose1.Click += new System.EventHandler(this.metroTileClose1_Click);
             // 
+            // metroToggleFecha
+            // 
+            this.metroToggleFecha.Location = new System.Drawing.Point(44, 69);
+            this.metroToggleFecha.Name = "metroToggleFecha";
+            this.metroToggleFecha.Size = new System.Drawing.Size(80, 20);
+            this.metroToggleFecha.TabIndex = 26;
+            this.metroToggleFecha.Text = "Off";
+            this.metroToggleFecha.UseSelectable = true;
+            // 
+            // metroLabel2
+            // 
+            this.metroLabel2.Location = new System.Drawing.Point(255, 379);
+            this.metroLabel2.Name = "metroLabel2";
+            this.metroLabel2.Size = new System.Drawing.Size(60, 29);
+            this.metroLabel2.TabIndex = 27;
+            this.metroLabel2.Text = "Ingresos";
+            this.metroLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // metroLabel4
+            // 
+            this.metroLabel4.Location = new System.Drawing.Point(466, 379);
+            this.metroLabel4.Name = "metroLabel4";
+            this.metroLabel4.Size = new System.Drawing.Size(60, 29);
+            this.metroLabel4.TabIndex = 29;
+            this.metroLabel4.Text = "Egresos";
+            this.metroLabel4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // metroLabelEgresos
+            // 
+            this.metroLabelEgresos.Location = new System.Drawing.Point(547, 379);
+            this.metroLabelEgresos.Name = "metroLabelEgresos";
+            this.metroLabelEgresos.Size = new System.Drawing.Size(139, 29);
+            this.metroLabelEgresos.TabIndex = 30;
+            this.metroLabelEgresos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // metroLabelIngresos
+            // 
+            this.metroLabelIngresos.Location = new System.Drawing.Point(321, 379);
+            this.metroLabelIngresos.Name = "metroLabelIngresos";
+            this.metroLabelIngresos.Size = new System.Drawing.Size(139, 29);
+            this.metroLabelIngresos.TabIndex = 31;
+            this.metroLabelIngresos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // Movimientos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(694, 509);
+            this.ClientSize = new System.Drawing.Size(738, 509);
             this.ControlBox = false;
+            this.Controls.Add(this.metroLabelIngresos);
+            this.Controls.Add(this.metroLabelEgresos);
+            this.Controls.Add(this.metroLabel4);
+            this.Controls.Add(this.metroLabel2);
+            this.Controls.Add(this.metroToggleFecha);
             this.Controls.Add(this.metroTileFiltro);
             this.Controls.Add(this.metroLabelTotal);
             this.Controls.Add(this.metroLabel1);
             this.Controls.Add(this.metroTileClose1);
             this.Controls.Add(this.metroGridMovimientos);
-            this.Controls.Add(this.metroDateTime1);
+            this.Controls.Add(this.metroDateTimeHasta);
             this.Controls.Add(this.metroLabelHasta);
-            this.Controls.Add(this.metroDateTimeFecha);
+            this.Controls.Add(this.metroDateTimeDesde);
             this.Controls.Add(this.metroLabelNombre);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -260,9 +314,9 @@
         #endregion
 
         private MetroFramework.Controls.MetroLabel metroLabelNombre;
-        private MetroFramework.Controls.MetroDateTime metroDateTimeFecha;
+        private MetroFramework.Controls.MetroDateTime metroDateTimeDesde;
         private MetroFramework.Controls.MetroLabel metroLabelHasta;
-        private MetroFramework.Controls.MetroDateTime metroDateTime1;
+        private MetroFramework.Controls.MetroDateTime metroDateTimeHasta;
         private MetroFramework.Controls.MetroGrid metroGridMovimientos;
         private MetroFramework.Controls.MetroTile metroTileClose1;
         private Windows.Forms.DataGridViewTextBoxColumn ID;
@@ -274,5 +328,10 @@
         private MetroFramework.Controls.MetroLabel metroLabel1;
         private MetroFramework.Controls.MetroLabel metroLabelTotal;
         private MetroFramework.Controls.MetroTile metroTileFiltro;
+        private MetroFramework.Controls.MetroToggle metroToggleFecha;
+        private MetroFramework.Controls.MetroLabel metroLabel2;
+        private MetroFramework.Controls.MetroLabel metroLabel4;
+        private MetroFramework.Controls.MetroLabel metroLabelEgresos;
+        private MetroFramework.Controls.MetroLabel metroLabelIngresos;
     }
 }
