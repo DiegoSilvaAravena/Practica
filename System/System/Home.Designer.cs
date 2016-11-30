@@ -96,6 +96,7 @@
             this.metroTileInventario.TileImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.metroTileInventario.UseSelectable = true;
             this.metroTileInventario.UseTileImage = true;
+            this.metroTileInventario.Click += new System.EventHandler(this.metroTileInventario_Click);
             // 
             // metroTileVentas
             // 

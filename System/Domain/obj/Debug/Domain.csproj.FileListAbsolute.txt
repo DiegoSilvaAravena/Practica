@@ -17,3 +17,8 @@ C:\Users\super\Source\Repos\Practica4\System\Domain\bin\Debug\Domain.pdb
 C:\Users\super\Source\Repos\Practica4\System\Domain\obj\Debug\Domain.csprojResolveAssemblyReference.cache
 C:\Users\super\Source\Repos\Practica4\System\Domain\obj\Debug\Domain.dll
 C:\Users\super\Source\Repos\Practica4\System\Domain\obj\Debug\Domain.pdb
+C:\Users\super\Source\Repos\Practica5\System\Domain\bin\Debug\Domain.dll
+C:\Users\super\Source\Repos\Practica5\System\Domain\bin\Debug\Domain.pdb
+C:\Users\super\Source\Repos\Practica5\System\Domain\obj\Debug\Domain.csprojResolveAssemblyReference.cache
+C:\Users\super\Source\Repos\Practica5\System\Domain\obj\Debug\Domain.dll
+C:\Users\super\Source\Repos\Practica5\System\Domain\obj\Debug\Domain.pdb

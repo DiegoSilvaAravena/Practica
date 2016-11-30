@@ -251,5 +251,10 @@ namespace System
         {
             this.Close();
         }
+
+        private void btnCerrarLista_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

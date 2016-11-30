@@ -58,5 +58,11 @@ namespace System
             Productos winProductos = new Productos();
             winProductos.ShowDialog();
         }
+
+        private void metroTileInventario_Click(object sender, EventArgs e)
+        {
+            Inventario winInventario = new Inventario();
+            winInventario.ShowDialog();
+        }
     }
 }
