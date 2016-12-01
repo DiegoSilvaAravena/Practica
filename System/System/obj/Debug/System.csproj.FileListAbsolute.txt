@@ -110,3 +110,4 @@ C:\Users\super\Source\Repos\Practica5\System\System\obj\Debug\System.Ventas.reso
 C:\Users\super\Source\Repos\Practica5\System\System\obj\Debug\System.ViewCliente.resources
 C:\Users\super\Source\Repos\Practica5\System\System\obj\Debug\System.csproj.GenerateResource.Cache
 C:\Users\super\Source\Repos\Practica5\System\System\obj\Debug\System.Inventario.resources
+C:\Users\super\Source\Repos\Practica5\System\System\obj\Debug\System.EditProveedor.resources

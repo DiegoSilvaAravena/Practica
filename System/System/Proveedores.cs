@@ -52,7 +52,7 @@ namespace System
             Tabla();
 
         }
-        private void Tabla()
+        public void Tabla()
         {
             List<Persona> persona_list = controllers.SelectPersona();
             metroGridProv.Rows.Clear();
@@ -112,8 +112,13 @@ namespace System
 
                 if (controllers.InsertPersona(persona))
                 {
-                    MetroMessageBox.Show(this, "El proveedor ha sido ingresado correctamente.", "EXITO", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                    txtRutProv.Clear();
+                    txtNombreProv.Clear();
+
                     Tabla();
+
+                    MetroMessageBox.Show(this, "El proveedor ha sido ingresado correctamente.", "EXITO", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                    
                 }
                 else
                 {
@@ -143,7 +148,16 @@ namespace System
 
         private void metroTileEdit_Click(object sender, EventArgs e)
         {
+            EditProveedor winEditProveedor = new EditProveedor();
+            winEditProveedor.WinProveedor = this;
 
+            Persona persona = controllers.GetPersonaID(metroGridProv.Rows[metroGridProv.SelectedRows[0].Index].Cells[0].Value.ToString());
+
+            winEditProveedor.metroLabelID2.Text = Convert.ToString(persona.Id_personas);
+            winEditProveedor.metroTextBoxRUT.Text = persona.Rut;
+            winEditProveedor.metroTextBoxNombre.Text = persona.First_name;
+
+            winEditProveedor.ShowDialog();
         }
 
 
@@ -196,5 +210,7 @@ namespace System
         {
             txtNombreProv.ForeColor = Color.Gray;
         }
+
+
     }
 }
