@@ -13,7 +13,9 @@ Link: https://drive.google.com/drive/folders/0By4AKqpDVsBxOUhHT2lMZDM4YlE (15-11
 * 15-11-2016
   * Se añadio la columna FACTURA a la tabla MOVIMIENTOS.
 * 20-11-2016
-  * Se añadio la columna ESTADO a la tabla PERSONAS y PRODUCTOS. 'A' es de activo y 'E' es de eliminado.
+  * Se añadio la columna ESTADO a la tabla PERSONAS. 'A' es de activo y 'E' es de eliminado.
+* 03-12-2016
+  * Se añadió la columna ESTADO a la tabla PRODUCTOS.  'A' es de activo y 'E' es de eliminado
   
 # MetroUI 1.4.0
 
