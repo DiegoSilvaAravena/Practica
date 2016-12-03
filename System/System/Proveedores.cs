@@ -211,6 +211,22 @@ namespace System
             txtNombreProv.ForeColor = Color.Gray;
         }
 
+        private void metroTileDelete_Click_1(object sender, EventArgs e)
+        {
+            int id_personas = Convert.ToInt32(metroGridProv.Rows[metroGridProv.SelectedRows[0].Index].Cells[0].Value.ToString());
 
+            if (MetroMessageBox.Show(this, "¿Está seguro de que desea eliminar el proveedor "+ metroGridProv.Rows[metroGridProv.SelectedRows[0].Index].Cells[2].Value.ToString() + "?", "AVISO", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
+            {
+                if (controllers.DeleteCliente(id_personas))
+                {
+                    metroGridProv.Rows.RemoveAt(this.metroGridProv.SelectedRows[0].Index);
+                    MetroMessageBox.Show(this, "El proveedor ha sido eliminado correctamente.", "EXITO", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                }
+                else
+                {
+                    MetroMessageBox.Show(this, "El proveedor no ha sido eliminado correctamente.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
     }
 }

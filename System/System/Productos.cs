@@ -61,6 +61,7 @@ namespace System
 
                 producto.Codigo = Convert.ToInt32(metroTextBoxCodigo.Text.Trim());
                 producto.Cantidad = 0;
+                producto.Estado ='A';
 
                 if (controllers.InsertProducto(producto))
                 {

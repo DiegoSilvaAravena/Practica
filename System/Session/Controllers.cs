@@ -138,6 +138,7 @@ namespace Session
                 producto.Id_productos = Convert.ToInt32(reader["id_productos"].ToString());
                 producto.Codigo = Convert.ToInt32(reader["codigo"].ToString());
                 producto.Cantidad = Convert.ToInt32(reader["cantidad"].ToString());
+                producto.Estado = Convert.ToChar(reader["estado"].ToString());
 
                 producto_list.Add(producto);
             }
@@ -242,12 +243,41 @@ namespace Session
         }
 
         //Controladores de Movimientos
+
+        public bool SelectProductoExiste(Producto producto)
+        {
+            bool exist = false;
+            Database database = new Database();
+
+            System.Data.OleDb.OleDbDataReader reader = database.ReadDB("SELECT * FROM Productos WHERE codigo = " + producto.Codigo + " AND estado = 'E'");
+            while (reader.Read())
+            {
+                exist = true;
+            }
+
+            database.Close_Database();
+            return exist;
+        }
+    
         public bool InsertProducto(Producto producto)
         {
             Database database = new Database();
 
-            return database.WriteDB("INSERT INTO Producto (codigo,cantidad) VALUES (" + producto.Codigo + "," + producto.Cantidad + ")");
+            if (SelectProductoExiste(producto)) //¿El producto ya existe y esta eliminado?
+            {
+                return database.WriteDB("UPDATE Productos SET codigo = "+producto.Codigo+" , cantidad = "+producto.Cantidad+", estado = '"+ producto.Estado+ "' WHERE codigo = "+producto.Codigo);
+            }
+            else
+            {
+                return database.WriteDB("INSERT INTO Productos (codigo,cantidad,estado) VALUES (" + producto.Codigo + "," + producto.Cantidad + ",'" + producto.Estado + "')");
+            }
 
         }
+        public bool DeleteProducto(int id_productos)
+        {
+            Database database = new Database();
+            return database.WriteDB("UPDATE Productos SET estado = 'E' WHERE id_productos = " + id_productos);
+        }
+
     }
 }

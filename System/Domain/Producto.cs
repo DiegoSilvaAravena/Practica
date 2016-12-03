@@ -11,6 +11,7 @@ namespace Domain
         int id_productos;
         int codigo;
         int cantidad;
+        char estado;
 
         public int Id_productos
         {
@@ -48,6 +49,19 @@ namespace Domain
             set
             {
                 cantidad = value;
+            }
+        }
+
+        public char Estado
+        {
+            get
+            {
+                return estado;
+            }
+
+            set
+            {
+                estado = value;
             }
         }
 

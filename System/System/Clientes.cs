@@ -169,7 +169,7 @@ namespace System
         {
             int id_personas = Convert.ToInt32(metroGridClientes.Rows[metroGridClientes.SelectedRows[0].Index].Cells[0].Value.ToString());
 
-            if (MetroMessageBox.Show(this, "¿Está seguro de que desea eliminar el cliente seleccionado?", "AVISO", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
+            if (MetroMessageBox.Show(this, "¿Está seguro de que desea eliminar el cliente "+ metroGridClientes.Rows[metroGridClientes.SelectedRows[0].Index].Cells[2].Value.ToString() +"?", "AVISO", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
             {
                 if (controllers.DeleteCliente(id_personas))
                 {

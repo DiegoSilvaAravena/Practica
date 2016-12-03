@@ -40,13 +40,13 @@
             this.btnAgregarProv = new MetroFramework.Controls.MetroTile();
             this.btnCerrar = new MetroFramework.Controls.MetroTile();
             this.metroTabPage2 = new MetroFramework.Controls.MetroTabPage();
-            this.metroTileEdit = new MetroFramework.Controls.MetroTile();
-            this.metroTileDelete = new MetroFramework.Controls.MetroTile();
-            this.btnCerrarLista = new MetroFramework.Controls.MetroTile();
             this.metroGridProv = new MetroFramework.Controls.MetroGrid();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RUT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NOMBRE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.metroTileEdit = new MetroFramework.Controls.MetroTile();
+            this.metroTileDelete = new MetroFramework.Controls.MetroTile();
+            this.btnCerrarLista = new MetroFramework.Controls.MetroTile();
             this.metroTabControl1.SuspendLayout();
             this.metroTabPage1.SuspendLayout();
             this.metroTabPage2.SuspendLayout();
@@ -217,47 +217,6 @@
             this.metroTabPage2.VerticalScrollbarHighlightOnWheel = false;
             this.metroTabPage2.VerticalScrollbarSize = 10;
             // 
-            // metroTileEdit
-            // 
-            this.metroTileEdit.ActiveControl = null;
-            this.metroTileEdit.Location = new System.Drawing.Point(307, 193);
-            this.metroTileEdit.Name = "metroTileEdit";
-            this.metroTileEdit.Size = new System.Drawing.Size(75, 75);
-            this.metroTileEdit.Style = MetroFramework.MetroColorStyle.White;
-            this.metroTileEdit.TabIndex = 8;
-            this.metroTileEdit.TileImage = global::System.Properties.Resources.pencil;
-            this.metroTileEdit.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.metroTileEdit.UseSelectable = true;
-            this.metroTileEdit.UseTileImage = true;
-            this.metroTileEdit.Click += new System.EventHandler(this.metroTileEdit_Click);
-            // 
-            // metroTileDelete
-            // 
-            this.metroTileDelete.ActiveControl = null;
-            this.metroTileDelete.Location = new System.Drawing.Point(388, 193);
-            this.metroTileDelete.Name = "metroTileDelete";
-            this.metroTileDelete.Size = new System.Drawing.Size(75, 75);
-            this.metroTileDelete.Style = MetroFramework.MetroColorStyle.White;
-            this.metroTileDelete.TabIndex = 9;
-            this.metroTileDelete.TileImage = global::System.Properties.Resources.times;
-            this.metroTileDelete.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.metroTileDelete.UseSelectable = true;
-            this.metroTileDelete.UseTileImage = true;
-            // 
-            // btnCerrarLista
-            // 
-            this.btnCerrarLista.ActiveControl = null;
-            this.btnCerrarLista.Location = new System.Drawing.Point(3, 193);
-            this.btnCerrarLista.Name = "btnCerrarLista";
-            this.btnCerrarLista.Size = new System.Drawing.Size(75, 75);
-            this.btnCerrarLista.Style = MetroFramework.MetroColorStyle.White;
-            this.btnCerrarLista.TabIndex = 7;
-            this.btnCerrarLista.TileImage = global::System.Properties.Resources.chevron_left;
-            this.btnCerrarLista.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnCerrarLista.UseSelectable = true;
-            this.btnCerrarLista.UseTileImage = true;
-            this.btnCerrarLista.Click += new System.EventHandler(this.btnCerrarLista_Click);
-            // 
             // metroGridProv
             // 
             this.metroGridProv.AllowUserToAddRows = false;
@@ -330,6 +289,48 @@
             this.NOMBRE.HeaderText = "NOMBRE COMPLETO";
             this.NOMBRE.Name = "NOMBRE";
             this.NOMBRE.ReadOnly = true;
+            // 
+            // metroTileEdit
+            // 
+            this.metroTileEdit.ActiveControl = null;
+            this.metroTileEdit.Location = new System.Drawing.Point(307, 193);
+            this.metroTileEdit.Name = "metroTileEdit";
+            this.metroTileEdit.Size = new System.Drawing.Size(75, 75);
+            this.metroTileEdit.Style = MetroFramework.MetroColorStyle.White;
+            this.metroTileEdit.TabIndex = 8;
+            this.metroTileEdit.TileImage = global::System.Properties.Resources.pencil;
+            this.metroTileEdit.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.metroTileEdit.UseSelectable = true;
+            this.metroTileEdit.UseTileImage = true;
+            this.metroTileEdit.Click += new System.EventHandler(this.metroTileEdit_Click);
+            // 
+            // metroTileDelete
+            // 
+            this.metroTileDelete.ActiveControl = null;
+            this.metroTileDelete.Location = new System.Drawing.Point(388, 193);
+            this.metroTileDelete.Name = "metroTileDelete";
+            this.metroTileDelete.Size = new System.Drawing.Size(75, 75);
+            this.metroTileDelete.Style = MetroFramework.MetroColorStyle.White;
+            this.metroTileDelete.TabIndex = 9;
+            this.metroTileDelete.TileImage = global::System.Properties.Resources.times;
+            this.metroTileDelete.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.metroTileDelete.UseSelectable = true;
+            this.metroTileDelete.UseTileImage = true;
+            this.metroTileDelete.Click += new System.EventHandler(this.metroTileDelete_Click_1);
+            // 
+            // btnCerrarLista
+            // 
+            this.btnCerrarLista.ActiveControl = null;
+            this.btnCerrarLista.Location = new System.Drawing.Point(3, 193);
+            this.btnCerrarLista.Name = "btnCerrarLista";
+            this.btnCerrarLista.Size = new System.Drawing.Size(75, 75);
+            this.btnCerrarLista.Style = MetroFramework.MetroColorStyle.White;
+            this.btnCerrarLista.TabIndex = 7;
+            this.btnCerrarLista.TileImage = global::System.Properties.Resources.chevron_left;
+            this.btnCerrarLista.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnCerrarLista.UseSelectable = true;
+            this.btnCerrarLista.UseTileImage = true;
+            this.btnCerrarLista.Click += new System.EventHandler(this.btnCerrarLista_Click);
             // 
             // Proveedores
             // 

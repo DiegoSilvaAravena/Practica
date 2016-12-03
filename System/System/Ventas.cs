@@ -65,7 +65,11 @@ namespace System
             List<Producto> producto_list = controllers.SelectProducto();
             for (int i = 0; i < producto_list.Count; i++)
             {
-                metroComboBoxProducto.Items.Add(new ComboItem(Convert.ToString(producto_list[i].Codigo + " | Stock: " + producto_list[i].Cantidad), Convert.ToString(producto_list[i].Id_productos), producto_list[i].Codigo, producto_list[i].Cantidad));
+                if (producto_list[i].Estado!='E')
+                {
+                    metroComboBoxProducto.Items.Add(new ComboItem(Convert.ToString(producto_list[i].Codigo + " | Stock: " + producto_list[i].Cantidad), Convert.ToString(producto_list[i].Id_productos), producto_list[i].Codigo, producto_list[i].Cantidad));
+                }
+              
             }
         }
 

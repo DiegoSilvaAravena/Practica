@@ -48,7 +48,7 @@ namespace System
             List<Persona> persona_list = controllers.SelectPersona();
             for (int i = 0; i < persona_list.Count; i++)
             {
-                if (persona_list[i].Tipo == 'P')
+                if (persona_list[i].Tipo == 'P'&&persona_list[i].Estado!='E')
                 {
                     cboProveedor.Items.Add(new ComboItem(persona_list[i].Rut + " | " + persona_list[i].First_name + " " + persona_list[i].Last_name, Convert.ToString(persona_list[i].Id_personas)));
                 }
@@ -57,7 +57,11 @@ namespace System
             List<Producto> producto_list = controllers.SelectProducto();
             for (int i = 0; i < producto_list.Count; i++)
             {
-                cboProducto.Items.Add(new ComboItem(Convert.ToString(producto_list[i].Codigo + " | Stock: " + producto_list[i].Cantidad), Convert.ToString(producto_list[i].Id_productos), producto_list[i].Codigo, producto_list[i].Cantidad));
+                if (producto_list[i].Estado != 'E')
+                {
+                    cboProducto.Items.Add(new ComboItem(Convert.ToString(producto_list[i].Codigo + " | Stock: " + producto_list[i].Cantidad), Convert.ToString(producto_list[i].Id_productos), producto_list[i].Codigo, producto_list[i].Cantidad));
+                }
+
             }
         }
 
@@ -249,12 +253,12 @@ namespace System
         //Botones
         private void metroTileClose1_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Dispose();
         }
 
         private void btnCerrarLista_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Dispose();
         }
     }
 }
