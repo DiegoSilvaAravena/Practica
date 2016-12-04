@@ -47,6 +47,7 @@
             this.metroTileEdit = new MetroFramework.Controls.MetroTile();
             this.metroTileDelete = new MetroFramework.Controls.MetroTile();
             this.btnCerrarLista = new MetroFramework.Controls.MetroTile();
+            this.metroToolTip1 = new MetroFramework.Components.MetroToolTip();
             this.metroTabControl1.SuspendLayout();
             this.metroTabPage1.SuspendLayout();
             this.metroTabPage2.SuspendLayout();
@@ -98,6 +99,7 @@
             this.txtRutProv.ShortcutsEnabled = true;
             this.txtRutProv.Size = new System.Drawing.Size(376, 29);
             this.txtRutProv.TabIndex = 2;
+            this.metroToolTip1.SetToolTip(this.txtRutProv, "Ingrese RUT del proveedor");
             this.txtRutProv.UseCustomForeColor = true;
             this.txtRutProv.UseSelectable = true;
             this.txtRutProv.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -133,6 +135,7 @@
             this.txtNombreProv.ShortcutsEnabled = true;
             this.txtNombreProv.Size = new System.Drawing.Size(376, 29);
             this.txtNombreProv.TabIndex = 3;
+            this.metroToolTip1.SetToolTip(this.txtNombreProv, "Ingrese nombre del proveedor");
             this.txtNombreProv.UseCustomForeColor = true;
             this.txtNombreProv.UseSelectable = true;
             this.txtNombreProv.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -182,6 +185,7 @@
             this.btnAgregarProv.TabIndex = 8;
             this.btnAgregarProv.TileImage = global::System.Properties.Resources.check;
             this.btnAgregarProv.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.metroToolTip1.SetToolTip(this.btnAgregarProv, "Ingresar");
             this.btnAgregarProv.UseSelectable = true;
             this.btnAgregarProv.UseTileImage = true;
             this.btnAgregarProv.Click += new System.EventHandler(this.btnAgregarProv_Click);
@@ -196,6 +200,7 @@
             this.btnCerrar.TabIndex = 7;
             this.btnCerrar.TileImage = global::System.Properties.Resources.chevron_left;
             this.btnCerrar.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.metroToolTip1.SetToolTip(this.btnCerrar, "Volver");
             this.btnCerrar.UseSelectable = true;
             this.btnCerrar.UseTileImage = true;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
@@ -301,6 +306,7 @@
             this.metroTileEdit.TabIndex = 8;
             this.metroTileEdit.TileImage = global::System.Properties.Resources.pencil;
             this.metroTileEdit.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.metroToolTip1.SetToolTip(this.metroTileEdit, "Editar proveedor seleccionado");
             this.metroTileEdit.UseSelectable = true;
             this.metroTileEdit.UseTileImage = true;
             this.metroTileEdit.Click += new System.EventHandler(this.metroTileEdit_Click);
@@ -315,6 +321,7 @@
             this.metroTileDelete.TabIndex = 9;
             this.metroTileDelete.TileImage = global::System.Properties.Resources.times;
             this.metroTileDelete.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.metroToolTip1.SetToolTip(this.metroTileDelete, "Eliminar proveedor seleccionado");
             this.metroTileDelete.UseSelectable = true;
             this.metroTileDelete.UseTileImage = true;
             this.metroTileDelete.Click += new System.EventHandler(this.metroTileDelete_Click_1);
@@ -329,9 +336,16 @@
             this.btnCerrarLista.TabIndex = 7;
             this.btnCerrarLista.TileImage = global::System.Properties.Resources.chevron_left;
             this.btnCerrarLista.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.metroToolTip1.SetToolTip(this.btnCerrarLista, "Volver");
             this.btnCerrarLista.UseSelectable = true;
             this.btnCerrarLista.UseTileImage = true;
             this.btnCerrarLista.Click += new System.EventHandler(this.btnCerrarLista_Click);
+            // 
+            // metroToolTip1
+            // 
+            this.metroToolTip1.Style = MetroFramework.MetroColorStyle.Blue;
+            this.metroToolTip1.StyleManager = null;
+            this.metroToolTip1.Theme = MetroFramework.MetroThemeStyle.Light;
             // 
             // Proveedores
             // 
@@ -373,5 +387,6 @@
         private Windows.Forms.DataGridViewTextBoxColumn ID;
         private Windows.Forms.DataGridViewTextBoxColumn RUT;
         private Windows.Forms.DataGridViewTextBoxColumn NOMBRE;
+        private MetroFramework.Components.MetroToolTip metroToolTip1;
     }
 }

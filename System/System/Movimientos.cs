@@ -1,17 +1,10 @@
 ﻿using Session;
 using Domain;
 using MetroFramework.Forms;
-using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Globalization;
 using MetroFramework;
+using System.Drawing;
 
 namespace System
 {
@@ -36,18 +29,36 @@ namespace System
             for (int i = 0; i < movimiento_list.Count; i++)
             {
                 metroGridMovimientos.Rows.Insert(metroGridMovimientos.Rows.Count, movimiento_list[i].Id_movimientos, movimiento_list[i].Factura, movimiento_list[i].Fecha, movimiento_list[i].Dinero, movimiento_list[i].Rut_personas, "Ver");
+                if (movimiento_list[i].Dinero <= 0)
+                {
+                    metroGridMovimientos.Rows[metroGridMovimientos.Rows.Count - 1].Cells[3].Style.ForeColor = Color.Red;
+
+                }
+                else
+                {
+                    metroGridMovimientos.Rows[metroGridMovimientos.Rows.Count - 1].Cells[3].Style.ForeColor = Color.Green;
+                }
             }
         }
 
         private void TablaFiltroFecha()
         {
-            List<Movimiento> movimiento_list = controllers.SelectMovimiento();
+            List<Movimiento> movimiento_list = controllers.SelectMovimientoConRUT();
             metroGridMovimientos.Rows.Clear();
             for (int i = 0; i < movimiento_list.Count; i++)
             {
-                if (movimiento_list[i].Fecha >= metroDateTimeDesde.Value && movimiento_list[i].Fecha <= metroDateTimeHasta.Value)
+                if (Convert.ToDateTime(movimiento_list[i].Fecha.ToString("MMMM dd, yyyy")) >= Convert.ToDateTime(metroDateTimeDesde.Value.ToString("MMMM dd, yyyy")) && Convert.ToDateTime(movimiento_list[i].Fecha.ToString("MMMM dd, yyyy")) <= Convert.ToDateTime(metroDateTimeHasta.Value.ToString("MMMM dd, yyyy")))
                 {
                     metroGridMovimientos.Rows.Insert(metroGridMovimientos.Rows.Count, movimiento_list[i].Id_movimientos, movimiento_list[i].Factura, movimiento_list[i].Fecha, movimiento_list[i].Dinero, movimiento_list[i].Rut_personas, "Ver");
+                    if (movimiento_list[i].Dinero <= 0)
+                    {
+                        metroGridMovimientos.Rows[metroGridMovimientos.Rows.Count - 1].Cells[3].Style.ForeColor = Color.Red;
+
+                    }
+                    else
+                    {
+                        metroGridMovimientos.Rows[metroGridMovimientos.Rows.Count - 1].Cells[3].Style.ForeColor = Color.Green;
+                    }
                 }
             }
         }
@@ -72,6 +83,30 @@ namespace System
                 }
             }
 
+            
+            if (total <= 0)
+            {
+                metroLabelTotal.ForeColor = Color.Red;
+            }
+            else{
+                metroLabelTotal.ForeColor = Color.Green;
+            }
+            if (ingresos <= 0)
+            {
+                metroLabelIngresos.ForeColor = Color.Red;
+            }
+            else
+            {
+                metroLabelIngresos.ForeColor = Color.Green;
+            }
+            if (egresos <= 0)
+            {
+                metroLabelEgresos.ForeColor = Color.Red;
+            }
+            else
+            {
+                metroLabelEgresos.ForeColor = Color.Green;
+            }
             metroLabelTotal.Text = "$" + Convert.ToString(total);
             metroLabelIngresos.Text = "$" + Convert.ToString(ingresos);
             metroLabelEgresos.Text = "$" + Convert.ToString(egresos);

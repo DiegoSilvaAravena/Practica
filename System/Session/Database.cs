@@ -15,7 +15,7 @@ namespace Session
 
         private void ConnectTo()
         {
-            connection = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Access\Database.accdb;Persist Security Info=False");
+            connection = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\BalatasSL\Database.accdb;Persist Security Info=False");
             command = connection.CreateCommand();
         }
 

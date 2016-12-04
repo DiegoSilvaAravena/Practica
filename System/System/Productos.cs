@@ -28,15 +28,7 @@ namespace System
             this.Dispose();
         }
 
-        private void metroTextBoxCodigo_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
-            {
-                MetroMessageBox.Show(this, "Solo se permiten números.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                e.Handled = true;
-                return;
-            }
-        }
+
 
         //TextBox Focus
         private void metroTextBoxCodigo_Enter(object sender, EventArgs e)
@@ -59,7 +51,7 @@ namespace System
             {
                 Producto producto = new Producto();
 
-                producto.Codigo = Convert.ToInt32(metroTextBoxCodigo.Text.Trim());
+                producto.Codigo = metroTextBoxCodigo.Text.Trim().ToUpper();
                 producto.Cantidad = 0;
                 producto.Estado ='A';
 

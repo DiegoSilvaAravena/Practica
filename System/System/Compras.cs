@@ -2,15 +2,9 @@
 using MetroFramework;
 using MetroFramework.Forms;
 using Session;
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace System
@@ -23,7 +17,7 @@ namespace System
         {
             public string Text { get; set; }
             public string Value { get; set; }
-            public int Codigo { get; set; }
+            public string Codigo { get; set; }
             public int Cantidad { get; set; }
             public override string ToString() { return Text; }
 
@@ -33,7 +27,7 @@ namespace System
                 this.Value = Value;
             }
 
-            public ComboItem(String Text, String Value, int Codigo, int Cantidad)
+            public ComboItem(String Text, String Value, string Codigo, int Cantidad)
             {
                 this.Text = Text;
                 this.Value = Value;
@@ -44,25 +38,18 @@ namespace System
         public Compras()
         {
             InitializeComponent();
+            LlenarCombo();
             //ComboBox
             List<Persona> persona_list = controllers.SelectPersona();
             for (int i = 0; i < persona_list.Count; i++)
             {
-                if (persona_list[i].Tipo == 'P'&&persona_list[i].Estado!='E')
+                if (persona_list[i].Tipo == 'P' && persona_list[i].Estado != 'E')
                 {
                     cboProveedor.Items.Add(new ComboItem(persona_list[i].Rut + " | " + persona_list[i].First_name + " " + persona_list[i].Last_name, Convert.ToString(persona_list[i].Id_personas)));
                 }
 
             }
-            List<Producto> producto_list = controllers.SelectProducto();
-            for (int i = 0; i < producto_list.Count; i++)
-            {
-                if (producto_list[i].Estado != 'E')
-                {
-                    cboProducto.Items.Add(new ComboItem(Convert.ToString(producto_list[i].Codigo + " | Stock: " + producto_list[i].Cantidad), Convert.ToString(producto_list[i].Id_productos), producto_list[i].Codigo, producto_list[i].Cantidad));
-                }
 
-            }
         }
 
         private void txtFactura_KeyPress(object sender, KeyPressEventArgs e)
@@ -75,7 +62,18 @@ namespace System
             }
         }
 
+        public void LlenarCombo()
+        {
+            List<Producto> producto_list = controllers.SelectProducto();
+            for (int i = 0; i < producto_list.Count; i++)
+            {
+                if (producto_list[i].Estado != 'E')
+                {
+                    cboProducto.Items.Add(new ComboItem(Convert.ToString(producto_list[i].Codigo + " | Stock: " + producto_list[i].Cantidad), Convert.ToString(producto_list[i].Id_productos), producto_list[i].Codigo, producto_list[i].Cantidad));
+                }
 
+            }
+        }
 
         //TextBox Focus
         private void txtFacturaFactura_Enter(object sender, EventArgs e)
@@ -158,7 +156,7 @@ namespace System
             {
 
                 int id_productos = Convert.ToInt32(items_producto.Value);
-                int codigo = items_producto.Codigo;
+                string codigo = items_producto.Codigo;
                 int cantidad = Convert.ToInt32(txtCantidad.Text);
 
                 GVProductos.Rows.Insert(0, id_productos, codigo, cantidad);
@@ -238,15 +236,30 @@ namespace System
                     producto_list.Add(GVProductos.Rows[i].Cells[0].Value.ToString());
                     producto_cantidad.Add(GVProductos.Rows[i].Cells[2].Value.ToString());
                 }
+                if (MetroMessageBox.Show(this, "¿Está seguro de que desea ingresar la siguiente compra?\nProveedor: " + selected_proveedor.Text + "\nFecha: " + metroDateTimeFecha.Value+ "\nN° Factura: " + txtFactura.Text + "\nPrecio: $" + ((Convert.ToSingle(txtPrecio.Text) + Convert.ToSingle(txtPrecioFlete.Text))), "AVISO", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
+                {
+                    if (controllers.InsertMovimiento(movimiento))
+                    {
+                        controllers.InsertMasMovimiento_Productos(producto_list, producto_cantidad);
+                        //Limpieza de formulario
+                        cboProveedor.SelectedIndex = -1;
+                        //metroDateTimeFecha.Value = new DateTime();
+                        txtFactura.Clear();
+                        txtPrecio.Clear();
+                        txtPrecioFlete.Clear();
+                        cboProducto.SelectedIndex = -1;
+                        GVProductos.Rows.Clear();
+                        txtCantidad.Text = "1";
+                        txtPrecioFlete.Text = "0";
+                        cboProducto.Items.Clear();
+                        LlenarCombo();
 
-                if (controllers.InsertMovimiento(movimiento))
-                {
-                    controllers.InsertMasMovimiento_Productos(producto_list, producto_cantidad);
-                    MetroMessageBox.Show(this, "La compra ha sido ingresada correctamente.", "EXITO", MessageBoxButtons.OK, MessageBoxIcon.Question);
-                }
-                else
-                {
-                    MetroMessageBox.Show(this, "La compra no ha sido ingresada correctamente.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MetroMessageBox.Show(this, "La compra ha sido ingresada correctamente.", "EXITO", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                    }
+                    else
+                    {
+                        MetroMessageBox.Show(this, "La compra no ha sido ingresada correctamente.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
         }
@@ -259,6 +272,18 @@ namespace System
         private void btnCerrarLista_Click(object sender, EventArgs e)
         {
             this.Dispose();
+        }
+
+        private void txtPrecioFlete_Click(object sender, EventArgs e)
+        {
+            txtPrecioFlete.SelectionStart = 0;
+            txtPrecioFlete.SelectionLength = txtPrecioFlete.Text.Length;
+        }
+
+        private void txtCantidad_Click(object sender, EventArgs e)
+        {
+            txtCantidad.SelectionStart = 0;
+            txtCantidad.SelectionLength = txtCantidad.Text.Length;
         }
     }
 }

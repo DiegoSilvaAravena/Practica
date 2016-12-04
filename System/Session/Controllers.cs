@@ -122,7 +122,7 @@ namespace Session
             {
                 Producto producto = new Producto();
                 producto.Id_productos = Convert.ToInt32(reader["id_productos"].ToString());
-                producto.Codigo = Convert.ToInt32(reader["codigo"].ToString());
+                producto.Codigo = (reader["codigo"].ToString());
                 producto.Cantidad = Convert.ToInt32(reader["cantidad"].ToString());
                 producto.Estado = Convert.ToChar(reader["estado"].ToString());
 
@@ -137,7 +137,7 @@ namespace Session
             bool exist = false;
             Database database = new Database();
 
-            System.Data.OleDb.OleDbDataReader reader = database.ReadDB("SELECT * FROM Productos WHERE codigo = " + producto.Codigo + " AND estado = 'E'");
+            System.Data.OleDb.OleDbDataReader reader = database.ReadDB("SELECT * FROM Productos WHERE codigo = '" + producto.Codigo + "' AND estado = 'E'");
             while (reader.Read())
             {
                 exist = true;
@@ -152,12 +152,12 @@ namespace Session
             Database database = new Database();
 
             if (SelectProductoExiste(producto)) //¿El producto ya existe y esta eliminado?
-            {
-                return database.WriteDB("UPDATE Productos SET codigo = " + producto.Codigo + " , cantidad = " + producto.Cantidad + ", estado = '" + producto.Estado + "' WHERE codigo = " + producto.Codigo);
+            { 
+                return database.WriteDB("UPDATE Productos SET codigo = '"+producto.Codigo+"', cantidad = " + producto.Cantidad + ", estado = '" + producto.Estado + "' WHERE codigo = '" + producto.Codigo+"'");
             }
             else
             {
-                return database.WriteDB("INSERT INTO Productos (codigo,cantidad,estado) VALUES (" + producto.Codigo + "," + producto.Cantidad + ",'" + producto.Estado + "')");
+                return database.WriteDB("INSERT INTO Productos (codigo,cantidad,estado) VALUES ('"+producto.Codigo+"'," + producto.Cantidad + ",'" + producto.Estado + "')");
             }
 
         }
@@ -295,7 +295,7 @@ namespace Session
             {
                 Producto producto = new Producto();
                 producto.Id_productos = Convert.ToInt32(reader["Productos.id_productos"].ToString());
-                producto.Codigo = Convert.ToInt32(reader["codigo"].ToString());
+                producto.Codigo = (reader["codigo"].ToString());
                 producto.Cantidad = Convert.ToInt32(reader["Movimientos_Productos.cantidad"].ToString());
                 producto.Estado = Convert.ToChar(reader["estado"].ToString());
 

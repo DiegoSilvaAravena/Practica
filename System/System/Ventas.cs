@@ -2,15 +2,9 @@
 using MetroFramework;
 using MetroFramework.Forms;
 using Session;
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace System
@@ -23,7 +17,7 @@ namespace System
         {
             public string Text { get; set; }
             public string Value { get; set; }
-            public int Codigo { get; set; }
+            public string Codigo { get; set; }
             public int Cantidad { get; set; }
             public override string ToString() { return Text; }
 
@@ -33,7 +27,7 @@ namespace System
                 this.Value = Value;
             }
 
-            public ComboItem(String Text, String Value, int Codigo, int Cantidad)
+            public ComboItem(String Text, String Value, string Codigo, int Cantidad)
             {
                 this.Text = Text;
                 this.Value = Value;
@@ -183,7 +177,7 @@ namespace System
             {
 
                 int id_productos = Convert.ToInt32(items_producto.Value);
-                int codigo = items_producto.Codigo;
+                string codigo = items_producto.Codigo;
                 int cantidad = Convert.ToInt32(metroTextBoxCantidad.Text);
 
                 metroGridProductos.Rows.Insert(0, id_productos, codigo, cantidad);
@@ -263,28 +257,31 @@ namespace System
                     producto_id_list.Add(metroGridProductos.Rows[i].Cells[0].Value.ToString());
                     producto_cantidad_list.Add(metroGridProductos.Rows[i].Cells[2].Value.ToString());
                 }
-
-                if (controllers.InsertMovimiento(movimiento))
+                if (MetroMessageBox.Show(this, "¿Está seguro de que desea ingresar la siguiente venta?\nCliente: "+ selected_cliente.Text+"\nFecha: "+ metroDateTimeFecha.Value+"\nN° Factura: "+ metroTextBoxFactura.Text+"\nPrecio: $"+ metroTextBoxPrecio.Text, "AVISO", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
                 {
-                    controllers.InsertMenosMovimiento_Productos(producto_id_list, producto_cantidad_list);
+                    if (controllers.InsertMovimiento(movimiento))
+                    {
+                        controllers.InsertMenosMovimiento_Productos(producto_id_list, producto_cantidad_list);
 
-                    //Limpieza de formulario
-                    metroComboBoxCliente.SelectedIndex = -1;
-                    //metroDateTimeFecha.Value = new DateTime();
-                    metroTextBoxFactura.Clear();
-                    metroTextBoxPrecio.Clear();
-                    metroComboBoxProducto.SelectedIndex = -1;
-                    metroGridProductos.Rows.Clear();
-                    metroTextBoxCantidad.Text = "1";
-                    metroComboBoxProducto.Items.Clear();
-                    LlenarProductos();
+                        //Limpieza de formulario
+                        metroComboBoxCliente.SelectedIndex = -1;
+                        //metroDateTimeFecha.Value = new DateTime();
+                        metroTextBoxFactura.Clear();
+                        metroTextBoxPrecio.Clear();
+                        metroComboBoxProducto.SelectedIndex = -1;
+                        metroGridProductos.Rows.Clear();
+                        metroTextBoxCantidad.Text = "1";
+                        metroComboBoxProducto.Items.Clear();
+                        LlenarProductos();
 
-                    MetroMessageBox.Show(this, "La venta ha sido ingresada correctamente.", "EXITO", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                        MetroMessageBox.Show(this, "La venta ha sido ingresada correctamente.", "EXITO", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                    }
+                    else
+                    {
+                        MetroMessageBox.Show(this, "La venta no ha sido ingresada correctamente.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
-                else
-                {
-                    MetroMessageBox.Show(this, "La venta no ha sido ingresada correctamente.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                   
             }
         }
         //Botones
@@ -293,6 +290,10 @@ namespace System
             this.Dispose();
         }
 
-       
+        private void metroTextBoxCantidad_Click(object sender, EventArgs e)
+        {
+            metroTextBoxCantidad.SelectionStart = 0;
+            metroTextBoxCantidad.SelectionLength = metroTextBoxCantidad.Text.Length;
+        }
     }
 }

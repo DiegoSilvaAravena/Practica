@@ -13,5 +13,6 @@
         private Windows.Forms.DataGridViewTextBoxColumn ID;
         private Windows.Forms.DataGridViewTextBoxColumn CÓDIGO;
         private Windows.Forms.DataGridViewTextBoxColumn CANTIDAD;
+        private MetroFramework.Components.MetroToolTip metroToolTip1;
     }
 }

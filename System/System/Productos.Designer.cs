@@ -32,6 +32,7 @@
             this.metroTextBoxCodigo = new MetroFramework.Controls.MetroTextBox();
             this.metroTileClose1 = new MetroFramework.Controls.MetroTile();
             this.metroTileAccept = new MetroFramework.Controls.MetroTile();
+            this.metroToolTip1 = new MetroFramework.Components.MetroToolTip();
             this.SuspendLayout();
             // 
             // metroLabelCodigo
@@ -49,7 +50,7 @@
             // 
             // 
             this.metroTextBoxCodigo.CustomButton.Image = null;
-            this.metroTextBoxCodigo.CustomButton.Location = new System.Drawing.Point(348, 1);
+            this.metroTextBoxCodigo.CustomButton.Location = new System.Drawing.Point(359, 1);
             this.metroTextBoxCodigo.CustomButton.Name = "";
             this.metroTextBoxCodigo.CustomButton.Size = new System.Drawing.Size(27, 27);
             this.metroTextBoxCodigo.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -70,12 +71,12 @@
             this.metroTextBoxCodigo.ShortcutsEnabled = true;
             this.metroTextBoxCodigo.Size = new System.Drawing.Size(387, 29);
             this.metroTextBoxCodigo.TabIndex = 4;
+            this.metroToolTip1.SetToolTip(this.metroTextBoxCodigo, "Ingrese código del producto");
             this.metroTextBoxCodigo.UseCustomForeColor = true;
             this.metroTextBoxCodigo.UseSelectable = true;
             this.metroTextBoxCodigo.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.metroTextBoxCodigo.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             this.metroTextBoxCodigo.Enter += new System.EventHandler(this.metroTextBoxCodigo_Enter);
-            this.metroTextBoxCodigo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.metroTextBoxCodigo_KeyPress);
             this.metroTextBoxCodigo.Leave += new System.EventHandler(this.metroTextBoxCodigo_Leave);
             // 
             // metroTileClose1
@@ -88,6 +89,7 @@
             this.metroTileClose1.TabIndex = 6;
             this.metroTileClose1.TileImage = global::System.Properties.Resources.chevron_left;
             this.metroTileClose1.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.metroToolTip1.SetToolTip(this.metroTileClose1, "Volver");
             this.metroTileClose1.UseSelectable = true;
             this.metroTileClose1.UseTileImage = true;
             this.metroTileClose1.Click += new System.EventHandler(this.metroTileClose1_Click);
@@ -102,9 +104,16 @@
             this.metroTileAccept.TabIndex = 7;
             this.metroTileAccept.TileImage = global::System.Properties.Resources.check;
             this.metroTileAccept.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.metroToolTip1.SetToolTip(this.metroTileAccept, "Ingresar");
             this.metroTileAccept.UseSelectable = true;
             this.metroTileAccept.UseTileImage = true;
             this.metroTileAccept.Click += new System.EventHandler(this.metroTileAccept_Click);
+            // 
+            // metroToolTip1
+            // 
+            this.metroToolTip1.Style = MetroFramework.MetroColorStyle.Blue;
+            this.metroToolTip1.StyleManager = null;
+            this.metroToolTip1.Theme = MetroFramework.MetroThemeStyle.Light;
             // 
             // Productos
             // 
@@ -131,5 +140,6 @@
         private MetroFramework.Controls.MetroTextBox metroTextBoxCodigo;
         private MetroFramework.Controls.MetroTile metroTileClose1;
         private MetroFramework.Controls.MetroTile metroTileAccept;
+        private MetroFramework.Components.MetroToolTip metroToolTip1;
     }
 }

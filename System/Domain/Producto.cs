@@ -9,7 +9,7 @@ namespace Domain
     public class Producto
     {
         int id_productos;
-        int codigo;
+        string codigo;
         int cantidad;
         char estado;
 
@@ -26,18 +26,6 @@ namespace Domain
             }
         }
 
-        public int Codigo
-        {
-            get
-            {
-                return codigo;
-            }
-
-            set
-            {
-                codigo = value;
-            }
-        }
 
         public int Cantidad
         {
@@ -62,6 +50,19 @@ namespace Domain
             set
             {
                 estado = value;
+            }
+        }
+
+        public string Codigo
+        {
+            get
+            {
+                return codigo;
+            }
+
+            set
+            {
+                codigo = value;
             }
         }
 

@@ -1,14 +1,8 @@
 ﻿using Domain;
 using Session;
 using MetroFramework.Forms;
-using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using MetroFramework;
 
@@ -32,7 +26,12 @@ namespace System
                 if (producto_list[i].Estado != 'E')
                 {
                     metroGridProductos.Rows.Insert(metroGridProductos.Rows.Count, producto_list[i].Id_productos, producto_list[i].Codigo, producto_list[i].Cantidad);
+                    if (producto_list[i].Cantidad < 1)
+                    {
+                        metroGridProductos.Rows[metroGridProductos.Rows.Count - 1].Cells[2].Style.ForeColor = Color.Red;
+                    }
                 }
+                
             }
         }
 
@@ -42,11 +41,12 @@ namespace System
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.metroGridProductos = new MetroFramework.Controls.MetroGrid();
-            this.metroTileDelete = new MetroFramework.Controls.MetroTile();
-            this.metroTileClose2 = new MetroFramework.Controls.MetroTile();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CÓDIGO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CANTIDAD = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.metroTileDelete = new MetroFramework.Controls.MetroTile();
+            this.metroTileClose2 = new MetroFramework.Controls.MetroTile();
+            this.metroToolTip1 = new MetroFramework.Components.MetroToolTip();
             ((System.ComponentModel.ISupportInitialize)(this.metroGridProductos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -100,34 +100,6 @@ namespace System
             this.metroGridProductos.Size = new System.Drawing.Size(474, 232);
             this.metroGridProductos.TabIndex = 0;
             // 
-            // metroTileDelete
-            // 
-            this.metroTileDelete.ActiveControl = null;
-            this.metroTileDelete.Location = new System.Drawing.Point(422, 301);
-            this.metroTileDelete.Name = "metroTileDelete";
-            this.metroTileDelete.Size = new System.Drawing.Size(75, 75);
-            this.metroTileDelete.Style = MetroFramework.MetroColorStyle.White;
-            this.metroTileDelete.TabIndex = 11;
-            this.metroTileDelete.TileImage = global::System.Properties.Resources.times;
-            this.metroTileDelete.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.metroTileDelete.UseSelectable = true;
-            this.metroTileDelete.UseTileImage = true;
-            this.metroTileDelete.Click += new System.EventHandler(this.metroTileDelete_Click);
-            // 
-            // metroTileClose2
-            // 
-            this.metroTileClose2.ActiveControl = null;
-            this.metroTileClose2.Location = new System.Drawing.Point(23, 301);
-            this.metroTileClose2.Name = "metroTileClose2";
-            this.metroTileClose2.Size = new System.Drawing.Size(75, 75);
-            this.metroTileClose2.Style = MetroFramework.MetroColorStyle.White;
-            this.metroTileClose2.TabIndex = 10;
-            this.metroTileClose2.TileImage = global::System.Properties.Resources.chevron_left;
-            this.metroTileClose2.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.metroTileClose2.UseSelectable = true;
-            this.metroTileClose2.UseTileImage = true;
-            this.metroTileClose2.Click += new System.EventHandler(this.metroTileClose2_Click);
-            // 
             // ID
             // 
             this.ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
@@ -148,6 +120,42 @@ namespace System
             this.CANTIDAD.HeaderText = "CANTIDAD";
             this.CANTIDAD.Name = "CANTIDAD";
             this.CANTIDAD.ReadOnly = true;
+            // 
+            // metroTileDelete
+            // 
+            this.metroTileDelete.ActiveControl = null;
+            this.metroTileDelete.Location = new System.Drawing.Point(422, 301);
+            this.metroTileDelete.Name = "metroTileDelete";
+            this.metroTileDelete.Size = new System.Drawing.Size(75, 75);
+            this.metroTileDelete.Style = MetroFramework.MetroColorStyle.White;
+            this.metroTileDelete.TabIndex = 11;
+            this.metroTileDelete.TileImage = global::System.Properties.Resources.times;
+            this.metroTileDelete.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.metroToolTip1.SetToolTip(this.metroTileDelete, "Eliminar producto seleccionado");
+            this.metroTileDelete.UseSelectable = true;
+            this.metroTileDelete.UseTileImage = true;
+            this.metroTileDelete.Click += new System.EventHandler(this.metroTileDelete_Click);
+            // 
+            // metroTileClose2
+            // 
+            this.metroTileClose2.ActiveControl = null;
+            this.metroTileClose2.Location = new System.Drawing.Point(23, 301);
+            this.metroTileClose2.Name = "metroTileClose2";
+            this.metroTileClose2.Size = new System.Drawing.Size(75, 75);
+            this.metroTileClose2.Style = MetroFramework.MetroColorStyle.White;
+            this.metroTileClose2.TabIndex = 10;
+            this.metroTileClose2.TileImage = global::System.Properties.Resources.chevron_left;
+            this.metroTileClose2.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.metroToolTip1.SetToolTip(this.metroTileClose2, "Volver");
+            this.metroTileClose2.UseSelectable = true;
+            this.metroTileClose2.UseTileImage = true;
+            this.metroTileClose2.Click += new System.EventHandler(this.metroTileClose2_Click);
+            // 
+            // metroToolTip1
+            // 
+            this.metroToolTip1.Style = MetroFramework.MetroColorStyle.Blue;
+            this.metroToolTip1.StyleManager = null;
+            this.metroToolTip1.Theme = MetroFramework.MetroThemeStyle.Light;
             // 
             // Inventario
             // 

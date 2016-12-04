@@ -51,6 +51,7 @@
             this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
             this.metroLabelEgresos = new MetroFramework.Controls.MetroLabel();
             this.metroLabelIngresos = new MetroFramework.Controls.MetroLabel();
+            this.metroToolTip1 = new MetroFramework.Components.MetroToolTip();
             ((System.ComponentModel.ISupportInitialize)(this.metroGridMovimientos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -70,7 +71,8 @@
             this.metroDateTimeDesde.MinimumSize = new System.Drawing.Size(0, 29);
             this.metroDateTimeDesde.Name = "metroDateTimeDesde";
             this.metroDateTimeDesde.Size = new System.Drawing.Size(234, 29);
-            this.metroDateTimeDesde.TabIndex = 18;
+            this.metroDateTimeDesde.TabIndex = 2;
+            this.metroToolTip1.SetToolTip(this.metroDateTimeDesde, "Fecha desde");
             this.metroDateTimeDesde.ValueChanged += new System.EventHandler(this.metroDateTimeDesde_ValueChanged);
             // 
             // metroLabelHasta
@@ -89,7 +91,8 @@
             this.metroDateTimeHasta.MinimumSize = new System.Drawing.Size(0, 29);
             this.metroDateTimeHasta.Name = "metroDateTimeHasta";
             this.metroDateTimeHasta.Size = new System.Drawing.Size(234, 29);
-            this.metroDateTimeHasta.TabIndex = 20;
+            this.metroDateTimeHasta.TabIndex = 3;
+            this.metroToolTip1.SetToolTip(this.metroDateTimeHasta, "Fecha hasta");
             // 
             // metroGridMovimientos
             // 
@@ -210,6 +213,7 @@
             this.metroLabelTotal.Size = new System.Drawing.Size(139, 29);
             this.metroLabelTotal.TabIndex = 24;
             this.metroLabelTotal.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.metroLabelTotal.UseCustomForeColor = true;
             // 
             // metroTileFiltro
             // 
@@ -218,9 +222,10 @@
             this.metroTileFiltro.Name = "metroTileFiltro";
             this.metroTileFiltro.Size = new System.Drawing.Size(75, 75);
             this.metroTileFiltro.Style = MetroFramework.MetroColorStyle.White;
-            this.metroTileFiltro.TabIndex = 25;
+            this.metroTileFiltro.TabIndex = 5;
             this.metroTileFiltro.TileImage = global::System.Properties.Resources.search;
             this.metroTileFiltro.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.metroToolTip1.SetToolTip(this.metroTileFiltro, "Filtrar");
             this.metroTileFiltro.UseSelectable = true;
             this.metroTileFiltro.UseTileImage = true;
             this.metroTileFiltro.Click += new System.EventHandler(this.metroTileFiltro_Click);
@@ -232,9 +237,10 @@
             this.metroTileClose1.Name = "metroTileClose1";
             this.metroTileClose1.Size = new System.Drawing.Size(75, 75);
             this.metroTileClose1.Style = MetroFramework.MetroColorStyle.White;
-            this.metroTileClose1.TabIndex = 22;
+            this.metroTileClose1.TabIndex = 4;
             this.metroTileClose1.TileImage = global::System.Properties.Resources.chevron_left;
             this.metroTileClose1.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.metroToolTip1.SetToolTip(this.metroTileClose1, "Volver");
             this.metroTileClose1.UseSelectable = true;
             this.metroTileClose1.UseTileImage = true;
             this.metroTileClose1.Click += new System.EventHandler(this.metroTileClose1_Click);
@@ -244,8 +250,9 @@
             this.metroToggleFecha.Location = new System.Drawing.Point(44, 69);
             this.metroToggleFecha.Name = "metroToggleFecha";
             this.metroToggleFecha.Size = new System.Drawing.Size(80, 20);
-            this.metroToggleFecha.TabIndex = 26;
+            this.metroToggleFecha.TabIndex = 1;
             this.metroToggleFecha.Text = "Off";
+            this.metroToolTip1.SetToolTip(this.metroToggleFecha, "Activar filtro por fecha");
             this.metroToggleFecha.UseSelectable = true;
             // 
             // metroLabel2
@@ -273,6 +280,7 @@
             this.metroLabelEgresos.Size = new System.Drawing.Size(139, 29);
             this.metroLabelEgresos.TabIndex = 30;
             this.metroLabelEgresos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.metroLabelEgresos.UseCustomForeColor = true;
             // 
             // metroLabelIngresos
             // 
@@ -281,6 +289,13 @@
             this.metroLabelIngresos.Size = new System.Drawing.Size(139, 29);
             this.metroLabelIngresos.TabIndex = 31;
             this.metroLabelIngresos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.metroLabelIngresos.UseCustomForeColor = true;
+            // 
+            // metroToolTip1
+            // 
+            this.metroToolTip1.Style = MetroFramework.MetroColorStyle.Blue;
+            this.metroToolTip1.StyleManager = null;
+            this.metroToolTip1.Theme = MetroFramework.MetroThemeStyle.Light;
             // 
             // Movimientos
             // 
@@ -334,5 +349,6 @@
         private MetroFramework.Controls.MetroLabel metroLabel4;
         private MetroFramework.Controls.MetroLabel metroLabelEgresos;
         private MetroFramework.Controls.MetroLabel metroLabelIngresos;
+        private MetroFramework.Components.MetroToolTip metroToolTip1;
     }
 }

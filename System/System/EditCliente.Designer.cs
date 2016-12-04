@@ -38,6 +38,7 @@
             this.metroLabelID2 = new MetroFramework.Controls.MetroLabel();
             this.metroTileClose2 = new MetroFramework.Controls.MetroTile();
             this.metroTileEdit = new MetroFramework.Controls.MetroTile();
+            this.metroToolTip1 = new MetroFramework.Components.MetroToolTip();
             this.SuspendLayout();
             // 
             // metroLabelApellidos
@@ -94,6 +95,7 @@
             this.metroTextBoxRUT.ShortcutsEnabled = true;
             this.metroTextBoxRUT.Size = new System.Drawing.Size(267, 29);
             this.metroTextBoxRUT.TabIndex = 8;
+            this.metroToolTip1.SetToolTip(this.metroTextBoxRUT, "Ingrese el RUT del cliente");
             this.metroTextBoxRUT.UseCustomForeColor = true;
             this.metroTextBoxRUT.UseSelectable = true;
             this.metroTextBoxRUT.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -126,6 +128,7 @@
             this.metroTextBoxApellidos.ShortcutsEnabled = true;
             this.metroTextBoxApellidos.Size = new System.Drawing.Size(267, 29);
             this.metroTextBoxApellidos.TabIndex = 10;
+            this.metroToolTip1.SetToolTip(this.metroTextBoxApellidos, "Ingrese los apellidos del cliente");
             this.metroTextBoxApellidos.UseCustomForeColor = true;
             this.metroTextBoxApellidos.UseSelectable = true;
             this.metroTextBoxApellidos.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -158,6 +161,7 @@
             this.metroTextBoxNombre.ShortcutsEnabled = true;
             this.metroTextBoxNombre.Size = new System.Drawing.Size(267, 29);
             this.metroTextBoxNombre.TabIndex = 9;
+            this.metroToolTip1.SetToolTip(this.metroTextBoxNombre, "Ingrese el nombre del cliente");
             this.metroTextBoxNombre.UseCustomForeColor = true;
             this.metroTextBoxNombre.UseSelectable = true;
             this.metroTextBoxNombre.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -191,6 +195,7 @@
             this.metroTileClose2.TabIndex = 15;
             this.metroTileClose2.TileImage = global::System.Properties.Resources.chevron_left;
             this.metroTileClose2.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.metroToolTip1.SetToolTip(this.metroTileClose2, "Volver");
             this.metroTileClose2.UseSelectable = true;
             this.metroTileClose2.UseTileImage = true;
             this.metroTileClose2.Click += new System.EventHandler(this.metroTileClose2_Click);
@@ -205,9 +210,16 @@
             this.metroTileEdit.TabIndex = 16;
             this.metroTileEdit.TileImage = global::System.Properties.Resources.check;
             this.metroTileEdit.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.metroToolTip1.SetToolTip(this.metroTileEdit, "Ingresar");
             this.metroTileEdit.UseSelectable = true;
             this.metroTileEdit.UseTileImage = true;
             this.metroTileEdit.Click += new System.EventHandler(this.metroTileEdit_Click);
+            // 
+            // metroToolTip1
+            // 
+            this.metroToolTip1.Style = MetroFramework.MetroColorStyle.Blue;
+            this.metroToolTip1.StyleManager = null;
+            this.metroToolTip1.Theme = MetroFramework.MetroThemeStyle.Light;
             // 
             // EditCliente
             // 
@@ -246,5 +258,6 @@
         public MetroFramework.Controls.MetroLabel metroLabelID2;
         private MetroFramework.Controls.MetroTile metroTileClose2;
         private MetroFramework.Controls.MetroTile metroTileEdit;
+        private MetroFramework.Components.MetroToolTip metroToolTip1;
     }
 }
