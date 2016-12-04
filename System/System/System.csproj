@@ -130,6 +130,12 @@
     <Compile Include="ViewCliente.Designer.cs">
       <DependentUpon>ViewCliente.cs</DependentUpon>
     </Compile>
+    <Compile Include="ViewProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewProducto.Designer.cs">
+      <DependentUpon>ViewProducto.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Clientes.resx">
       <DependentUpon>Clientes.cs</DependentUpon>
     </EmbeddedResource>
@@ -172,6 +178,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ViewCliente.resx">
       <DependentUpon>ViewCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewProducto.resx">
+      <DependentUpon>ViewProducto.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -247,6 +256,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\minus-circle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\minus-circle1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\plus-circle.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

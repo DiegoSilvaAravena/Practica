@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Globalization;
+using MetroFramework;
 
 namespace System
 {
@@ -30,11 +31,11 @@ namespace System
 
         private void Tabla()
         {
-            List<Movimiento> movimiento_list = controllers.SelectMovimiento();
+            List<Movimiento> movimiento_list = controllers.SelectMovimientoConRUT();
             metroGridMovimientos.Rows.Clear();
             for (int i = 0; i < movimiento_list.Count; i++)
             {
-                metroGridMovimientos.Rows.Insert(metroGridMovimientos.Rows.Count, movimiento_list[i].Id_movimientos, movimiento_list[i].Factura, movimiento_list[i].Fecha,movimiento_list[i].Dinero, controllers.GetRUT(Convert.ToString(movimiento_list[i].Id_personas)),"Ver");
+                metroGridMovimientos.Rows.Insert(metroGridMovimientos.Rows.Count, movimiento_list[i].Id_movimientos, movimiento_list[i].Factura, movimiento_list[i].Fecha, movimiento_list[i].Dinero, movimiento_list[i].Rut_personas, "Ver");
             }
         }
 
@@ -46,7 +47,7 @@ namespace System
             {
                 if (movimiento_list[i].Fecha >= metroDateTimeDesde.Value && movimiento_list[i].Fecha <= metroDateTimeHasta.Value)
                 {
-                    metroGridMovimientos.Rows.Insert(metroGridMovimientos.Rows.Count, movimiento_list[i].Id_movimientos, movimiento_list[i].Factura, movimiento_list[i].Fecha, movimiento_list[i].Dinero, controllers.GetRUT(Convert.ToString(movimiento_list[i].Id_personas)), "Ver");
+                    metroGridMovimientos.Rows.Insert(metroGridMovimientos.Rows.Count, movimiento_list[i].Id_movimientos, movimiento_list[i].Factura, movimiento_list[i].Fecha, movimiento_list[i].Dinero, movimiento_list[i].Rut_personas, "Ver");
                 }
             }
         }
@@ -71,7 +72,7 @@ namespace System
                 }
             }
 
-            metroLabelTotal.Text = "$"+Convert.ToString(total);
+            metroLabelTotal.Text = "$" + Convert.ToString(total);
             metroLabelIngresos.Text = "$" + Convert.ToString(ingresos);
             metroLabelEgresos.Text = "$" + Convert.ToString(egresos);
         }
@@ -95,6 +96,20 @@ namespace System
                 winViewCliente.metroLabel4.Text = persona.Last_name;
                 winViewCliente.ShowDialog();
             }
+
+            if (e.ColumnIndex == 5 && e.RowIndex != -1)
+            {
+                ViewProducto winViewProducto = new ViewProducto();
+
+                List<Producto> movimiento_producto_list = controllers.SelectMovimientos_Productos(Convert.ToInt32(metroGridMovimientos.Rows[e.RowIndex].Cells[0].Value.ToString()));
+
+                for (int i = 0; i < movimiento_producto_list.Count; i++)
+                {
+                    winViewProducto.metroGridProductos.Rows.Insert(winViewProducto.metroGridProductos.Rows.Count, movimiento_producto_list[i].Id_productos, movimiento_producto_list[i].Codigo, movimiento_producto_list[i].Cantidad);
+                }
+
+                winViewProducto.ShowDialog();
+            }
         }
 
         private void metroTileFiltro_Click(object sender, EventArgs e)
@@ -102,11 +117,12 @@ namespace System
             if (metroToggleFecha.Checked == true)
             {
                 TablaFiltroFecha();
-            }else
+            }
+            else
             {
                 Tabla();
             }
-            
+
             Total();
         }
 
@@ -115,6 +131,24 @@ namespace System
             if (metroDateTimeDesde.Value > metroDateTimeHasta.Value)
             {
                 metroDateTimeHasta.Value = metroDateTimeDesde.Value;
+            }
+        }
+
+        private void metroTileDelete_Click(object sender, EventArgs e)
+        {
+            int id_movimientos = Convert.ToInt32(metroGridMovimientos.Rows[metroGridMovimientos.SelectedRows[0].Index].Cells[0].Value.ToString());
+
+            if (MetroMessageBox.Show(this, "¿Está seguro de que desea eliminar el movimiento seleccionado?", "AVISO", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
+            {
+                if (controllers.DeleteMovimiento(id_movimientos))
+                {
+                    metroGridMovimientos.Rows.RemoveAt(this.metroGridMovimientos.SelectedRows[0].Index);
+                    MetroMessageBox.Show(this, "El cliente ha sido eliminado correctamente.", "EXITO", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                }
+                else
+                {
+                    MetroMessageBox.Show(this, "El cliente no ha sido eliminado correctamente.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
     }

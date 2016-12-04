@@ -13,6 +13,7 @@ namespace Domain
         DateTime fecha;
         float dinero;
         int id_personas;
+        string rut_personas;
 
         public Movimiento()
         {
@@ -80,6 +81,19 @@ namespace Domain
             set
             {
                 factura = value;
+            }
+        }
+
+        public string Rut_personas
+        {
+            get
+            {
+                return rut_personas;
+            }
+
+            set
+            {
+                rut_personas = value;
             }
         }
     }

@@ -214,7 +214,7 @@
             // metroTileFiltro
             // 
             this.metroTileFiltro.ActiveControl = null;
-            this.metroTileFiltro.Location = new System.Drawing.Point(596, 411);
+            this.metroTileFiltro.Location = new System.Drawing.Point(640, 411);
             this.metroTileFiltro.Name = "metroTileFiltro";
             this.metroTileFiltro.Size = new System.Drawing.Size(75, 75);
             this.metroTileFiltro.Style = MetroFramework.MetroColorStyle.White;
@@ -305,6 +305,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Movimientos";
+            this.Resizable = false;
             this.Text = "Movimientos";
             ((System.ComponentModel.ISupportInitialize)(this.metroGridMovimientos)).EndInit();
             this.ResumeLayout(false);

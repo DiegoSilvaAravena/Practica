@@ -90,6 +90,7 @@
             this.metroTextBoxCantidad.Size = new System.Drawing.Size(48, 29);
             this.metroTextBoxCantidad.TabIndex = 32;
             this.metroTextBoxCantidad.Text = "1";
+            this.metroTextBoxCantidad.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.metroTextBoxCantidad.UseCustomForeColor = true;
             this.metroTextBoxCantidad.UseSelectable = true;
             this.metroTextBoxCantidad.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));

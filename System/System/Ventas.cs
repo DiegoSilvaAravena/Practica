@@ -266,7 +266,7 @@ namespace System
 
                 if (controllers.InsertMovimiento(movimiento))
                 {
-                    controllers.InsertMovimiento_Productos(producto_id_list, producto_cantidad_list);
+                    controllers.InsertMenosMovimiento_Productos(producto_id_list, producto_cantidad_list);
 
                     //Limpieza de formulario
                     metroComboBoxCliente.SelectedIndex = -1;

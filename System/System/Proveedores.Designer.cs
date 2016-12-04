@@ -55,20 +55,21 @@
             // 
             // lblNombre
             // 
-            this.lblNombre.Location = new System.Drawing.Point(51, 79);
+            this.lblNombre.Location = new System.Drawing.Point(0, 48);
             this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(60, 23);
+            this.lblNombre.Size = new System.Drawing.Size(81, 29);
             this.lblNombre.TabIndex = 0;
             this.lblNombre.Text = "Nombre";
+            this.lblNombre.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblRUT
             // 
-            this.lblRUT.AutoSize = true;
-            this.lblRUT.Location = new System.Drawing.Point(78, 39);
+            this.lblRUT.Location = new System.Drawing.Point(0, 13);
             this.lblRUT.Name = "lblRUT";
-            this.lblRUT.Size = new System.Drawing.Size(33, 19);
+            this.lblRUT.Size = new System.Drawing.Size(81, 29);
             this.lblRUT.TabIndex = 1;
             this.lblRUT.Text = "RUT";
+            this.lblRUT.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // txtRutProv
             // 
@@ -76,7 +77,7 @@
             // 
             // 
             this.txtRutProv.CustomButton.Image = null;
-            this.txtRutProv.CustomButton.Location = new System.Drawing.Point(272, 1);
+            this.txtRutProv.CustomButton.Location = new System.Drawing.Point(348, 1);
             this.txtRutProv.CustomButton.Name = "";
             this.txtRutProv.CustomButton.Size = new System.Drawing.Size(27, 27);
             this.txtRutProv.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -86,7 +87,7 @@
             this.txtRutProv.CustomButton.Visible = false;
             this.txtRutProv.FontSize = MetroFramework.MetroTextBoxSize.Medium;
             this.txtRutProv.Lines = new string[0];
-            this.txtRutProv.Location = new System.Drawing.Point(117, 35);
+            this.txtRutProv.Location = new System.Drawing.Point(87, 13);
             this.txtRutProv.MaxLength = 12;
             this.txtRutProv.Name = "txtRutProv";
             this.txtRutProv.PasswordChar = '\0';
@@ -95,7 +96,7 @@
             this.txtRutProv.SelectionLength = 0;
             this.txtRutProv.SelectionStart = 0;
             this.txtRutProv.ShortcutsEnabled = true;
-            this.txtRutProv.Size = new System.Drawing.Size(300, 29);
+            this.txtRutProv.Size = new System.Drawing.Size(376, 29);
             this.txtRutProv.TabIndex = 2;
             this.txtRutProv.UseCustomForeColor = true;
             this.txtRutProv.UseSelectable = true;
@@ -111,7 +112,7 @@
             // 
             // 
             this.txtNombreProv.CustomButton.Image = null;
-            this.txtNombreProv.CustomButton.Location = new System.Drawing.Point(272, 1);
+            this.txtNombreProv.CustomButton.Location = new System.Drawing.Point(348, 1);
             this.txtNombreProv.CustomButton.Name = "";
             this.txtNombreProv.CustomButton.Size = new System.Drawing.Size(27, 27);
             this.txtNombreProv.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -121,7 +122,7 @@
             this.txtNombreProv.CustomButton.Visible = false;
             this.txtNombreProv.FontSize = MetroFramework.MetroTextBoxSize.Medium;
             this.txtNombreProv.Lines = new string[0];
-            this.txtNombreProv.Location = new System.Drawing.Point(117, 73);
+            this.txtNombreProv.Location = new System.Drawing.Point(87, 48);
             this.txtNombreProv.MaxLength = 32767;
             this.txtNombreProv.Name = "txtNombreProv";
             this.txtNombreProv.PasswordChar = '\0';
@@ -130,7 +131,7 @@
             this.txtNombreProv.SelectionLength = 0;
             this.txtNombreProv.SelectionStart = 0;
             this.txtNombreProv.ShortcutsEnabled = true;
-            this.txtNombreProv.Size = new System.Drawing.Size(300, 29);
+            this.txtNombreProv.Size = new System.Drawing.Size(376, 29);
             this.txtNombreProv.TabIndex = 3;
             this.txtNombreProv.UseCustomForeColor = true;
             this.txtNombreProv.UseSelectable = true;
@@ -144,7 +145,7 @@
             // 
             this.metroTabControl1.Controls.Add(this.metroTabPage1);
             this.metroTabControl1.Controls.Add(this.metroTabPage2);
-            this.metroTabControl1.Location = new System.Drawing.Point(37, 63);
+            this.metroTabControl1.Location = new System.Drawing.Point(23, 63);
             this.metroTabControl1.Name = "metroTabControl1";
             this.metroTabControl1.SelectedIndex = 1;
             this.metroTabControl1.Size = new System.Drawing.Size(474, 313);
@@ -174,7 +175,7 @@
             // btnAgregarProv
             // 
             this.btnAgregarProv.ActiveControl = null;
-            this.btnAgregarProv.Location = new System.Drawing.Point(342, 193);
+            this.btnAgregarProv.Location = new System.Drawing.Point(388, 193);
             this.btnAgregarProv.Name = "btnAgregarProv";
             this.btnAgregarProv.Size = new System.Drawing.Size(75, 75);
             this.btnAgregarProv.Style = MetroFramework.MetroColorStyle.White;
@@ -336,13 +337,16 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(530, 384);
+            this.ClientSize = new System.Drawing.Size(520, 399);
+            this.ControlBox = false;
             this.Controls.Add(this.metroTabControl1);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Proveedores";
+            this.Resizable = false;
             this.Text = "Proveedores";
             this.metroTabControl1.ResumeLayout(false);
             this.metroTabPage1.ResumeLayout(false);
-            this.metroTabPage1.PerformLayout();
             this.metroTabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.metroGridProv)).EndInit();
             this.ResumeLayout(false);

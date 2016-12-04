@@ -230,7 +230,7 @@ namespace System
 
                 movimiento.Factura = Convert.ToInt32(txtFactura.Text);
                 movimiento.Fecha = metroDateTimeFecha.Value;
-                movimiento.Dinero = Convert.ToSingle(txtPrecio.Text) + Convert.ToSingle(txtPrecioFlete.Text);
+                movimiento.Dinero = (Convert.ToSingle(txtPrecio.Text) + Convert.ToSingle(txtPrecioFlete.Text)) * -1;
                 movimiento.Id_personas = Convert.ToInt32(selected_proveedor.Value);
 
                 for (int i = 0; i < GVProductos.Rows.Count; i++)

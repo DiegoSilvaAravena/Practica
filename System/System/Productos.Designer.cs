@@ -68,7 +68,7 @@
             this.metroTextBoxCodigo.SelectionLength = 0;
             this.metroTextBoxCodigo.SelectionStart = 0;
             this.metroTextBoxCodigo.ShortcutsEnabled = true;
-            this.metroTextBoxCodigo.Size = new System.Drawing.Size(376, 29);
+            this.metroTextBoxCodigo.Size = new System.Drawing.Size(387, 29);
             this.metroTextBoxCodigo.TabIndex = 4;
             this.metroTextBoxCodigo.UseCustomForeColor = true;
             this.metroTextBoxCodigo.UseSelectable = true;
@@ -81,7 +81,7 @@
             // metroTileClose1
             // 
             this.metroTileClose1.ActiveControl = null;
-            this.metroTileClose1.Location = new System.Drawing.Point(29, 301);
+            this.metroTileClose1.Location = new System.Drawing.Point(23, 301);
             this.metroTileClose1.Name = "metroTileClose1";
             this.metroTileClose1.Size = new System.Drawing.Size(75, 75);
             this.metroTileClose1.Style = MetroFramework.MetroColorStyle.White;
@@ -111,11 +111,15 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(520, 399);
+            this.ControlBox = false;
             this.Controls.Add(this.metroTileAccept);
             this.Controls.Add(this.metroTileClose1);
             this.Controls.Add(this.metroLabelCodigo);
             this.Controls.Add(this.metroTextBoxCodigo);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Productos";
+            this.Resizable = false;
             this.Text = "Productos";
             this.ResumeLayout(false);
 

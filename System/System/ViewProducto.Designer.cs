@@ -1,49 +1,37 @@
-﻿using Domain;
-using Session;
-using MetroFramework.Forms;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using MetroFramework;
-
-namespace System
+﻿namespace System
 {
-    public partial class Inventario : MetroForm
+    partial class ViewProducto
     {
-        Controllers controllers = new Controllers();
-        public Inventario()
-        {
-            InitializeComponent();
-            Tabla();
-        }
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
 
-        public void Tabla()
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
         {
-            List<Producto> producto_list = controllers.SelectProducto();
-            metroGridProductos.Rows.Clear();
-            for (int i = 0; i < producto_list.Count; i++)
+            if (disposing && (components != null))
             {
-                if (producto_list[i].Estado != 'E')
-                {
-                    metroGridProductos.Rows.Insert(metroGridProductos.Rows.Count, producto_list[i].Id_productos, producto_list[i].Codigo, producto_list[i].Cantidad);
-                }
+                components.Dispose();
             }
+            base.Dispose(disposing);
         }
 
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.metroGridProductos = new MetroFramework.Controls.MetroGrid();
-            this.metroTileDelete = new MetroFramework.Controls.MetroTile();
-            this.metroTileClose2 = new MetroFramework.Controls.MetroTile();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CÓDIGO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CANTIDAD = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -97,36 +85,8 @@ namespace System
             this.metroGridProductos.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.metroGridProductos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.metroGridProductos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.metroGridProductos.Size = new System.Drawing.Size(474, 232);
-            this.metroGridProductos.TabIndex = 0;
-            // 
-            // metroTileDelete
-            // 
-            this.metroTileDelete.ActiveControl = null;
-            this.metroTileDelete.Location = new System.Drawing.Point(422, 301);
-            this.metroTileDelete.Name = "metroTileDelete";
-            this.metroTileDelete.Size = new System.Drawing.Size(75, 75);
-            this.metroTileDelete.Style = MetroFramework.MetroColorStyle.White;
-            this.metroTileDelete.TabIndex = 11;
-            this.metroTileDelete.TileImage = global::System.Properties.Resources.times;
-            this.metroTileDelete.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.metroTileDelete.UseSelectable = true;
-            this.metroTileDelete.UseTileImage = true;
-            this.metroTileDelete.Click += new System.EventHandler(this.metroTileDelete_Click);
-            // 
-            // metroTileClose2
-            // 
-            this.metroTileClose2.ActiveControl = null;
-            this.metroTileClose2.Location = new System.Drawing.Point(23, 301);
-            this.metroTileClose2.Name = "metroTileClose2";
-            this.metroTileClose2.Size = new System.Drawing.Size(75, 75);
-            this.metroTileClose2.Style = MetroFramework.MetroColorStyle.White;
-            this.metroTileClose2.TabIndex = 10;
-            this.metroTileClose2.TileImage = global::System.Properties.Resources.chevron_left;
-            this.metroTileClose2.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.metroTileClose2.UseSelectable = true;
-            this.metroTileClose2.UseTileImage = true;
-            this.metroTileClose2.Click += new System.EventHandler(this.metroTileClose2_Click);
+            this.metroGridProductos.Size = new System.Drawing.Size(354, 214);
+            this.metroGridProductos.TabIndex = 1;
             // 
             // ID
             // 
@@ -149,46 +109,26 @@ namespace System
             this.CANTIDAD.Name = "CANTIDAD";
             this.CANTIDAD.ReadOnly = true;
             // 
-            // Inventario
+            // ViewProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(520, 399);
-            this.ControlBox = false;
-            this.Controls.Add(this.metroTileDelete);
-            this.Controls.Add(this.metroTileClose2);
+            this.ClientSize = new System.Drawing.Size(400, 300);
             this.Controls.Add(this.metroGridProductos);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "Inventario";
+            this.Name = "ViewProducto";
             this.Resizable = false;
-            this.Text = "Inventario";
+            this.Text = "Productos";
             ((System.ComponentModel.ISupportInitialize)(this.metroGridProductos)).EndInit();
             this.ResumeLayout(false);
 
         }
 
-        private void metroTileClose2_Click(object sender, EventArgs e)
-        {
-            this.Dispose();
-        }
-
-        private void metroTileDelete_Click(object sender, EventArgs e)
-        {
-            int id_productos = Convert.ToInt32(metroGridProductos.Rows[metroGridProductos.SelectedRows[0].Index].Cells[0].Value.ToString());
-
-            if (MetroMessageBox.Show(this, "¿Está seguro de que desea eliminar el producto "+ metroGridProductos.Rows[metroGridProductos.SelectedRows[0].Index].Cells[1].Value.ToString() + "?", "AVISO", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
-            {
-                if (controllers.DeleteProducto(id_productos))
-                {
-                    metroGridProductos.Rows.RemoveAt(this.metroGridProductos.SelectedRows[0].Index);
-                    MetroMessageBox.Show(this, "El producto se ha sido eliminado correctamente.", "EXITO", MessageBoxButtons.OK, MessageBoxIcon.Question);
-                }
-                else
-                {
-                    MetroMessageBox.Show(this, "El producto no ha sido eliminado correctamente.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-        }
+        #endregion
+        private Windows.Forms.DataGridViewTextBoxColumn ID;
+        private Windows.Forms.DataGridViewTextBoxColumn CÓDIGO;
+        private Windows.Forms.DataGridViewTextBoxColumn CANTIDAD;
+        public MetroFramework.Controls.MetroGrid metroGridProductos;
     }
 }
