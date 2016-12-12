@@ -55,12 +55,12 @@ namespace System
         public void Tabla()
         {
             List<Persona> persona_list = controllers.SelectPersona();
-            metroGridProv.Rows.Clear();
+            metroGridProveedores.Rows.Clear();
             for (int i = 0; i < persona_list.Count; i++)
             {
-                if (persona_list[i].Tipo == 'P')
+                if (persona_list[i].Tipo == 'P' && persona_list[i].Estado != 'E')
                 {
-                    metroGridProv.Rows.Insert(metroGridProv.Rows.Count, persona_list[i].Id_personas, persona_list[i].Rut, persona_list[i].First_name + " " + persona_list[i].Last_name);
+                    metroGridProveedores.Rows.Insert(metroGridProveedores.Rows.Count, persona_list[i].Id_personas, persona_list[i].Rut, persona_list[i].First_name + " " + persona_list[i].Last_name,persona_list[i].Correo, persona_list[i].Numero_cuenta, persona_list[i].Banco);
                 }
 
             }
@@ -76,21 +76,39 @@ namespace System
             //Validaciones
             try
             {
-                if (txtRutProv.Text.Equals(""))
+                if (metroTextBoxRUT.Text.Equals(""))
                 {
                     MetroMessageBox.Show(this, "RUT no válido.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     count++;
                     return;
                 }
-                if (txtRutProv.Text.Length < 12)
+                if (metroTextBoxRUT.Text.Length > 12)
                 {
-                    MetroMessageBox.Show(this, "RUT no válido.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MetroMessageBox.Show(this, "RUT no válido.\n El RUT tiene más de 12 caracteres.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     count++;
                     return;
                 }
-                if (txtNombreProv.Text.Equals(""))
+                if (metroTextBoxRUT.Text.Length < 11)
+                {
+                    MetroMessageBox.Show(this, "RUT no válido.\n El RUT tiene menos de 11 caracteres.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    count++;
+                    return;
+                }
+                if (metroTextBoxNombre1.Text.Equals(""))
                 {
                     MetroMessageBox.Show(this, "Nombre no válido.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    count++;
+                    return;
+                }
+                if (metroTextBoxNumero.Text.Equals(""))
+                {
+                    MetroMessageBox.Show(this, "Número no válido.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    count++;
+                    return;
+                }
+                if (metroComboBoxBanco.SelectedIndex==-1)
+                {
+                    MetroMessageBox.Show(this, "Seleccione un banco.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     count++;
                     return;
                 }
@@ -105,16 +123,21 @@ namespace System
             {
                 Persona persona = new Persona();
 
-                persona.Rut = txtRutProv.Text.Trim();
-                persona.First_name = txtNombreProv.Text.Trim();
+                persona.Rut = metroTextBoxRUT.Text.Trim();
+                persona.First_name = metroTextBoxNombre1.Text.Trim();
                 persona.Tipo = 'P';
                 persona.Estado = 'A';
+                persona.Correo = metroTextBoxCorreo.Text.Trim().ToLower();
+                persona.Numero_cuenta = metroTextBoxNumero.Text;
+                persona.Banco = metroComboBoxBanco.SelectedItem.ToString();
 
                 if (controllers.InsertPersona(persona))
                 {
-                    txtRutProv.Clear();
-                    txtNombreProv.Clear();
-
+                    metroTextBoxRUT.Clear();
+                    metroTextBoxNombre1.Clear();
+                    metroTextBoxCorreo.Clear();
+                    metroTextBoxNumero.Clear();
+                    metroComboBoxBanco.SelectedIndex=-1;
                     Tabla();
 
                     MetroMessageBox.Show(this, "El proveedor ha sido ingresado correctamente.", "EXITO", MessageBoxButtons.OK, MessageBoxIcon.Question);
@@ -130,13 +153,13 @@ namespace System
 
         private void metroTileDelete_Click(object sender, EventArgs e)
         {
-            int id_personas = Convert.ToInt32(metroGridProv.Rows[metroGridProv.SelectedRows[0].Index].Cells[0].Value.ToString());
+            int id_personas = Convert.ToInt32(metroGridProveedores.Rows[metroGridProveedores.SelectedRows[0].Index].Cells[0].Value.ToString());
 
             if (MetroMessageBox.Show(this, "¿Está seguro de que desea eliminar el proveedor seleccionado?", "AVISO", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
             {
                 if (controllers.DeleteCliente(id_personas))
                 {
-                    metroGridProv.Rows.RemoveAt(this.metroGridProv.SelectedRows[0].Index);
+                    metroGridProveedores.Rows.RemoveAt(this.metroGridProveedores.SelectedRows[0].Index);
                     MetroMessageBox.Show(this, "El proveedor ha sido eliminado correctamente.", "EXITO", MessageBoxButtons.OK, MessageBoxIcon.Question);
                 }
                 else
@@ -151,11 +174,14 @@ namespace System
             EditProveedor winEditProveedor = new EditProveedor();
             winEditProveedor.WinProveedor = this;
 
-            Persona persona = controllers.GetPersonaID(metroGridProv.Rows[metroGridProv.SelectedRows[0].Index].Cells[0].Value.ToString());
+            Persona persona = controllers.GetPersonaID(metroGridProveedores.Rows[metroGridProveedores.SelectedRows[0].Index].Cells[0].Value.ToString());
 
             winEditProveedor.metroLabelID2.Text = Convert.ToString(persona.Id_personas);
             winEditProveedor.metroTextBoxRUT.Text = persona.Rut;
             winEditProveedor.metroTextBoxNombre.Text = persona.First_name;
+            winEditProveedor.metroTextBoxCorreo.Text = persona.Correo;
+            winEditProveedor.metroTextBoxCuenta.Text = persona.Numero_cuenta;
+            winEditProveedor.metroComboBoxBanco.SelectedItem = persona.Banco;
 
             winEditProveedor.ShowDialog();
         }
@@ -173,8 +199,8 @@ namespace System
         //Formato
         private void txtNombreProv_TextChanged(object sender, EventArgs e)
         {
-            txtNombreProv.Text = System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txtNombreProv.Text);
-            txtNombreProv.SelectionStart = txtNombreProv.Text.Length;
+            metroTextBoxNombre1.Text = System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(metroTextBoxNombre1.Text);
+            metroTextBoxNombre1.SelectionStart = metroTextBoxNombre1.Text.Length;
         }
 
 
@@ -194,32 +220,33 @@ namespace System
         //txt Enter y Leave
         private void txtRutProv_Enter(object sender, EventArgs e)
         {
-            txtRutProv.ForeColor = Color.Black;
+            metroTextBoxRUT.ForeColor = Color.Black;
         }
         private void txtRutProv_Leave(object sender, EventArgs e)
         {
-            txtRutProv.ForeColor = Color.Gray;
-            txtRutProv.Text = FormatoRUT(txtRutProv.Text);
+            metroTextBoxRUT.ForeColor = Color.Gray;
+            metroTextBoxRUT.Text = FormatoRUT(metroTextBoxRUT.Text);
         }
 
         private void txtNombreProv_Enter(object sender, EventArgs e)
         {
-            txtNombreProv.ForeColor = Color.Black;
+            metroTextBoxNombre1.ForeColor = Color.Black;
         }
         private void txtNombreProv_Leave(object sender, EventArgs e)
         {
-            txtNombreProv.ForeColor = Color.Gray;
+            metroTextBoxNombre1.ForeColor = Color.Gray;
         }
+        
 
         private void metroTileDelete_Click_1(object sender, EventArgs e)
         {
-            int id_personas = Convert.ToInt32(metroGridProv.Rows[metroGridProv.SelectedRows[0].Index].Cells[0].Value.ToString());
+            int id_personas = Convert.ToInt32(metroGridProveedores.Rows[metroGridProveedores.SelectedRows[0].Index].Cells[0].Value.ToString());
 
-            if (MetroMessageBox.Show(this, "¿Está seguro de que desea eliminar el proveedor "+ metroGridProv.Rows[metroGridProv.SelectedRows[0].Index].Cells[2].Value.ToString() + "?", "AVISO", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
+            if (MetroMessageBox.Show(this, "¿Está seguro de que desea eliminar el proveedor "+ metroGridProveedores.Rows[metroGridProveedores.SelectedRows[0].Index].Cells[2].Value.ToString() + "?", "AVISO", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
             {
                 if (controllers.DeleteCliente(id_personas))
                 {
-                    metroGridProv.Rows.RemoveAt(this.metroGridProv.SelectedRows[0].Index);
+                    metroGridProveedores.Rows.RemoveAt(this.metroGridProveedores.SelectedRows[0].Index);
                     MetroMessageBox.Show(this, "El proveedor ha sido eliminado correctamente.", "EXITO", MessageBoxButtons.OK, MessageBoxIcon.Question);
                 }
                 else
@@ -227,6 +254,67 @@ namespace System
                     MetroMessageBox.Show(this, "El proveedor no ha sido eliminado correctamente.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+        }
+
+        private void metroButtonFiltrar_Click(object sender, EventArgs e)
+        {
+            if (!metroTextBoxNombre2.Text.Equals(""))
+            {
+                List<Persona> persona_list = controllers.SelectPersona();
+                metroGridProveedores.Rows.Clear();
+                for (int i = 0; i < persona_list.Count; i++)   
+                {
+                    string nom = persona_list[i].First_name + " " + persona_list[i].Last_name;
+
+                    if (persona_list[i].Tipo == 'P' && nom.ToLower().Contains(metroTextBoxNombre2.Text.ToLower()) && persona_list[i].Estado != 'E')
+                    {
+                        metroGridProveedores.Rows.Insert(metroGridProveedores.Rows.Count, persona_list[i].Id_personas, persona_list[i].Rut, persona_list[i].First_name + " " + persona_list[i].Last_name);
+                    }
+
+                }
+            }
+            else
+            {
+                Tabla();
+            }
+        }
+
+        private void metroTextBoxNombre2_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                metroButtonFiltrar_Click(this, new EventArgs());
+            }
+        }
+
+        private void metroTextBoxNumero_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            {
+                MetroMessageBox.Show(this, "Solo se permiten números.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void metroTextBoxCorreo_Enter(object sender, EventArgs e)
+        {
+            metroTextBoxCorreo.ForeColor = Color.Black;
+        }
+
+        private void metroTextBoxCorreo_Leave(object sender, EventArgs e)
+        {
+            metroTextBoxCorreo.ForeColor = Color.Gray;
+        }
+
+        private void metroTextBoxNumero_Enter(object sender, EventArgs e)
+        {
+            metroTextBoxNumero.ForeColor = Color.Black;
+        }
+
+        private void metroTextBoxNumero_Leave(object sender, EventArgs e)
+        {
+            metroTextBoxNumero.ForeColor = Color.Gray;
         }
     }
 }

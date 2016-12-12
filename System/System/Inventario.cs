@@ -41,12 +41,12 @@ namespace System
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.metroGridProductos = new MetroFramework.Controls.MetroGrid();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CÓDIGO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CANTIDAD = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.metroTileDelete = new MetroFramework.Controls.MetroTile();
             this.metroTileClose2 = new MetroFramework.Controls.MetroTile();
             this.metroToolTip1 = new MetroFramework.Components.MetroToolTip();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CÓDIGO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CANTIDAD = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.metroGridProductos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -100,27 +100,6 @@ namespace System
             this.metroGridProductos.Size = new System.Drawing.Size(474, 232);
             this.metroGridProductos.TabIndex = 0;
             // 
-            // ID
-            // 
-            this.ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ID.HeaderText = "ID";
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
-            // 
-            // CÓDIGO
-            // 
-            this.CÓDIGO.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.CÓDIGO.HeaderText = "CODIGO";
-            this.CÓDIGO.Name = "CÓDIGO";
-            this.CÓDIGO.ReadOnly = true;
-            // 
-            // CANTIDAD
-            // 
-            this.CANTIDAD.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.CANTIDAD.HeaderText = "CANTIDAD";
-            this.CANTIDAD.Name = "CANTIDAD";
-            this.CANTIDAD.ReadOnly = true;
-            // 
             // metroTileDelete
             // 
             this.metroTileDelete.ActiveControl = null;
@@ -156,6 +135,28 @@ namespace System
             this.metroToolTip1.Style = MetroFramework.MetroColorStyle.Blue;
             this.metroToolTip1.StyleManager = null;
             this.metroToolTip1.Theme = MetroFramework.MetroThemeStyle.Light;
+            // 
+            // ID
+            // 
+            this.ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            this.ID.Visible = false;
+            // 
+            // CÓDIGO
+            // 
+            this.CÓDIGO.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.CÓDIGO.HeaderText = "CODIGO";
+            this.CÓDIGO.Name = "CÓDIGO";
+            this.CÓDIGO.ReadOnly = true;
+            // 
+            // CANTIDAD
+            // 
+            this.CANTIDAD.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.CANTIDAD.HeaderText = "CANTIDAD";
+            this.CANTIDAD.Name = "CANTIDAD";
+            this.CANTIDAD.ReadOnly = true;
             // 
             // Inventario
             // 

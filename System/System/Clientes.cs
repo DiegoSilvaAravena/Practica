@@ -74,7 +74,7 @@ namespace System
 
         private void metroTextBoxNombre_Enter(object sender, EventArgs e)
         {
-            metroTextBoxNombre.ForeColor = Color.Black;
+            metroTextBoxNombre1.ForeColor = Color.Black;
         }
 
         private void metroTextBoxApellidos_Enter(object sender, EventArgs e)
@@ -90,7 +90,7 @@ namespace System
 
         private void metroTextBoxNombre_Leave(object sender, EventArgs e)
         {
-            metroTextBoxNombre.ForeColor = Color.Gray;
+            metroTextBoxNombre1.ForeColor = Color.Gray;
         }
 
         private void metroTextBoxApellidos_Leave(object sender, EventArgs e)
@@ -113,13 +113,19 @@ namespace System
                     count++;
                     return;
                 }
-                if (metroTextBoxRUT.Text.Length < 11)
+                if (metroTextBoxRUT.Text.Length > 12)
                 {
-                    MetroMessageBox.Show(this, "RUT no válido.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MetroMessageBox.Show(this, "RUT no válido.\n El RUT tiene más de 12 caracteres.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     count++;
                     return;
                 }
-                if (metroTextBoxNombre.Text.Equals(""))
+                if (metroTextBoxRUT.Text.Length < 11)
+                {
+                    MetroMessageBox.Show(this, "RUT no válido.\n El RUT tiene menos de 11 caracteres.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    count++;
+                    return;
+                }
+                if (metroTextBoxNombre1.Text.Equals(""))
                 {
                     MetroMessageBox.Show(this, "Nombre no válido.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     count++;
@@ -143,7 +149,7 @@ namespace System
                 Persona persona = new Persona();
 
                 persona.Rut = metroTextBoxRUT.Text.Trim();
-                persona.First_name = metroTextBoxNombre.Text.Trim();
+                persona.First_name = metroTextBoxNombre1.Text.Trim();
                 persona.Last_name = metroTextBoxApellidos.Text.Trim();
                 persona.Tipo = 'C';
                 persona.Estado = 'A';
@@ -152,7 +158,7 @@ namespace System
                 {
                     //Limpieza de formulario
                     metroTextBoxRUT.Clear();
-                    metroTextBoxNombre.Clear();
+                    metroTextBoxNombre1.Clear();
                     metroTextBoxApellidos.Clear();
                     Tabla();
 
@@ -211,8 +217,8 @@ namespace System
         //Formato
         private void metroTextBoxNombre_TextChanged(object sender, EventArgs e)
         {
-            metroTextBoxNombre.Text = System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(metroTextBoxNombre.Text);
-            metroTextBoxNombre.SelectionStart = metroTextBoxNombre.Text.Length;
+            metroTextBoxNombre1.Text = System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(metroTextBoxNombre1.Text);
+            metroTextBoxNombre1.SelectionStart = metroTextBoxNombre1.Text.Length;
         }
 
         private void metroTextBoxApellidos_TextChanged(object sender, EventArgs e)
@@ -228,6 +234,37 @@ namespace System
             {
                 e.Handled = true;
                 return;
+            }
+        }
+
+        private void metroButtonFiltrar_Click(object sender, EventArgs e)
+        {
+            if (!metroTextBoxNombre2.Text.Equals(""))
+            {
+                List<Persona> persona_list = controllers.SelectPersona();
+                metroGridClientes.Rows.Clear();
+                for (int i = 0; i < persona_list.Count; i++)
+                {
+                    string nom = persona_list[i].First_name + " " + persona_list[i].Last_name;
+
+                    if (persona_list[i].Tipo == 'C' && nom.ToLower().Contains(metroTextBoxNombre2.Text.ToLower()) && persona_list[i].Estado != 'E')
+                    {
+                        metroGridClientes.Rows.Insert(metroGridClientes.Rows.Count, persona_list[i].Id_personas, persona_list[i].Rut, persona_list[i].First_name + " " + persona_list[i].Last_name);
+                    }
+
+                }
+            }
+            else
+            {
+                Tabla();
+            }
+        }
+
+        private void metroTextBoxNombre2_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                metroButtonFiltrar_Click(this, new EventArgs());
             }
         }
     }

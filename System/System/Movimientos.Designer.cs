@@ -36,12 +36,6 @@
             this.metroLabelHasta = new MetroFramework.Controls.MetroLabel();
             this.metroDateTimeHasta = new MetroFramework.Controls.MetroDateTime();
             this.metroGridMovimientos = new MetroFramework.Controls.MetroGrid();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FACTURA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FECHA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DINERO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PERSONA = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.PRODUCTOS = new System.Windows.Forms.DataGridViewButtonColumn();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.metroLabelTotal = new MetroFramework.Controls.MetroLabel();
             this.metroTileFiltro = new MetroFramework.Controls.MetroTile();
@@ -52,6 +46,12 @@
             this.metroLabelEgresos = new MetroFramework.Controls.MetroLabel();
             this.metroLabelIngresos = new MetroFramework.Controls.MetroLabel();
             this.metroToolTip1 = new MetroFramework.Components.MetroToolTip();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FACTURA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FECHA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DINERO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PERSONA = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.PRODUCTOS = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.metroGridMovimientos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -147,55 +147,6 @@
             this.metroGridMovimientos.Size = new System.Drawing.Size(692, 233);
             this.metroGridMovimientos.TabIndex = 21;
             this.metroGridMovimientos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.metroGridMovimientos_CellContentClick);
-            // 
-            // ID
-            // 
-            this.ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.ID.HeaderText = "ID";
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
-            this.ID.Width = 41;
-            // 
-            // FACTURA
-            // 
-            this.FACTURA.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.FACTURA.HeaderText = "FACTURA";
-            this.FACTURA.Name = "FACTURA";
-            this.FACTURA.ReadOnly = true;
-            this.FACTURA.Width = 76;
-            // 
-            // FECHA
-            // 
-            this.FECHA.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.FECHA.HeaderText = "FECHA";
-            this.FECHA.Name = "FECHA";
-            this.FECHA.ReadOnly = true;
-            this.FECHA.Width = 64;
-            // 
-            // DINERO
-            // 
-            this.DINERO.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.DINERO.HeaderText = "DINERO";
-            this.DINERO.Name = "DINERO";
-            this.DINERO.ReadOnly = true;
-            this.DINERO.Width = 71;
-            // 
-            // PERSONA
-            // 
-            this.PERSONA.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.PERSONA.HeaderText = "CLIENTE - PROVEEDOR";
-            this.PERSONA.Name = "PERSONA";
-            this.PERSONA.ReadOnly = true;
-            this.PERSONA.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // PRODUCTOS
-            // 
-            this.PRODUCTOS.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.PRODUCTOS.HeaderText = "PRODUCTOS";
-            this.PRODUCTOS.Name = "PRODUCTOS";
-            this.PRODUCTOS.ReadOnly = true;
-            this.PRODUCTOS.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.PRODUCTOS.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // metroLabel1
             // 
@@ -297,6 +248,56 @@
             this.metroToolTip1.StyleManager = null;
             this.metroToolTip1.Theme = MetroFramework.MetroThemeStyle.Light;
             // 
+            // ID
+            // 
+            this.ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            this.ID.Visible = false;
+            this.ID.Width = 41;
+            // 
+            // FACTURA
+            // 
+            this.FACTURA.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.FACTURA.HeaderText = "FACTURA";
+            this.FACTURA.Name = "FACTURA";
+            this.FACTURA.ReadOnly = true;
+            this.FACTURA.Width = 76;
+            // 
+            // FECHA
+            // 
+            this.FECHA.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.FECHA.HeaderText = "FECHA";
+            this.FECHA.Name = "FECHA";
+            this.FECHA.ReadOnly = true;
+            this.FECHA.Width = 64;
+            // 
+            // DINERO
+            // 
+            this.DINERO.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.DINERO.HeaderText = "DINERO";
+            this.DINERO.Name = "DINERO";
+            this.DINERO.ReadOnly = true;
+            this.DINERO.Width = 71;
+            // 
+            // PERSONA
+            // 
+            this.PERSONA.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.PERSONA.HeaderText = "CLIENTE - PROVEEDOR";
+            this.PERSONA.Name = "PERSONA";
+            this.PERSONA.ReadOnly = true;
+            this.PERSONA.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // PRODUCTOS
+            // 
+            this.PRODUCTOS.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.PRODUCTOS.HeaderText = "PRODUCTOS";
+            this.PRODUCTOS.Name = "PRODUCTOS";
+            this.PRODUCTOS.ReadOnly = true;
+            this.PRODUCTOS.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.PRODUCTOS.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
             // Movimientos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -335,12 +336,6 @@
         private MetroFramework.Controls.MetroDateTime metroDateTimeHasta;
         private MetroFramework.Controls.MetroGrid metroGridMovimientos;
         private MetroFramework.Controls.MetroTile metroTileClose1;
-        private Windows.Forms.DataGridViewTextBoxColumn ID;
-        private Windows.Forms.DataGridViewTextBoxColumn FACTURA;
-        private Windows.Forms.DataGridViewTextBoxColumn FECHA;
-        private Windows.Forms.DataGridViewTextBoxColumn DINERO;
-        private Windows.Forms.DataGridViewButtonColumn PERSONA;
-        private Windows.Forms.DataGridViewButtonColumn PRODUCTOS;
         private MetroFramework.Controls.MetroLabel metroLabel1;
         private MetroFramework.Controls.MetroLabel metroLabelTotal;
         private MetroFramework.Controls.MetroTile metroTileFiltro;
@@ -350,5 +345,11 @@
         private MetroFramework.Controls.MetroLabel metroLabelEgresos;
         private MetroFramework.Controls.MetroLabel metroLabelIngresos;
         private MetroFramework.Components.MetroToolTip metroToolTip1;
+        private Windows.Forms.DataGridViewTextBoxColumn ID;
+        private Windows.Forms.DataGridViewTextBoxColumn FACTURA;
+        private Windows.Forms.DataGridViewTextBoxColumn FECHA;
+        private Windows.Forms.DataGridViewTextBoxColumn DINERO;
+        private Windows.Forms.DataGridViewButtonColumn PERSONA;
+        private Windows.Forms.DataGridViewButtonColumn PRODUCTOS;
     }
 }

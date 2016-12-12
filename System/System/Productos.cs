@@ -52,13 +52,14 @@ namespace System
                 Producto producto = new Producto();
 
                 producto.Codigo = metroTextBoxCodigo.Text.Trim().ToUpper();
-                producto.Cantidad = 0;
+                producto.Cantidad = Convert.ToInt32(metroTextBoxCantidad.Text);
                 producto.Estado ='A';
 
                 if (controllers.InsertProducto(producto))
                 {
                     //Limpieza de formulario
                     metroTextBoxCodigo.Clear();
+                    metroTextBoxCantidad.Text = "0";
 
                     MetroMessageBox.Show(this, "El producto ha sido ingresado correctamente.", "EXITO", MessageBoxButtons.OK, MessageBoxIcon.Question);
                 }
@@ -67,6 +68,22 @@ namespace System
                     MetroMessageBox.Show(this, "El producto no ha sido ingresado correctamente.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+        }
+
+        private void metroTextBoxCantidad_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            {
+                MetroMessageBox.Show(this, "Solo se permiten números.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void metroTextBoxCantidad_Click(object sender, EventArgs e)
+        {
+            metroTextBoxCantidad.SelectionStart = 0;
+            metroTextBoxCantidad.SelectionLength = metroTextBoxCantidad.Text.Length;
         }
     }
 }

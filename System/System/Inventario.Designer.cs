@@ -10,9 +10,9 @@
         private MetroFramework.Controls.MetroGrid metroGridProductos;
         private MetroFramework.Controls.MetroTile metroTileDelete;
         private MetroFramework.Controls.MetroTile metroTileClose2;
+        private MetroFramework.Components.MetroToolTip metroToolTip1;
         private Windows.Forms.DataGridViewTextBoxColumn ID;
         private Windows.Forms.DataGridViewTextBoxColumn CÓDIGO;
         private Windows.Forms.DataGridViewTextBoxColumn CANTIDAD;
-        private MetroFramework.Components.MetroToolTip metroToolTip1;
     }
 }

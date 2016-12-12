@@ -67,8 +67,20 @@ namespace System
                     count++;
                     return;
                 }
+                if (metroTextBoxCuenta.Text.Equals(""))
+                {
+                    MetroMessageBox.Show(this, "Número no válido.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    count++;
+                    return;
+                }
+                if (metroComboBoxBanco.SelectedIndex == -1)
+                {
+                    MetroMessageBox.Show(this, "Seleccione un banco.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    count++;
+                    return;
+                }
 
-                
+
             }
             catch
             {
@@ -87,11 +99,14 @@ namespace System
                     persona.First_name = metroTextBoxNombre.Text.Trim();
                     persona.Tipo = 'P';
                     persona.Estado = 'A';
+                    persona.Correo = metroTextBoxCorreo.Text.Trim().ToLower();
+                    persona.Numero_cuenta = metroTextBoxCuenta.Text;
+                    persona.Banco = metroComboBoxBanco.SelectedItem.ToString();
 
                     if (controllers.UpdatePersona(persona))
                     {
                         MetroMessageBox.Show(this, "El proveedor ha sido actualizado correctamente.", "EXITO", MessageBoxButtons.OK, MessageBoxIcon.Question);
-                        winProveedor.metroGridProv.Rows.Clear();
+                        winProveedor.metroGridProveedores.Rows.Clear();
                         winProveedor.Tabla();
                         this.Dispose();
                     }

@@ -16,11 +16,6 @@ c:\users\pandemonium\documents\visual studio 2015\Projects\System\System\bin\Deb
 c:\users\pandemonium\documents\visual studio 2015\Projects\System\System\bin\Debug\Domain.pdb
 c:\users\pandemonium\documents\visual studio 2015\Projects\System\System\bin\Debug\Session.pdb
 C:\Users\Pandemonium\documents\visual studio 2015\Projects\System\System\obj\Debug\System.Clientes.resources
-C:\Users\Pandemonium\Source\Repos\Practica\System\System\bin\Debug\System.exe.config
-C:\Users\Pandemonium\Source\Repos\Practica\System\System\obj\Debug\System.exe
-C:\Users\Pandemonium\Source\Repos\Practica\System\System\obj\Debug\System.pdb
-C:\Users\Pandemonium\Source\Repos\Practica\System\System\bin\Debug\System.exe
-C:\Users\Pandemonium\Source\Repos\Practica\System\System\bin\Debug\System.pdb
 C:\Users\Pandemonium\Source\Repos\Practica\System\System\bin\Debug\Domain.dll
 C:\Users\Pandemonium\Source\Repos\Practica\System\System\bin\Debug\MetroFramework.Design.dll
 C:\Users\Pandemonium\Source\Repos\Practica\System\System\bin\Debug\MetroFramework.dll
@@ -141,3 +136,13 @@ C:\Users\super\Source\Repos\Practica6\System\System\obj\Debug\System.Ventas.reso
 C:\Users\super\Source\Repos\Practica6\System\System\obj\Debug\System.ViewCliente.resources
 C:\Users\super\Source\Repos\Practica6\System\System\obj\Debug\System.ViewProducto.resources
 C:\Users\super\Source\Repos\Practica6\System\System\obj\Debug\System.csproj.GenerateResource.Cache
+C:\Users\Pandemonium\Source\Repos\Practica\System\System\bin\Debug\BalatasSL.exe.config
+C:\Users\Pandemonium\Source\Repos\Practica\System\System\obj\Debug\BalatasSL.TrustInfo.xml
+C:\Users\Pandemonium\Source\Repos\Practica\System\System\obj\Debug\BalatasSL.exe
+C:\Users\Pandemonium\Source\Repos\Practica\System\System\obj\Debug\BalatasSL.pdb
+C:\Users\Pandemonium\Source\Repos\Practica\System\System\bin\Debug\BalatasSL.exe.manifest
+C:\Users\Pandemonium\Source\Repos\Practica\System\System\bin\Debug\BalatasSL.application
+C:\Users\Pandemonium\Source\Repos\Practica\System\System\bin\Debug\BalatasSL.exe
+C:\Users\Pandemonium\Source\Repos\Practica\System\System\bin\Debug\BalatasSL.pdb
+C:\Users\Pandemonium\Source\Repos\Practica\System\System\obj\Debug\BalatasSL.exe.manifest
+C:\Users\Pandemonium\Source\Repos\Practica\System\System\obj\Debug\BalatasSL.application

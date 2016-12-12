@@ -34,9 +34,6 @@
             this.txtCantidad = new MetroFramework.Controls.MetroTextBox();
             this.lblProveedor = new MetroFramework.Controls.MetroLabel();
             this.GVProductos = new MetroFramework.Controls.MetroGrid();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtFactura = new MetroFramework.Controls.MetroTextBox();
             this.metroButtonClear = new MetroFramework.Controls.MetroButton();
             this.metroButtonAdd = new MetroFramework.Controls.MetroButton();
@@ -53,6 +50,9 @@
             this.metroDateTimeFecha = new MetroFramework.Controls.MetroDateTime();
             this.btnCerrarLista = new MetroFramework.Controls.MetroTile();
             this.metroToolTip1 = new MetroFramework.Components.MetroToolTip();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.GVProductos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -151,26 +151,6 @@
             this.GVProductos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.GVProductos.Size = new System.Drawing.Size(386, 116);
             this.GVProductos.TabIndex = 29;
-            // 
-            // ID
-            // 
-            this.ID.HeaderText = "ID";
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
-            // 
-            // Codigo
-            // 
-            this.Codigo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Codigo.HeaderText = "Codigo";
-            this.Codigo.Name = "Codigo";
-            this.Codigo.ReadOnly = true;
-            // 
-            // Cantidad
-            // 
-            this.Cantidad.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Cantidad.HeaderText = "Cantidad";
-            this.Cantidad.Name = "Cantidad";
-            this.Cantidad.ReadOnly = true;
             // 
             // txtFactura
             // 
@@ -416,6 +396,27 @@
             this.metroToolTip1.StyleManager = null;
             this.metroToolTip1.Theme = MetroFramework.MetroThemeStyle.Light;
             // 
+            // ID
+            // 
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            this.ID.Visible = false;
+            // 
+            // Codigo
+            // 
+            this.Codigo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Codigo.HeaderText = "Codigo";
+            this.Codigo.Name = "Codigo";
+            this.Codigo.ReadOnly = true;
+            // 
+            // Cantidad
+            // 
+            this.Cantidad.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Cantidad.HeaderText = "Cantidad";
+            this.Cantidad.Name = "Cantidad";
+            this.Cantidad.ReadOnly = true;
+            // 
             // Compras
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -454,9 +455,6 @@
         private MetroFramework.Controls.MetroTextBox txtCantidad;
         private MetroFramework.Controls.MetroLabel lblProveedor;
         private MetroFramework.Controls.MetroGrid GVProductos;
-        private Windows.Forms.DataGridViewTextBoxColumn ID;
-        private Windows.Forms.DataGridViewTextBoxColumn Codigo;
-        private Windows.Forms.DataGridViewTextBoxColumn Cantidad;
         private MetroFramework.Controls.MetroTextBox txtFactura;
         private MetroFramework.Controls.MetroButton metroButtonClear;
         private MetroFramework.Controls.MetroButton metroButtonAdd;
@@ -473,5 +471,8 @@
         private MetroFramework.Controls.MetroDateTime metroDateTimeFecha;
         private MetroFramework.Controls.MetroTile btnCerrarLista;
         private MetroFramework.Components.MetroToolTip metroToolTip1;
+        private Windows.Forms.DataGridViewTextBoxColumn ID;
+        private Windows.Forms.DataGridViewTextBoxColumn Codigo;
+        private Windows.Forms.DataGridViewTextBoxColumn Cantidad;
     }
 }

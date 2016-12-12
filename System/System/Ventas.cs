@@ -47,7 +47,7 @@ namespace System
             {
                 if (persona_list[i].Tipo == 'C' && persona_list[i].Estado != 'E')
                 {
-                    metroComboBoxCliente.Items.Add(new ComboItem(persona_list[i].Rut + " | " + persona_list[i].First_name + " " + persona_list[i].Last_name, Convert.ToString(persona_list[i].Id_personas)));
+                    metroComboBoxCliente.Items.Add(new ComboItem(persona_list[i].First_name + persona_list[i].Last_name+" | " + persona_list[i].Rut, Convert.ToString(persona_list[i].Id_personas)));
                 }
             }
             

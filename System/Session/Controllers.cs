@@ -17,11 +17,11 @@ namespace Session
 
             if (SelectPersonaExiste(persona)) //¿La persona ya existe y esta eliminado?
             {
-                return database.WriteDB("UPDATE Personas SET first_name = '" + persona.First_name + "', last_name = '" + persona.Last_name + "', tipo = '" + persona.Tipo + "', estado = '" + persona.Estado + "' WHERE rut = '" + persona.Rut + "'");
+                return database.WriteDB("UPDATE Personas SET first_name = '" + persona.First_name + "', last_name = '" + persona.Last_name + "', tipo = '" + persona.Tipo + "', estado = '" + persona.Estado + "', correo = '"+persona.Correo+"', numero_cuenta = '"+persona.Numero_cuenta+"', banco = '"+persona.Banco+"' WHERE rut = '" + persona.Rut + "'");
             }
             else
             {
-                return database.WriteDB("INSERT INTO Personas (rut, first_name, last_name, tipo, estado) VALUES ('" + persona.Rut + "','" + persona.First_name + "','" + persona.Last_name + "','" + persona.Tipo + "','" + persona.Estado + "')");
+                return database.WriteDB("INSERT INTO Personas (rut, first_name, last_name, tipo, estado, correo, numero_cuenta, banco) VALUES ('" + persona.Rut + "','" + persona.First_name + "','" + persona.Last_name + "','" + persona.Tipo + "','" + persona.Estado + "','"+persona.Correo+"','"+persona.Numero_cuenta+"','"+persona.Banco+"')");
             }
         }
 
@@ -30,7 +30,7 @@ namespace Session
             List<Persona> persona_list = new List<Persona>();
             Database database = new Database();
 
-            System.Data.OleDb.OleDbDataReader reader = database.ReadDB("SELECT * FROM Personas");
+            System.Data.OleDb.OleDbDataReader reader = database.ReadDB("SELECT * FROM Personas ORDER BY first_name ASC");
             while (reader.Read())
             {
                 Persona persona = new Persona();
@@ -40,6 +40,9 @@ namespace Session
                 persona.Last_name = reader["last_name"].ToString();
                 persona.Tipo = Convert.ToChar(reader["tipo"].ToString());
                 persona.Estado = Convert.ToChar(reader["estado"].ToString());
+                persona.Correo = reader["correo"].ToString();
+                persona.Numero_cuenta = reader["numero_cuenta"].ToString();
+                persona.Banco = reader["banco"].ToString();
 
                 persona_list.Add(persona);
             }
@@ -50,7 +53,7 @@ namespace Session
         public bool UpdatePersona(Persona persona)
         {
             Database database = new Database();
-            return database.WriteDB("UPDATE Personas SET rut = '" + persona.Rut + "', first_name = '" + persona.First_name + "', last_name = '" + persona.Last_name + "', tipo = '" + persona.Tipo + "', estado = '" + persona.Estado + "' WHERE id_personas = " + persona.Id_personas);
+            return database.WriteDB("UPDATE Personas SET rut = '" + persona.Rut + "', first_name = '" + persona.First_name + "', last_name = '" + persona.Last_name + "', tipo = '" + persona.Tipo + "', estado = '" + persona.Estado + "', correo = '" + persona.Correo + "', numero_cuenta = '" + persona.Numero_cuenta + "', banco = '" + persona.Banco + "' WHERE id_personas = " + persona.Id_personas);
         }
 
         public bool SelectPersonaExiste(Persona persona) //Valida si existe una persona el mismo RUT.
@@ -99,6 +102,9 @@ namespace Session
                 persona.First_name = reader["first_name"].ToString();
                 persona.Last_name = reader["last_name"].ToString();
                 persona.Tipo = Convert.ToChar(reader["tipo"].ToString());
+                persona.Correo = reader["correo"].ToString();
+                persona.Numero_cuenta = reader["numero_cuenta"].ToString();
+                persona.Banco = reader["banco"].ToString();
             }
             database.Close_Database();
             return persona;

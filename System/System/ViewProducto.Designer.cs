@@ -94,6 +94,7 @@
             this.ID.HeaderText = "ID";
             this.ID.Name = "ID";
             this.ID.ReadOnly = true;
+            this.ID.Visible = false;
             // 
             // CÓDIGO
             // 
@@ -126,9 +127,9 @@
         }
 
         #endregion
+        public MetroFramework.Controls.MetroGrid metroGridProductos;
         private Windows.Forms.DataGridViewTextBoxColumn ID;
         private Windows.Forms.DataGridViewTextBoxColumn CÓDIGO;
         private Windows.Forms.DataGridViewTextBoxColumn CANTIDAD;
-        public MetroFramework.Controls.MetroGrid metroGridProductos;
     }
 }

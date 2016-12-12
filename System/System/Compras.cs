@@ -45,7 +45,7 @@ namespace System
             {
                 if (persona_list[i].Tipo == 'P' && persona_list[i].Estado != 'E')
                 {
-                    cboProveedor.Items.Add(new ComboItem(persona_list[i].Rut + " | " + persona_list[i].First_name + " " + persona_list[i].Last_name, Convert.ToString(persona_list[i].Id_personas)));
+                    cboProveedor.Items.Add(new ComboItem(persona_list[i].First_name + " | " + persona_list[i].Rut , Convert.ToString(persona_list[i].Id_personas)));
                 }
 
             }

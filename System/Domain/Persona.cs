@@ -14,6 +14,9 @@ namespace Domain
         String last_name;
         char tipo;
         char estado;
+        string correo;
+        string numero_cuenta;
+        string banco;
 
         public int Id_personas
         {
@@ -90,6 +93,45 @@ namespace Domain
             set
             {
                 estado = value;
+            }
+        }
+
+        public string Correo
+        {
+            get
+            {
+                return correo;
+            }
+
+            set
+            {
+                correo = value;
+            }
+        }
+
+        public string Numero_cuenta
+        {
+            get
+            {
+                return numero_cuenta;
+            }
+
+            set
+            {
+                numero_cuenta = value;
+            }
+        }
+
+        public string Banco
+        {
+            get
+            {
+                return banco;
+            }
+
+            set
+            {
+                banco = value;
             }
         }
 
